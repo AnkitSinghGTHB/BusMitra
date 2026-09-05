@@ -22,6 +22,21 @@ services:
       timeout: 5s
       retries: 5
 
+  ml_service:
+    build:
+      context: ./ml-service
+      dockerfile: Dockerfile
+    container_name: busmitra-ml
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./ml-service:/app
+    depends_on:
+      - db
+    environment:
+      - ENVIRONMENT=production
+
 volumes:
   busmitra_pgdata:
     name: busmitra_pgdata

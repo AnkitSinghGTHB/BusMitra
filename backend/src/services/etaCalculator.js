@@ -116,7 +116,7 @@ function calculateGTFSETA(routeId, stopId) {
     };
 }
 
-function calculateETA(busId, stopId) {
+async function calculateETA(busId, stopId) {
     const bus = busCache.getBus(busId);
     if (!bus) return null;
     
@@ -164,18 +164,47 @@ function calculateETA(busId, stopId) {
             expectedDelay += delayMin * d.probability;
         }
     });
-    
-    const min = Math.max(1, Math.ceil(baseETA));
-    const max = Math.max(min + 1, Math.ceil(baseETA + expectedDelay + baseETA * 0.3));
-    
+
     const ageSeconds = (Date.now() - bus.lastUpdate) / 1000;
     const dataSource = bus.status === 'live' ? 'live_gps' : (bus.status === 'crowd_restored' ? 'consensus' : 'gtfs');
-    
-    // Real dynamic speed variance from cache speed history
     const speedVariance = busCache.getSpeedVariance ? busCache.getSpeedVariance(busId) : 5;
     const confidence = calculateConfidence(dataSource, ageSeconds, speedVariance);
+
+    let min, max, source;
+    try {
+        const d = new Date();
+        const time_of_day = d.getHours() + d.getMinutes() / 60;
+        const day_of_week = d.getDay();
+        const mlUrl = `http://ml_service:8000/predict-eta?segment_id=${bus.routeId}_${stopId}&time_of_day=${time_of_day}&day_of_week=${day_of_week}&weather=clear&cumulative_delay=${expectedDelay}`;
+        const mlRes = await fetch(mlUrl);
+        if (!mlRes.ok) throw new Error('ML service failed');
+        const mlData = await mlRes.json();
+        
+        min = Math.max(1, Math.ceil(mlData.eta_min));
+        max = Math.max(min + 1, Math.ceil(mlData.eta_max));
+        source = 'ml_predicted';
+    } catch (e) {
+        // Fallback to offline heuristic
+        let minLocal = Math.max(1, Math.ceil(baseETA));
+        try {
+            // Also attempt localhost if ml_service name fails locally
+            const d = new Date();
+            const mlUrlLocal = `http://localhost:8000/predict-eta?segment_id=${bus.routeId}_${stopId}&time_of_day=${d.getHours()}&day_of_week=${d.getDay()}&weather=clear&cumulative_delay=${expectedDelay}`;
+            const mlResLocal = await fetch(mlUrlLocal);
+            if (!mlResLocal.ok) throw new Error('Local ML service failed');
+            const mlDataLocal = await mlResLocal.json();
+            
+            min = Math.max(1, Math.ceil(mlDataLocal.eta_min));
+            max = Math.max(min + 1, Math.ceil(mlDataLocal.eta_max));
+            source = 'ml_predicted_local';
+        } catch(err) {
+            min = minLocal;
+            max = Math.max(min + 1, Math.ceil(baseETA + expectedDelay + baseETA * 0.3));
+            source = bus.status;
+        }
+    }
     
-    return { min, max, confidence, source: bus.status, distance, passed: false };
+    return { min, max, confidence, source, distance, passed: false };
 }
 
 module.exports = {
