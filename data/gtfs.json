@@ -1,0 +1,37 @@
+[
+  { "tripId": "M1-T1", "routeId": "M1", "stopId": "S1", "arrivalTime": "06:00", "departureTime": "06:02", "stopSequence": 1 },
+  { "tripId": "M1-T1", "routeId": "M1", "stopId": "S2", "arrivalTime": "06:07", "departureTime": "06:08", "stopSequence": 2 },
+  { "tripId": "M1-T1", "routeId": "M1", "stopId": "S3", "arrivalTime": "06:14", "departureTime": "06:15", "stopSequence": 3 },
+  { "tripId": "M1-T1", "routeId": "M1", "stopId": "S4", "arrivalTime": "06:21", "departureTime": "06:22", "stopSequence": 4 },
+  { "tripId": "M1-T1", "routeId": "M1", "stopId": "S5", "arrivalTime": "06:28", "departureTime": "06:29", "stopSequence": 5 },
+  { "tripId": "M1-T1", "routeId": "M1", "stopId": "S6", "arrivalTime": "06:34", "departureTime": "06:35", "stopSequence": 6 },
+  { "tripId": "M1-T1", "routeId": "M1", "stopId": "S7", "arrivalTime": "06:40", "departureTime": "06:41", "stopSequence": 7 },
+  { "tripId": "M1-T1", "routeId": "M1", "stopId": "S8", "arrivalTime": "06:47", "departureTime": "06:47", "stopSequence": 8 },
+
+  { "tripId": "M1-T2", "routeId": "M1", "stopId": "S1", "arrivalTime": "09:00", "departureTime": "09:02", "stopSequence": 1 },
+  { "tripId": "M1-T2", "routeId": "M1", "stopId": "S2", "arrivalTime": "09:07", "departureTime": "09:08", "stopSequence": 2 },
+  { "tripId": "M1-T2", "routeId": "M1", "stopId": "S3", "arrivalTime": "09:14", "departureTime": "09:15", "stopSequence": 3 },
+  { "tripId": "M1-T2", "routeId": "M1", "stopId": "S4", "arrivalTime": "09:21", "departureTime": "09:22", "stopSequence": 4 },
+  { "tripId": "M1-T2", "routeId": "M1", "stopId": "S5", "arrivalTime": "09:28", "departureTime": "09:29", "stopSequence": 5 },
+  { "tripId": "M1-T2", "routeId": "M1", "stopId": "S6", "arrivalTime": "09:34", "departureTime": "09:35", "stopSequence": 6 },
+  { "tripId": "M1-T2", "routeId": "M1", "stopId": "S7", "arrivalTime": "09:40", "departureTime": "09:41", "stopSequence": 7 },
+  { "tripId": "M1-T2", "routeId": "M1", "stopId": "S8", "arrivalTime": "09:47", "departureTime": "09:47", "stopSequence": 8 },
+
+  { "tripId": "M1-T3", "routeId": "M1", "stopId": "S1", "arrivalTime": "12:00", "departureTime": "12:02", "stopSequence": 1 },
+  { "tripId": "M1-T3", "routeId": "M1", "stopId": "S2", "arrivalTime": "12:07", "departureTime": "12:08", "stopSequence": 2 },
+  { "tripId": "M1-T3", "routeId": "M1", "stopId": "S3", "arrivalTime": "12:14", "departureTime": "12:15", "stopSequence": 3 },
+  { "tripId": "M1-T3", "routeId": "M1", "stopId": "S4", "arrivalTime": "12:21", "departureTime": "12:22", "stopSequence": 4 },
+  { "tripId": "M1-T3", "routeId": "M1", "stopId": "S5", "arrivalTime": "12:28", "departureTime": "12:29", "stopSequence": 5 },
+  { "tripId": "M1-T3", "routeId": "M1", "stopId": "S6", "arrivalTime": "12:34", "departureTime": "12:35", "stopSequence": 6 },
+  { "tripId": "M1-T3", "routeId": "M1", "stopId": "S7", "arrivalTime": "12:40", "departureTime": "12:41", "stopSequence": 7 },
+  { "tripId": "M1-T3", "routeId": "M1", "stopId": "S8", "arrivalTime": "12:47", "departureTime": "12:47", "stopSequence": 8 },
+
+  { "tripId": "M1-T4", "routeId": "M1", "stopId": "S1", "arrivalTime": "15:00", "departureTime": "15:02", "stopSequence": 1 },
+  { "tripId": "M1-T4", "routeId": "M1", "stopId": "S2", "arrivalTime": "15:07", "departureTime": "15:08", "stopSequence": 2 },
+  { "tripId": "M1-T4", "routeId": "M1", "stopId": "S3", "arrivalTime": "15:14", "departureTime": "15:15", "stopSequence": 3 },
+  { "tripId": "M1-T4", "routeId": "M1", "stopId": "S4", "arrivalTime": "15:21", "departureTime": "15:22", "stopSequence": 4 },
+  { "tripId": "M1-T4", "routeId": "M1", "stopId": "S5", "arrivalTime": "15:28", "departureTime": "15:29", "stopSequence": 5 },
+  { "tripId": "M1-T4", "routeId": "M1", "stopId": "S6", "arrivalTime": "15:34", "departureTime": "15:35", "stopSequence": 6 },
+  { "tripId": "M1-T4", "routeId": "M1", "stopId": "S7", "arrivalTime": "15:40", "departureTime": "15:41", "stopSequence": 7 },
+  { "tripId": "M1-T4", "routeId": "M1", "stopId": "S8", "arrivalTime": "15:47", "departureTime": "15:47", "stopSequence": 8 }
+]
