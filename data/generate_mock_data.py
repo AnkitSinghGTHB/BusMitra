@@ -39,7 +39,11 @@ locations = {
 
     # Assam
     "Tezpur Bus Stand": {"lat": 26.6346, "lng": 92.7915},
-    "Dhekiajuli": {"lat": 26.7029, "lng": 92.4646}
+    "Dhekiajuli": {"lat": 26.7029, "lng": 92.4646},
+    
+    # Madhya Pradesh
+    "Indore AICTSL": {"lat": 22.7196, "lng": 75.8577},
+    "Bhopal ISBT": {"lat": 23.2599, "lng": 77.4126}
 }
 
 routes_def = [
@@ -67,7 +71,10 @@ routes_def = [
     {"id": "BR-01", "name": "Muzaffarpur - Hajipur", "start": "Muzaffarpur Bus Stand", "end": "Hajipur", "color": "#e74c3c"},
 
     # Assam
-    {"id": "AS-01", "name": "Tezpur - Dhekiajuli", "start": "Tezpur Bus Stand", "end": "Dhekiajuli", "color": "#2c3e50"}
+    {"id": "AS-01", "name": "Tezpur - Dhekiajuli", "start": "Tezpur Bus Stand", "end": "Dhekiajuli", "color": "#2c3e50"},
+
+    # Madhya Pradesh
+    {"id": "MP-01", "name": "Indore - Bhopal", "start": "Indore AICTSL", "end": "Bhopal ISBT", "color": "#f1c40f"}
 ]
 
 def get_route(start_coord, end_coord):

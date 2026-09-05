@@ -183,6 +183,44 @@ export default function PassengerHome() {
             >
               {isSearching ? 'Finding Routes...' : 'Search Routes'}
             </Button>
+
+            {/* Demo Presets */}
+            <div className="flex flex-wrap gap-2 mt-2 pt-3 border-t border-gray-100">
+              <span className="text-xs text-gray-500 w-full mb-1 font-medium">Demo Routes:</span>
+              <button 
+                onClick={() => {
+                  setFromQuery('Moga Bus Stand');
+                  setFromCoords({ lat: 30.814317, lng: 75.173142 });
+                  setToQuery('Dagru');
+                  setToCoords({ lat: 30.851184, lng: 75.059876 });
+                }}
+                className="text-[11px] font-medium px-3 py-1.5 rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors border border-blue-200"
+              >
+                Moga → Dagru
+              </button>
+              <button 
+                onClick={() => {
+                  setFromQuery('Indore AICTSL');
+                  setFromCoords({ lat: 22.7196, lng: 75.8577 });
+                  setToQuery('Bhopal ISBT');
+                  setToCoords({ lat: 23.2599, lng: 77.4126 });
+                }}
+                className="text-[11px] font-medium px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transition-colors border border-emerald-200"
+              >
+                Indore → Bhopal
+              </button>
+              <button 
+                onClick={() => {
+                  setFromQuery('Gorakhpur ISBT');
+                  setFromCoords({ lat: 26.7606, lng: 83.3732 });
+                  setToQuery('Kushinagar');
+                  setToCoords({ lat: 26.7397, lng: 83.8906 });
+                }}
+                className="text-[11px] font-medium px-3 py-1.5 rounded-full bg-rose-50 text-rose-700 hover:bg-rose-100 transition-colors border border-rose-200"
+              >
+                Gorakhpur → Kushinagar
+              </button>
+            </div>
           </CardContent>
         </Card>
 
