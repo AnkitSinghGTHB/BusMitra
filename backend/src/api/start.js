@@ -1,20 +1,52 @@
 const router = require('express').Router();
 const busCache = require('../services/busCache');
+const driverAuth = require('../middleware/driverAuth');
 const { v4: uuidv4 } = require('uuid');
 
-router.post('/', (req, res) => {
+router.post('/', driverAuth, (req, res) => {
     const { busId, driverId, routeId, lat, lng } = req.body;
+    
+    if (!busId) {
+        return res.status(400).json({ error: 'busId is required' });
+    }
+
+    if (lat !== undefined && lng !== undefined) {
+        if (typeof lat !== 'number' || typeof lng !== 'number' || isNaN(lat) || isNaN(lng)) {
+            return res.status(400).json({ error: 'Coordinates must be valid numbers' });
+        }
+        if (lat < -90 || lat > 90 || lng < -180 || lng > 180) {
+            return res.status(400).json({ error: 'Coordinates out of range' });
+        }
+    }
     
     const existing = busCache.getBus(busId);
     if (existing && existing.status === 'live') {
-        return res.status(409).json({ error: 'Bus already active' });
+        return res.status(409).json({ error: 'Bus already active', sessionId: existing.sessionId });
     }
     
-    busCache.updateBus(busId, { busId, driverId, routeId, lat, lng, speed: 0, heading: 0, status: 'live' });
+    const sessionId = uuidv4();
+    busCache.updateBus(busId, {
+        busId,
+        driverId: driverId || 'D1',
+        routeId: routeId || 'M1',
+        lat: lat || 30.8163,
+        lng: lng || 75.1720,
+        speed: 0,
+        heading: 0,
+        status: 'live',
+        sessionId,
+        startedAt: Date.now()
+    });
+
+    const io = req.app.get('io');
+    if (io) {
+        io.emit('bus_update', busCache.getBus(busId));
+    }
     
     res.json({
-        sessionId: uuidv4(),
+        sessionId,
         busId,
+        routeId: routeId || 'M1',
         status: 'active'
     });
 });
