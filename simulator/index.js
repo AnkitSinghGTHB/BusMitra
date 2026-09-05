@@ -53,6 +53,9 @@ function calculateHeading(lat1, lon1, lat2, lon2) {
   return (brng + 360) % 360;
 }
 
+const DRIVER_TOKEN = process.env.DRIVER_TOKEN || 'busmitra-driver-token';
+let isFinished = false;
+
 // Start trip session
 async function startTrip() {
   const firstPoint = polyline[0];
@@ -67,12 +70,18 @@ async function startTrip() {
   try {
     const res = await fetch(`${BACKEND_URL}/api/start`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Driver-Token': DRIVER_TOKEN
+      },
       body: JSON.stringify(payload)
     });
     
     if (res.ok) {
-      console.log('\x1b[32m[START]\x1b[0m Trip started successfully on backend.');
+      const data = await res.json();
+      console.log('\x1b[32m[START]\x1b[0m Trip started successfully on backend. Session:', data.sessionId || 'active');
+      isFinished = false;
+      currentIndex = 0;
     } else {
       console.error('\x1b[31m[ERROR]\x1b[0m Failed to start trip:', res.statusText);
     }
@@ -83,10 +92,48 @@ async function startTrip() {
 
 // Send location update
 async function sendLocationUpdate() {
-  if (isPaused) return;
+  if (isPaused || isFinished) return;
 
   const currentPoint = polyline[currentIndex];
-  let nextIndex = (currentIndex + 1) % polyline.length;
+
+  // Check if reached destination
+  if (currentIndex >= polyline.length - 1) {
+    console.log(`\x1b[32m[DESTINATION]\x1b[0m Reached final stop at point ${polyline.length}/${polyline.length}. Trip completed!`);
+    
+    // Send final stop ping with 0 km/h
+    try {
+      await fetch(`${BACKEND_URL}/api/location`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Driver-Token': DRIVER_TOKEN
+        },
+        body: JSON.stringify({
+          busId: 'M1',
+          lat: currentPoint.lat,
+          lng: currentPoint.lng,
+          speed: 0,
+          heading: 0
+        })
+      });
+      
+      // End trip session gracefully
+      await fetch(`${BACKEND_URL}/api/stop`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Driver-Token': DRIVER_TOKEN
+        },
+        body: JSON.stringify({ busId: 'M1' })
+      });
+      console.log('\x1b[32m[COMPLETE]\x1b[0m Backend notified of trip completion. Type [r] to restart trip or [q] to quit.');
+    } catch (e) {}
+
+    isFinished = true;
+    return;
+  }
+
+  let nextIndex = currentIndex + 1;
   const nextPoint = polyline[nextIndex];
 
   const distanceKm = calculateDistance(currentPoint.lat, currentPoint.lng, nextPoint.lat, nextPoint.lng);
@@ -94,7 +141,7 @@ async function sendLocationUpdate() {
   // Base speed in km/h based on distance and update interval
   let speedKmh = (distanceKm / (UPDATE_INTERVAL / 1000 / 3600));
   
-  // Cap at 35, min 15 for realistic city bus, if math gives weird results
+  // Cap at 35, min 15 for realistic city bus
   if (speedKmh > 35) speedKmh = 35;
   if (speedKmh < 15) speedKmh = 15;
   
@@ -115,7 +162,10 @@ async function sendLocationUpdate() {
   try {
     const res = await fetch(`${BACKEND_URL}/api/location`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Driver-Token': DRIVER_TOKEN
+      },
       body: JSON.stringify(payload)
     });
 
@@ -142,21 +192,26 @@ rl.on('line', (input) => {
   if (cmd === 'p' || cmd === 'pause') {
     isPaused = true;
     console.log('\x1b[33m[PAUSE]\x1b[0m Simulation paused. Bus will go offline after 60s.');
-  } else if (cmd === 'r' || cmd === 'resume') {
-    isPaused = false;
-    console.log('\x1b[32m[RESUME]\x1b[0m Simulation resumed.');
+  } else if (cmd === 'r' || cmd === 'resume' || cmd === 'restart') {
+    if (isFinished) {
+      console.log('\x1b[32m[RESTART]\x1b[0m Restarting trip from origin...');
+      startTrip();
+    } else {
+      isPaused = false;
+      console.log('\x1b[32m[RESUME]\x1b[0m Simulation resumed.');
+    }
   } else if (cmd === 'q' || cmd === 'quit') {
     console.log('\x1b[35m[QUIT]\x1b[0m Exiting simulator.');
     clearInterval(intervalId);
     process.exit(0);
   } else if (cmd === 's' || cmd === 'status') {
-    console.log(`\x1b[34m[STATUS]\x1b[0m Paused: ${isPaused}, Point: ${currentIndex + 1}/${polyline.length}`);
+    console.log(`\x1b[34m[STATUS]\x1b[0m Paused: ${isPaused}, Finished: ${isFinished}, Point: ${currentIndex + 1}/${polyline.length}`);
   } else {
-    console.log('Commands: [p]ause, [r]esume, [s]tatus, [q]uit');
+    console.log('Commands: [p]ause, [r]esume/restart, [s]tatus, [q]uit');
   }
 });
 
-console.log('BusMitra Simulator started. Press [p] to pause, [r] to resume, [q] to quit.');
+console.log('BusMitra Simulator started. Press [p] to pause, [r] to resume/restart, [q] to quit.');
 
 // Init
 startTrip().then(() => {

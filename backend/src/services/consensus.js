@@ -2,19 +2,30 @@ const haversine = require('../utils/haversine');
 
 const checkins = new Map();
 
-function addCheckin(busId, userId, lat, lng) {
+function addCheckin(busId, userId, lat, lng, ip = null) {
+    if (!busId || lat === undefined || lng === undefined) return false;
+    
+    // Bounds check
+    if (lat < -90 || lat > 90 || lng < -180 || lng > 180) return false;
+
+    clearOldCheckins();
+
     if (!checkins.has(busId)) {
         checkins.set(busId, []);
     }
     const busCheckins = checkins.get(busId);
     const now = Date.now();
-    
-    clearOldCheckins();
 
-    const recentUserCheckin = busCheckins.find(c => c.userId === userId && now - c.timestamp < 30000);
-    if (recentUserCheckin) return false;
+    // Anti-spoof: Check both userId AND IP address within 30 seconds
+    const recentCheckin = busCheckins.find(c => {
+        const isSameUser = Boolean(userId && c.userId === userId);
+        const isSameIp = Boolean(ip && c.ip === ip);
+        return (isSameUser || isSameIp) && (now - c.timestamp < 30000);
+    });
 
-    busCheckins.push({ userId, lat, lng, timestamp: now });
+    if (recentCheckin) return false;
+
+    busCheckins.push({ userId, ip, lat, lng, timestamp: now });
     return true;
 }
 
@@ -25,6 +36,7 @@ function getConsensusThreshold(hour) {
 }
 
 function validateConsensus(busId) {
+    clearOldCheckins();
     const busCheckins = checkins.get(busId) || [];
     if (busCheckins.length === 0) return { valid: false, count: 0 };
     

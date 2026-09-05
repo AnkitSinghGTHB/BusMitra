@@ -1,0 +1,27 @@
+# BusMitra Isolated Database Docker Container
+# Strictly isolated - runs PostgreSQL + PostGIS only.
+# Frontend and Backend run outside this container.
+
+services:
+  db:
+    image: postgis/postgis:15-3.3
+    container_name: busmitra-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-busmitra}
+      POSTGRES_USER: ${POSTGRES_USER:-busmitra}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-busmitra}
+    ports:
+      - "5432:5432"
+    volumes:
+      - busmitra_pgdata:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-busmitra} -d ${POSTGRES_DB:-busmitra}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  busmitra_pgdata:
+    name: busmitra_pgdata
