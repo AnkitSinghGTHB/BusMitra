@@ -11,7 +11,7 @@ try { stops = require(path.join(dataDir, 'stops.json')); } catch(e) {}
 let routes = [];
 try { routes = require(path.join(dataDir, 'routes.json')); } catch(e) {}
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     const { from, body } = req.body;
     
     if (!body || typeof body !== 'string') {
@@ -85,7 +85,7 @@ router.post('/', (req, res) => {
 
     // CASE 1: Bus is active in cache
     if (bus) {
-        const eta = etaCalculator.calculateETA(bus.busId, targetStop.id);
+        const eta = await etaCalculator.calculateETA(bus.busId, targetStop.id);
         if (eta) {
             if (eta.passed) {
                 // Find next upcoming stop ahead

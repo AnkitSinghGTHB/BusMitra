@@ -68,10 +68,18 @@ const getBusIcon = (status, heading) => {
     html: `<div style="transform: rotate(${heading || 0}deg); background: ${color}; width: 36px; height: 36px; border-radius: 50%; border: 3px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; color: white;">
       <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z"/></svg>
     </div>`,
+    </div>`,
     iconSize: [36, 36],
     iconAnchor: [18, 18]
   });
 };
+
+const userIcon = L.divIcon({
+  className: 'custom-user-marker',
+  html: `<div style="background-color: #3b82f6; width: 16px; height: 16px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4), 0 4px 6px rgba(0,0,0,0.2);"></div>`,
+  iconSize: [22, 22],
+  iconAnchor: [11, 11]
+});
 
 export default function LiveMap() {
   const { routeId } = useParams();
@@ -95,7 +103,9 @@ export default function LiveMap() {
     setLanguage,
     initSocket,
     performCheckin,
-    checkinCount
+    checkinCount,
+    userLocation,
+    setUserLocation
   } = useBusStore();
 
   const [following, setFollowing] = useState(true);
@@ -107,7 +117,18 @@ export default function LiveMap() {
     if (routeId) {
       loadRoute(routeId);
     }
-  }, [routeId, initSocket, loadRoute]);
+    
+    // Watch user location for blue dot
+    let watchId;
+    if ('geolocation' in navigator) {
+      watchId = navigator.geolocation.watchPosition((pos) => {
+        setUserLocation({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+      }, (err) => console.log('Geolocation error:', err), { enableHighAccuracy: true });
+    }
+    return () => {
+      if (watchId) navigator.geolocation.clearWatch(watchId);
+    };
+  }, [routeId, initSocket, loadRoute, setUserLocation]);
 
   const currentRoute = routes.find((r) => r.code === routeId || r.id === routeId) || {
     code: routeId || 'M1',
@@ -200,11 +221,9 @@ export default function LiveMap() {
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-bold text-gray-700">{t('current_status')}</h2>
             <div className="flex items-center gap-2">
-              {activeBus.occupancy_tier && (
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
-                  BLE: {activeBus.occupancy_tier.toUpperCase()}
-                </span>
-              )}
+              {activeBus.occupancy_tier === 'crowded' && <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200">👥 Crowded</span>}
+              {activeBus.occupancy_tier === 'seated' && <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200">🪑 Seated</span>}
+              {activeBus.occupancy_tier === 'empty' && <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">🪑 Empty</span>}
               <StatusBadge status={activeBus.status} />
             </div>
           </div>
@@ -212,21 +231,13 @@ export default function LiveMap() {
             min={etaData.min || 8}
             max={etaData.max || 13}
             confidence={etaData.confidence || 94}
-            source={etaData.source === 'ml_xgboost' ? 'XGBoost ML' : (activeBus.status === 'live' ? 'Live GPS' : activeBus.status)}
+            source="AI-Powered"
             lastUpdateSeconds={freshnessSec}
           />
         </section>
 
         {/* Live Leaflet Map Container */}
         <section className="relative w-full h-[380px] flex-shrink-0 z-0 bg-gray-200">
-          {/* Corridor Snapped Floating Badge */}
-          {activeBus.snapped_to_corridor && (
-            <div className="absolute top-3 left-3 z-[400] bg-blue-950/80 text-blue-300 border border-blue-400/40 px-2.5 py-1 rounded-full text-[10px] font-bold backdrop-blur-md shadow-lg flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
-              <span>50m Corridor-Matched</span>
-            </div>
-          )}
-
           {/* Floating Actions (Follow & AI Informal Stops) */}
           <div className="absolute top-3 right-3 z-[400] flex flex-col gap-2">
             <button
@@ -234,7 +245,7 @@ export default function LiveMap() {
               className={`w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold shadow-md border transition-all ${
                 showInformalStops ? 'bg-purple-600 text-white border-purple-400 shadow-purple-500/30' : 'bg-white text-gray-600 border-gray-300'
               }`}
-              title="Toggle AI DBSCAN Informal Stops"
+              title="Toggle Popular Boarding Points"
             >
               ✨
             </button>
@@ -255,6 +266,15 @@ export default function LiveMap() {
             
             <MapFollower center={busCenter} active={following} />
             <MapRouteRecenter center={defaultCenter} />
+
+            {/* User Blue Dot Marker */}
+            {userLocation && (
+              <Marker position={[userLocation.lat, userLocation.lng]} icon={userIcon} zIndexOffset={1000}>
+                <Popup>
+                  <div className="text-xs font-bold">You are here</div>
+                </Popup>
+              </Marker>
+            )}
 
             {/* Route Polyline with outer glow */}
             <Polyline positions={polylinePositions} color="#60a5fa" weight={10} opacity={0.3} />
@@ -288,8 +308,7 @@ export default function LiveMap() {
                   <Popup>
                     <div className="text-xs font-sans">
                       <b>✨ {inf.name}</b>
-                      <div className="text-purple-600 font-bold text-[10px]">AI-Discovered via DBSCAN</div>
-                      <div className="text-gray-500 text-[10px]">Dwell: {inf.avg_dwell_sec || 30}s | Pickups: {inf.historical_pickups || 45}</div>
+                      <div className="text-purple-600 font-bold text-[10px]">Popular Boarding Point</div>
                     </div>
                   </Popup>
                 </Marker>
@@ -351,26 +370,7 @@ export default function LiveMap() {
           </Card>
         </section>
 
-        {/* Interactive Judge & Demo Controls */}
-        <section className="px-4 py-3 bg-gray-100/70 border-t border-gray-200 flex flex-col gap-2">
-          <span className="text-[11px] font-bold text-gray-600 flex items-center gap-1">
-            <span>🎛️</span> LIVE DEMO CONTROLS (Test Graceful Degradation)
-          </span>
-          <div className="grid grid-cols-2 gap-2">
-            <button
-              onClick={handleSendInstantPing}
-              className="px-2.5 py-2 bg-white hover:bg-emerald-50 text-emerald-700 border border-emerald-300 rounded-lg text-xs font-bold shadow-sm active:scale-95"
-            >
-              🔄 Restore Live GPS
-            </button>
-            <button
-              onClick={handleInjectDetour}
-              className="px-2.5 py-2 bg-white hover:bg-rose-50 text-rose-700 border border-rose-300 rounded-lg text-xs font-bold shadow-sm active:scale-95"
-            >
-              ⚠️ Inject 450m Detour
-            </button>
-          </div>
-        </section>
+        {/* Demo Controls removed from User View */}
       </main>
 
       {/* Floating Bottom Action Bar */}
