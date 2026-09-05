@@ -58,8 +58,15 @@ router.post('/', driverAuth, async (req, res) => {
         const mlRes = await fetch('http://ml_service:8000/detect-anomaly', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ cross_track_distance, along_track_velocity })
+            body: JSON.stringify({
+                bus_id: busId,
+                lat,
+                lon: lng,
+                speed: along_track_velocity,
+                timestamp: new Date().toISOString()
+            })
         });
+        if (!mlRes.ok) throw new Error(`ML service failed (${mlRes.status})`);
         const mlData = await mlRes.json();
         if (mlData.is_anomaly) {
             anomaly_counter++;
