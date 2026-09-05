@@ -6,7 +6,7 @@ const dataDir = path.join(__dirname, '..', '..', '..', 'data');
 let stops = [];
 try { stops = require(path.join(dataDir, 'stops.json')); } catch(e) {}
 
-router.get('/:busId', (req, res) => {
+router.get('/:busId', async (req, res) => {
     const busId = req.params.busId;
     let stopId = req.query.stopId;
     
@@ -22,7 +22,7 @@ router.get('/:busId', (req, res) => {
         }
     }
     
-    const eta = etaCalculator.calculateETA(busId, stopId);
+    const eta = await etaCalculator.calculateETA(busId, stopId);
     
     if (!eta) {
         return res.status(404).json({ error: 'Bus not found or ETA unavailable' });

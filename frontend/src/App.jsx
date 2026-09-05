@@ -47,6 +47,10 @@ const I18N = {
     appName: "BusMitra",
     routeTag: "M1 • Moga ⇄ Dagru",
     live: "Live GPS",
+    offRoute: "Off-Route",
+    empty: "Empty",
+    seated: "Seated",
+    crowded: "Crowded",
     scheduled: "Scheduled",
     crowd: "Crowd-Restored",
     etaRange: "Arriving in",
@@ -76,6 +80,10 @@ const I18N = {
     appName: "बस मित्र",
     routeTag: "M1 • मोगा ⇄ डगरू",
     live: "लाइव जीपीएस",
+    offRoute: "ऑफ़-रूट",
+    empty: "खाली",
+    seated: "बैठने योग्य",
+    crowded: "भीड़भाड़",
     scheduled: "समय सारणी",
     crowd: "क्राउड-सत्यापित",
     etaRange: "पहुंचने का समय",
@@ -105,6 +113,10 @@ const I18N = {
     appName: "ਬੱਸ ਮਿੱਤਰ",
     routeTag: "M1 • ਮੋਗਾ ⇄ ਡਗਰੂ",
     live: "ਲਾਈਵ ਜੀਪੀਐਸ",
+    offRoute: "ਆਫ-ਰੂਟ",
+    empty: "ਖਾਲੀ",
+    seated: "ਬੈਠਣ ਯੋਗ",
+    crowded: "ਭੀੜ",
     scheduled: "ਸਮਾਂ-ਸਾਰਣੀ",
     crowd: "ਮੁਸਾਫ਼ਿਰ ਸਹਿਮਤੀ",
     etaRange: "ਪਹੁੰਚਣ ਦਾ ਸਮਾਂ",
@@ -162,6 +174,7 @@ export default function App() {
   // Testing & Simulator State
   const [polyIndex, setPolyIndex] = useState(0);
   const [simSpeed, setSimSpeed] = useState(24);
+  const [simBleCount, setSimBleCount] = useState(15);
   const [checkinAlert, setCheckinAlert] = useState('');
   const [checkinCount, setCheckinCount] = useState(0);
 
@@ -373,10 +386,12 @@ export default function App() {
       ? 'from-emerald-500 to-emerald-600 shadow-emerald-500/40'
       : status === 'crowd_restored'
         ? 'from-amber-500 to-amber-600 shadow-amber-500/40'
-        : 'from-slate-500 to-slate-600 shadow-slate-500/40';
+        : status === 'off_route'
+          ? 'from-rose-500 to-rose-600 shadow-rose-500/40'
+          : 'from-slate-500 to-slate-600 shadow-slate-500/40';
 
-    const pulseRing = status === 'live'
-      ? '<div class="bus-pulse-ring bg-emerald-500/40"></div>'
+    const pulseRing = status === 'live' || status === 'off_route'
+      ? `<div class="bus-pulse-ring ${status === 'live' ? 'bg-emerald-500/40' : 'bg-rose-500/40'}"></div>`
       : '';
 
     const busHtml = `
@@ -440,7 +455,8 @@ export default function App() {
           lat: pt.lat,
           lng: pt.lng,
           speed: simSpeed + Math.floor(Math.random() * 4 - 2),
-          heading: 230
+          heading: 230,
+          bleCount: simBleCount
         })
       });
       fetchEta(selectedStopId);
@@ -525,9 +541,11 @@ export default function App() {
     ? 'bg-emerald-500 text-white'
     : busStatus === 'crowd_restored'
       ? 'bg-amber-500 text-white'
-      : 'bg-slate-600 text-slate-200';
+      : busStatus === 'off_route'
+        ? 'bg-rose-500 text-white'
+        : 'bg-slate-600 text-slate-200';
 
-  const statusText = busStatus === 'live' ? t.live : busStatus === 'crowd_restored' ? t.crowd : t.scheduled;
+  const statusText = busStatus === 'live' ? t.live : busStatus === 'crowd_restored' ? t.crowd : busStatus === 'off_route' ? t.offRoute : t.scheduled;
 
   return (
     <div className="flex flex-col h-full w-full bg-slate-950 text-slate-100 select-none overflow-hidden font-sans">
@@ -661,19 +679,30 @@ export default function App() {
                     <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                       {t.etaRange}
                     </div>
-                    <div className="text-3xl font-black text-white tracking-tight flex items-baseline gap-1">
-                      <span>{etaData ? `${etaData.min}-${etaData.max}` : '10-15'}</span>
-                      <span className="text-sm font-bold text-slate-400">{t.min}</span>
-                    </div>
+                    {busStatus === 'off_route' ? (
+                      <div className="text-sm font-black text-rose-400 tracking-tight mt-1 mb-1">
+                        ⚠️ Bus deviation detected
+                      </div>
+                    ) : (
+                      <div className="text-3xl font-black text-white tracking-tight flex items-baseline gap-1">
+                        <span>{etaData ? `${etaData.min}-${etaData.max}` : '10-15'}</span>
+                        <span className="text-sm font-bold text-slate-400">{t.min}</span>
+                      </div>
+                    )}
                   </div>
 
-                  <div className="text-right">
+                  <div className="text-right flex flex-col items-end">
                     <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                       Next Major Stop
                     </div>
                     <div className="text-sm font-black text-blue-400 truncate max-w-[140px]">
                       {etaData?.stopName || 'Dagru Village'}
                     </div>
+                    {activeBus?.occupancyTier && (
+                      <div className="text-[10px] font-bold mt-1 px-1.5 py-0.5 rounded-full inline-block border border-slate-700 bg-slate-800 text-slate-300">
+                        👥 {activeBus.occupancyTier.toLowerCase() === 'empty' ? t.empty : activeBus.occupancyTier.toLowerCase() === 'seated' ? t.seated : t.crowded}
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -811,6 +840,19 @@ export default function App() {
                   max="45"
                   value={simSpeed}
                   onChange={(e) => setSimSpeed(Number(e.target.value))}
+                  className="w-24 accent-brand-blue cursor-pointer"
+                />
+              </div>
+
+              <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800/80 text-xs flex justify-between items-center mb-3">
+                <span className="text-slate-400">BLE Count:</span>
+                <span className="font-bold text-white">{simBleCount} pax</span>
+                <input
+                  type="range"
+                  min="0"
+                  max="60"
+                  value={simBleCount}
+                  onChange={(e) => setSimBleCount(Number(e.target.value))}
                   className="w-24 accent-brand-blue cursor-pointer"
                 />
               </div>

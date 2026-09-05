@@ -18,6 +18,9 @@ function updateBus(busId, data) {
         busId,
         speedHistory,
         lastUpdate: Date.now(),
+        anomaly_counter: data.anomaly_counter !== undefined ? data.anomaly_counter : (existing.anomaly_counter || 0),
+        ble_count: data.ble_count !== undefined ? data.ble_count : (existing.ble_count || 0),
+        occupancy_tier: data.occupancy_tier !== undefined ? data.occupancy_tier : (existing.occupancy_tier || 'unknown'),
         status: data.status || existing.status || 'live'
     };
 
