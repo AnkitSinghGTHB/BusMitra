@@ -7,6 +7,7 @@ import { ArrowLeft, Download, ArrowsClockwise, Bus } from '@phosphor-icons/react
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { DEFAULT_POLYLINE, DEFAULT_STOPS } from '@/data/transitData';
+import SimulatorPanel from './SimulatorPanel';
 
 const getBusIcon = (status, heading) => {
   const color = status === 'live' ? '#059669' : status === 'crowd_restored' ? '#d97706' : '#64748b';
@@ -89,6 +90,7 @@ export default function AdminDashboard() {
         <TabGroup>
           <TabList className="mb-6 bg-white p-1 rounded-lg border border-gray-200 w-max shadow-sm">
             <Tab className="px-6 py-2 rounded-md text-xs font-bold ui-selected:bg-primary ui-selected:text-white">Live Fleet</Tab>
+            <Tab className="px-6 py-2 rounded-md text-xs font-bold ui-selected:bg-primary ui-selected:text-white">Simulator Bots</Tab>
             <Tab className="px-6 py-2 rounded-md text-xs font-bold ui-selected:bg-primary ui-selected:text-white">Driver Leaderboard</Tab>
             <Tab className="px-6 py-2 rounded-md text-xs font-bold ui-selected:bg-primary ui-selected:text-white">GTFS-RT Feeds</Tab>
           </TabList>
@@ -151,7 +153,20 @@ export default function AdminDashboard() {
               </div>
             </TabPanel>
 
-            {/* Tab 2: Driver Leaderboard */}
+            {/* Tab 2: Simulator Bots */}
+            <TabPanel>
+              <Card className="bg-white shadow-sm border-gray-200">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h3 className="font-bold text-gray-900 text-sm">Multi-Bus Edge Simulator</h3>
+                    <p className="text-xs text-gray-500">Control synthetic GPS, dead-zones, detours, and BLE beacons.</p>
+                  </div>
+                </div>
+                <SimulatorPanel />
+              </Card>
+            </TabPanel>
+
+            {/* Tab 3: Driver Leaderboard */}
             <TabPanel>
               <Card className="bg-white shadow-sm border-gray-200">
                 <h3 className="font-bold text-gray-900 mb-3 text-sm">Monthly Driver Punctuality & Score</h3>

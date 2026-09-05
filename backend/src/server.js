@@ -15,6 +15,7 @@ const dbRouter = require('./api/db');
 const gtfsRtRouter = require('./api/gtfsRt');
 const routesRouter = require('./api/routes');
 const stopsRouter = require('./api/stops');
+const tripPlanRouter = require('./api/tripPlan');
 
 const startFallbackTimer = require('./utils/fallbackTimer');
 const busCache = require('./services/busCache');
@@ -72,6 +73,7 @@ app.use('/api/gtfs-rt', gtfsRtRouter);
 app.use('/gtfs-rt', gtfsRtRouter);
 app.use('/api/routes', routesRouter);
 app.use('/api/stops', stopsRouter);
+app.use('/api/trip-plan', tripPlanRouter);
 
 // Endpoint to fetch AI-discovered informal stops (DBSCAN)
 app.get('/api/stops/informal', async (req, res) => {

@@ -47,6 +47,28 @@ export const useBusStore = create((set, get) => ({
   checkinCount: 0,
   socketConnected: false,
 
+  userLocation: null,
+  setUserLocation: (loc) => set({ userLocation: loc }),
+
+  tripPlan: null,
+  planTrip: async (startLat, startLng, endLat, endLng) => {
+    try {
+      const res = await fetch('/api/trip-plan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ startLat, startLng, endLat, endLng })
+      });
+      if (res.ok) {
+        const data = await res.json();
+        set({ tripPlan: data.routes });
+      } else {
+        set({ tripPlan: [] });
+      }
+    } catch (e) {
+      set({ tripPlan: [] });
+    }
+  },
+
   // Initialize Real-time Socket & Pollers
   initSocket: () => {
     get().fetchRoutes();

@@ -38,7 +38,7 @@ def load_models():
         if os.path.exists(eta_path):
             with open(eta_path, "rb") as f:
                 models["eta"] = pickle.load(f)
-            logging.info("ETA model (XGBoost) loaded.")
+            logging.info("ETA model (GradientBoosting) loaded.")
         else:
             logging.warning("ETA model not found. Using algorithmic fallback.")
 

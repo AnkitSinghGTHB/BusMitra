@@ -5,42 +5,14 @@ const path = require('path');
 const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3000';
 const DRIVER_TOKEN = process.env.DRIVER_TOKEN || 'busmitra-driver-token';
 
-// Load routes
 const routesPath = path.join(__dirname, '../data/routes.json');
 let routes = [];
 try {
   routes = JSON.parse(fs.readFileSync(routesPath, 'utf8'));
 } catch (err) {
-  console.error('[ERROR] Could not read routes.json. Make sure it exists at ../data/routes.json');
+  console.error('[ERROR] Could not read routes.json');
   process.exit(1);
 }
-
-const routeM1 = routes.find(r => r.id === 'M1');
-if (!routeM1 || !routeM1.polyline || routeM1.polyline.length === 0) {
-  console.error('[ERROR] Route M1 or its polyline data not found.');
-  process.exit(1);
-}
-
-const polyline = routeM1.polyline;
-let currentIndex = 0;
-let isPaused = false;
-let isFinished = false;
-
-// Store-and-forward dead-zone buffer
-let isOfflineDeadZone = false;
-const offlineBuffer = [];
-
-// Detour simulation state
-let injectDetour = false;
-let detourCount = 0;
-
-// BLE Occupancy levels (cycles: 8 -> 24 -> 42)
-const bleLevels = [8, 24, 42];
-let bleIndex = 1;
-
-let lastHeading = 0;
-let lastSpeed = 25;
-let timerId = null;
 
 // Haversine distance in km
 function calculateDistance(lat1, lon1, lat2, lon2) {
@@ -59,242 +31,233 @@ function calculateHeading(lat1, lon1, lat2, lon2) {
   const dLon = (lon2 - lon1) * Math.PI / 180;
   const lat1Rad = lat1 * Math.PI / 180;
   const lat2Rad = lat2 * Math.PI / 180;
-
   const y = Math.sin(dLon) * Math.cos(lat2Rad);
   const x = Math.cos(lat1Rad) * Math.sin(lat2Rad) - Math.sin(lat1Rad) * Math.cos(lat2Rad) * Math.cos(dLon);
   const brng = Math.atan2(y, x) * 180 / Math.PI;
   return (brng + 360) % 360;
 }
 
-// Start trip session
-async function startTrip() {
-  const firstPoint = polyline[0];
-  const payload = {
-    busId: 'M1',
-    driverId: 'D1',
-    routeId: 'M1',
-    lat: firstPoint.lat,
-    lng: firstPoint.lng
-  };
-
-  try {
-    const res = await fetch(`${BACKEND_URL}/api/start`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Driver-Token': DRIVER_TOKEN
-      },
-      body: JSON.stringify(payload)
-    });
-    
-    if (res.ok) {
-      const data = await res.json();
-      console.log('\x1b[32m[START]\x1b[0m Trip session initialized. Session ID:', data.sessionId || 'active');
-      isFinished = false;
-      currentIndex = 0;
-      offlineBuffer.length = 0;
-    } else {
-      console.error('\x1b[31m[ERROR]\x1b[0m Failed to start trip:', res.statusText);
+class BusSimulator {
+    constructor(routeId, busId, polyline, delayOffsetMs = 0) {
+        this.routeId = routeId;
+        this.busId = busId;
+        this.polyline = polyline || [];
+        this.currentIndex = 0;
+        this.isPaused = false;
+        this.isFinished = false;
+        this.isOfflineDeadZone = false;
+        this.offlineBuffer = [];
+        this.injectDetour = false;
+        this.detourCount = 0;
+        
+        this.bleLevels = [8, 24, 42];
+        this.bleIndex = Math.floor(Math.random() * 3);
+        
+        this.lastHeading = 0;
+        this.lastSpeed = 25;
+        this.timerId = null;
+        this.delayOffsetMs = delayOffsetMs;
     }
-  } catch (err) {
-    console.error('\x1b[31m[ERROR]\x1b[0m Backend not reachable at', BACKEND_URL);
-  }
+
+    async startTrip() {
+        if (!this.polyline || this.polyline.length === 0) return;
+        
+        const firstPoint = this.polyline[0];
+        const payload = {
+            busId: this.busId,
+            driverId: `D-${this.busId}`,
+            routeId: this.routeId,
+            lat: firstPoint.lat,
+            lng: firstPoint.lng
+        };
+
+        try {
+            const res = await fetch(`${BACKEND_URL}/api/start`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-Driver-Token': DRIVER_TOKEN },
+                body: JSON.stringify(payload)
+            });
+            if (res.ok) {
+                this.isFinished = false;
+                this.currentIndex = 0;
+                this.offlineBuffer.length = 0;
+                console.log(`\x1b[32m[START]\x1b[0m ${this.busId} initialized.`);
+                
+                setTimeout(() => {
+                    this.scheduleNextUpdate(1000);
+                }, this.delayOffsetMs);
+                
+            }
+        } catch (err) {}
+    }
+
+    async sendLocationUpdate() {
+        if (this.isPaused || this.isFinished) {
+            this.scheduleNextUpdate(3000);
+            return;
+        }
+
+        const currentPoint = this.polyline[this.currentIndex];
+
+        if (this.currentIndex >= this.polyline.length - 1) {
+            console.log(`\x1b[32m[DESTINATION]\x1b[0m ${this.busId} finished! Restarting...`);
+            setTimeout(() => this.startTrip(), 5000);
+            return;
+        }
+
+        const nextIndex = this.currentIndex + 1;
+        const nextPoint = this.polyline[nextIndex];
+        const distanceKm = calculateDistance(currentPoint.lat, currentPoint.lng, nextPoint.lat, nextPoint.lng);
+
+        let speedKmh = Math.max(15, Math.min(42, Math.round(distanceKm * 720 + (Math.random() * 8 - 4))));
+        let heading = Math.round(calculateHeading(currentPoint.lat, currentPoint.lng, nextPoint.lat, nextPoint.lng));
+
+        let reportLat = currentPoint.lat;
+        let reportLng = currentPoint.lng;
+
+        if (this.injectDetour) {
+            reportLat += 0.0035;
+            reportLng += 0.0035;
+            this.detourCount++;
+            if (this.detourCount >= 3) {
+                this.injectDetour = false;
+                this.detourCount = 0;
+            }
+        }
+
+        const payload = {
+            busId: this.busId,
+            lat: reportLat,
+            lng: reportLng,
+            speed: speedKmh,
+            heading,
+            ble_count: this.bleLevels[this.bleIndex],
+            timestamp: new Date().toISOString()
+        };
+
+        const headingDelta = Math.abs(heading - this.lastHeading);
+        let nextIntervalMs = 4000;
+        if (headingDelta >= 15) nextIntervalMs = 3000;
+        else if (speedKmh >= 28) nextIntervalMs = 5000;
+        else if (speedKmh <= 10) nextIntervalMs = 8000;
+
+        // Spread out requests naturally with slight jitter
+        nextIntervalMs += (Math.random() * 1000 - 500);
+
+        this.lastHeading = heading;
+        this.lastSpeed = speedKmh;
+
+        if (this.isOfflineDeadZone) {
+            this.offlineBuffer.push(payload);
+        } else {
+            try {
+                const res = await fetch(`${BACKEND_URL}/api/location`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-Driver-Token': DRIVER_TOKEN },
+                    body: JSON.stringify(payload)
+                });
+                
+                // Logging for M1 only to avoid console spam
+                if (res.ok && this.busId === 'M1') {
+                    const resData = await res.json();
+                    console.log(`\x1b[36m[SEND]\x1b[0m ${this.busId} Pt ${this.currentIndex + 1}/${this.polyline.length} | Status: ${resData.status}`);
+                }
+            } catch (err) {
+                this.offlineBuffer.push(payload);
+            }
+        }
+
+        this.currentIndex = nextIndex;
+        this.scheduleNextUpdate(nextIntervalMs);
+    }
+
+    scheduleNextUpdate(intervalMs) {
+        if (this.timerId) clearTimeout(this.timerId);
+        this.timerId = setTimeout(() => this.sendLocationUpdate(), intervalMs);
+    }
+
+    async flushOfflineBuffer() {
+        if (this.offlineBuffer.length === 0) return;
+        const batchPayload = { busId: this.busId, updates: [...this.offlineBuffer] };
+        try {
+            const res = await fetch(`${BACKEND_URL}/api/location/batch`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-Driver-Token': DRIVER_TOKEN },
+                body: JSON.stringify(batchPayload)
+            });
+            if (res.ok) this.offlineBuffer.length = 0;
+        } catch (e) {}
+    }
 }
 
-// Send single location or buffer if in dead-zone
-async function sendLocationUpdate() {
-  if (isPaused || isFinished) {
-    scheduleNextUpdate(3000);
-    return;
-  }
+// Select 8 routes to simulate
+const selectedRoutes = routes.slice(0, 8);
+const activeBuses = [];
 
-  const currentPoint = polyline[currentIndex];
-
-  // Check if reached destination
-  if (currentIndex >= polyline.length - 1) {
-    console.log(`\x1b[32m[DESTINATION]\x1b[0m Final stop reached at point ${polyline.length}/${polyline.length}. Trip finished!`);
-    console.log(`\x1b[34m[LOOP]\x1b[0m Auto-restarting new trip in 5 seconds...`);
-    setTimeout(() => {
-      startTrip().then(() => scheduleNextUpdate(1000));
-    }, 5000);
-    return;
-  }
-
-  const nextIndex = currentIndex + 1;
-  const nextPoint = polyline[nextIndex];
-  const distanceKm = calculateDistance(currentPoint.lat, currentPoint.lng, nextPoint.lat, nextPoint.lng);
-
-  // Approximate speed based on step
-  let speedKmh = Math.max(15, Math.min(42, Math.round(distanceKm * 720 + (Math.random() * 8 - 4))));
-  let heading = Math.round(calculateHeading(currentPoint.lat, currentPoint.lng, nextPoint.lat, nextPoint.lng));
-
-  let reportLat = currentPoint.lat;
-  let reportLng = currentPoint.lng;
-
-  // Detour simulation check (injects 450m deviation off corridor)
-  if (injectDetour) {
-    reportLat += 0.0035; // ~400m North
-    reportLng += 0.0035; // ~400m East
-    detourCount++;
-    console.log(`\x1b[31m[DETOUR INJECTED]\x1b[0m Point off-route (${detourCount}/3): Lat: ${reportLat.toFixed(4)}, Lng: ${reportLng.toFixed(4)}`);
-    if (detourCount >= 3) {
-      injectDetour = false;
-      detourCount = 0;
-      console.log(`\x1b[33m[DETOUR ENDED]\x1b[0m Returning to scheduled corridor next tick.`);
-    }
-  }
-
-  const currentBle = bleLevels[bleIndex];
-  const payload = {
-    busId: 'M1',
-    lat: reportLat,
-    lng: reportLng,
-    speed: speedKmh,
-    heading,
-    ble_count: currentBle,
-    timestamp: new Date().toISOString()
-  };
-
-  // Adaptive sampling calculation:
-  // - High speed (> 30 km/h) & straight: interval 10s
-  // - Turning (heading change >= 15 deg) or near stop: interval 4s
-  // - Crawling / Stopped: interval 20s
-  const headingDelta = Math.abs(heading - lastHeading);
-  let nextIntervalMs = 4000;
-  if (headingDelta >= 15) {
-    nextIntervalMs = 3000; // Turning chowk, needs fast sampling
-  } else if (speedKmh >= 28) {
-    nextIntervalMs = 5000; // Cruising along highway
-  } else if (speedKmh <= 10) {
-    nextIntervalMs = 8000; // Crawling / idling
-  }
-
-  lastHeading = heading;
-  lastSpeed = speedKmh;
-
-  // 1. STORE-AND-FORWARD DEAD-ZONE LOGIC
-  if (isOfflineDeadZone) {
-    offlineBuffer.push(payload);
-    console.log(`\x1b[33m[BUFFERED]\x1b[0m (Cellular Dead-Zone) Point ${currentIndex + 1}/${polyline.length} saved in local buffer. Queue size: ${offlineBuffer.length}`);
-  } else {
-    // 2. LIVE TRANSMISSION
-    try {
-      const res = await fetch(`${BACKEND_URL}/api/location`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Driver-Token': DRIVER_TOKEN
-        },
-        body: JSON.stringify(payload)
-      });
-
-      if (res.ok) {
-        const resData = await res.json();
-        const snapTag = resData.snapped ? '\x1b[32m[Snapped to 50m corridor]\x1b[0m' : '\x1b[33m[Curbside pickup]\x1b[0m';
-        console.log(`\x1b[36m[SEND]\x1b[0m Point ${currentIndex + 1}/${polyline.length} | Lat: ${reportLat.toFixed(4)}, Lng: ${reportLng.toFixed(4)} | Speed: ${speedKmh} km/h | Status: ${resData.status} | Occupancy: ${resData.occupancy_tier} ${snapTag}`);
-      } else {
-        console.error(`\x1b[31m[ERROR]\x1b[0m Status ${res.status} from backend`);
-      }
-    } catch (err) {
-      console.error(`\x1b[33m[WARN]\x1b[0m Backend not responding. Buffering point locally.`);
-      offlineBuffer.push(payload);
-    }
-  }
-
-  currentIndex = nextIndex;
-  scheduleNextUpdate(nextIntervalMs);
-}
-
-function scheduleNextUpdate(intervalMs) {
-  if (timerId) clearTimeout(timerId);
-  timerId = setTimeout(sendLocationUpdate, intervalMs);
-}
-
-// Flush store-and-forward batch queue to backend
-async function flushOfflineBuffer() {
-  if (offlineBuffer.length === 0) {
-    console.log('\x1b[34m[FLUSH]\x1b[0m Local store-and-forward buffer is empty.');
-    return;
-  }
-
-  console.log(`\x1b[32m[RECONNECTED]\x1b[0m Transmitting compressed batch of ${offlineBuffer.length} buffered points to backend...`);
-  const batchPayload = {
-    busId: 'M1',
-    updates: [...offlineBuffer]
-  };
-
-  try {
-    const res = await fetch(`${BACKEND_URL}/api/location/batch`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Driver-Token': DRIVER_TOKEN
-      },
-      body: JSON.stringify(batchPayload)
-    });
-
-    if (res.ok) {
-      const data = await res.json();
-      console.log(`\x1b[32m[BATCH SUCCESS]\x1b[0m Processed ${data.batch_processed} buffered points on server! Latest status: ${data.latest_status}`);
-      offlineBuffer.length = 0;
-    } else {
-      console.error(`\x1b[31m[BATCH ERROR]\x1b[0m Backend returned status ${res.status}`);
-    }
-  } catch (e) {
-    console.error(`\x1b[31m[BATCH FAILED]\x1b[0m Could not reach backend to flush buffer:`, e.message);
-  }
-}
-
-// CLI Interactive Controls
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
+selectedRoutes.forEach((r, idx) => {
+    // Stagger start times
+    const delay = idx * 2000; 
+    const bus = new BusSimulator(r.id, r.id, r.polyline, delay);
+    activeBuses.push(bus);
+    bus.startTrip();
 });
 
-rl.on('line', (input) => {
-  const cmd = input.trim().toLowerCase();
-  if (cmd === 'p' || cmd === 'pause') {
-    isPaused = true;
-    console.log('\x1b[33m[PAUSE]\x1b[0m Simulation paused. Bus will degrade to GTFS after 60s.');
-  } else if (cmd === 'r' || cmd === 'resume' || cmd === 'restart') {
-    if (isFinished) {
-      console.log('\x1b[32m[RESTART]\x1b[0m Restarting trip from depot origin...');
-      startTrip().then(() => scheduleNextUpdate(1000));
-    } else {
-      isPaused = false;
-      console.log('\x1b[32m[RESUME]\x1b[0m Simulation resumed.');
-      scheduleNextUpdate(1000);
+// Setup minimal API server for browser control panel
+const http = require('http');
+const server = http.createServer((req, res) => {
+    // CORS
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+    if (req.method === 'OPTIONS') {
+        res.writeHead(204);
+        res.end();
+        return;
     }
-  } else if (cmd === 'b' || cmd === 'buffer' || cmd === 'deadzone') {
-    isOfflineDeadZone = true;
-    console.log('\x1b[33m[DEAD ZONE ACTIVE]\x1b[0m Cellular network dropped. Telemetry is now being buffered in local SQLite/IndexedDB queue.');
-  } else if (cmd === 'c' || cmd === 'connect' || cmd === 'flush') {
-    isOfflineDeadZone = false;
-    console.log('\x1b[32m[NETWORK RESTORED]\x1b[0m Cellular connectivity re-established.');
-    flushOfflineBuffer();
-  } else if (cmd === 'd' || cmd === 'detour') {
-    injectDetour = true;
-    console.log('\x1b[31m[SIMULATE DETOUR]\x1b[0m Next 3 GPS pings will inject a 400m deviation to trigger Isolation Forest / off-route alert!');
-  } else if (cmd === 'o' || cmd === 'occupancy') {
-    bleIndex = (bleIndex + 1) % bleLevels.length;
-    console.log(`\x1b[35m[BLE OCCUPANCY TOGGLED]\x1b[0m New BLE beacon count: ${bleLevels[bleIndex]} devices`);
-  } else if (cmd === 'q' || cmd === 'quit') {
-    console.log('\x1b[35m[QUIT]\x1b[0m Exiting simulator.');
-    if (timerId) clearTimeout(timerId);
-    process.exit(0);
-  } else if (cmd === 's' || cmd === 'status') {
-    console.log(`\x1b[34m[STATUS]\x1b[0m Point: ${currentIndex + 1}/${polyline.length} | DeadZone: ${isOfflineDeadZone} | BufferQueue: ${offlineBuffer.length} | BLE: ${bleLevels[bleIndex]}`);
-  } else {
-    console.log('Commands: [p]ause, [r]esume, [b]uffer deadzone, [c]onnect & flush, [d]etour test, [o]ccupancy toggle, [s]tatus, [q]uit');
-  }
+
+    if (req.url === '/api/sim/buses' && req.method === 'GET') {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        const data = activeBuses.map(b => ({
+            busId: b.busId,
+            routeId: b.routeId,
+            isPaused: b.isPaused,
+            bleCount: b.bleLevels[b.bleIndex],
+            progress: `${b.currentIndex}/${b.polyline.length}`,
+            speed: b.lastSpeed
+        }));
+        res.end(JSON.stringify(data));
+        return;
+    }
+
+    if (req.url.startsWith('/api/sim/control') && req.method === 'POST') {
+        let body = '';
+        req.on('data', chunk => body += chunk.toString());
+        req.on('end', () => {
+            const { busId, action, value } = JSON.parse(body);
+            const bus = activeBuses.find(b => b.busId === busId);
+            if (bus) {
+                if (action === 'pause') bus.isPaused = true;
+                if (action === 'resume') bus.isPaused = false;
+                if (action === 'occupancy') {
+                    const idx = bus.bleLevels.indexOf(value);
+                    if (idx !== -1) bus.bleIndex = idx;
+                }
+                if (action === 'detour') bus.injectDetour = true;
+            }
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ success: true }));
+        });
+        return;
+    }
+
+    res.writeHead(404);
+    res.end();
 });
 
-console.log('================================================================');
-console.log('🚌 BusMitra Advanced Transit Telemetry & Edge Simulator');
-console.log('Features: Adaptive Sampling | Store-and-Forward | Detour | BLE');
-console.log('Keys: [p]ause | [r]esume | [b]uffer deadzone | [c]onnect flush | [d]etour | [o]ccupancy');
-console.log('================================================================');
-
-startTrip().then(() => {
-  scheduleNextUpdate(1000);
+server.listen(3001, () => {
+    console.log('================================================================');
+    console.log(`🚌 BusMitra Multi-Bus Simulator Running (${activeBuses.length} buses)`);
+    console.log('API running on port 3001 for browser control panel.');
+    console.log('================================================================');
 });
