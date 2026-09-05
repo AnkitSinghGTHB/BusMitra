@@ -8,7 +8,7 @@
 
 BusMitra is a **real-time public bus tracking system designed for Tier-2 and Tier-3 Indian cities** where:
 - Municipal corporations cannot afford GPS hardware (₹5,000–₹10,000/bus)
-- 40%+ of commuters use ₹500 feature phones (no smartphones, no apps)
+- 40%+ of commuters used ₹500 feature phones (no smartphones, no apps)
 - Internet connectivity is unreliable (2G/EDGE networks dominate)
 - Bus drivers are contractual, undertrained, and won't cooperate with complex apps
 
