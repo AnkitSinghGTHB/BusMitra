@@ -171,40 +171,45 @@ async function calculateETA(busId, stopId) {
     const confidence = calculateConfidence(dataSource, ageSeconds, speedVariance);
 
     let min, max, source;
+    let mlConfidence = confidence;
+
+    const ML_PRIMARY = process.env.ML_SERVICE_URL || 'http://localhost:8000';
+    const ML_DOCKER = 'http://ml_service:8000';
+    const d = new Date();
+    const time_of_day = d.getHours() + d.getMinutes() / 60;
+    const day_of_week = d.getDay();
+    const queryStr = `segment_id=${bus.routeId}_${stopId}&time_of_day=${time_of_day.toFixed(1)}&day_of_week=${day_of_week}&weather=clear&cumulative_delay=${expectedDelay.toFixed(1)}&bus_id=${busId}&speed=${baseSpeed}`;
+
+    let mlData = null;
     try {
-        const d = new Date();
-        const time_of_day = d.getHours() + d.getMinutes() / 60;
-        const day_of_week = d.getDay();
-        const mlUrl = `http://ml_service:8000/predict-eta?segment_id=${bus.routeId}_${stopId}&time_of_day=${time_of_day}&day_of_week=${day_of_week}&weather=clear&cumulative_delay=${expectedDelay}`;
-        const mlRes = await fetch(mlUrl);
-        if (!mlRes.ok) throw new Error('ML service failed');
-        const mlData = await mlRes.json();
-        
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 400); // 400ms timeout
+        const res = await fetch(`${ML_PRIMARY}/predict-eta?${queryStr}`, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        if (res.ok) mlData = await res.json();
+    } catch (e) {
+        try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 400);
+            const resDocker = await fetch(`${ML_DOCKER}/predict-eta?${queryStr}`, { signal: controller.signal });
+            clearTimeout(timeoutId);
+            if (resDocker.ok) mlData = await resDocker.json();
+        } catch (err) {}
+    }
+
+    if (mlData && mlData.eta_min !== undefined) {
         min = Math.max(1, Math.ceil(mlData.eta_min));
         max = Math.max(min + 1, Math.ceil(mlData.eta_max));
-        source = 'ml_predicted';
-    } catch (e) {
-        // Fallback to offline heuristic
-        let minLocal = Math.max(1, Math.ceil(baseETA));
-        try {
-            // Also attempt localhost if ml_service name fails locally
-            const d = new Date();
-            const mlUrlLocal = `http://localhost:8000/predict-eta?segment_id=${bus.routeId}_${stopId}&time_of_day=${d.getHours()}&day_of_week=${d.getDay()}&weather=clear&cumulative_delay=${expectedDelay}`;
-            const mlResLocal = await fetch(mlUrlLocal);
-            if (!mlResLocal.ok) throw new Error('Local ML service failed');
-            const mlDataLocal = await mlResLocal.json();
-            
-            min = Math.max(1, Math.ceil(mlDataLocal.eta_min));
-            max = Math.max(min + 1, Math.ceil(mlDataLocal.eta_max));
-            source = 'ml_predicted_local';
-        } catch(err) {
-            min = minLocal;
-            max = Math.max(min + 1, Math.ceil(baseETA + expectedDelay + baseETA * 0.3));
-            source = bus.status;
-        }
+        source = 'ml_xgboost';
+        mlConfidence = Math.min(100, Math.max(20, Math.round((confidence + (mlData.confidence * 100)) / 2)));
+    } else {
+        // Deterministic Polyline + Known Chokepoint Delay Fallback
+        min = Math.max(1, Math.ceil(baseETA));
+        max = Math.max(min + 1, Math.ceil(baseETA + expectedDelay + baseETA * 0.25));
+        source = bus.status;
     }
-    
-    return { min, max, confidence, source, distance, passed: false };
+
+    return { min, max, confidence: mlConfidence, source, distance, passed: false };
 }
 
 module.exports = {

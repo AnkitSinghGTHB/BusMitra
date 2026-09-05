@@ -1,37 +1,7442 @@
 [
-  { "tripId": "M1-T1", "routeId": "M1", "stopId": "S1", "arrivalTime": "06:00", "departureTime": "06:02", "stopSequence": 1 },
-  { "tripId": "M1-T1", "routeId": "M1", "stopId": "S2", "arrivalTime": "06:07", "departureTime": "06:08", "stopSequence": 2 },
-  { "tripId": "M1-T1", "routeId": "M1", "stopId": "S3", "arrivalTime": "06:14", "departureTime": "06:15", "stopSequence": 3 },
-  { "tripId": "M1-T1", "routeId": "M1", "stopId": "S4", "arrivalTime": "06:21", "departureTime": "06:22", "stopSequence": 4 },
-  { "tripId": "M1-T1", "routeId": "M1", "stopId": "S5", "arrivalTime": "06:28", "departureTime": "06:29", "stopSequence": 5 },
-  { "tripId": "M1-T1", "routeId": "M1", "stopId": "S6", "arrivalTime": "06:34", "departureTime": "06:35", "stopSequence": 6 },
-  { "tripId": "M1-T1", "routeId": "M1", "stopId": "S7", "arrivalTime": "06:40", "departureTime": "06:41", "stopSequence": 7 },
-  { "tripId": "M1-T1", "routeId": "M1", "stopId": "S8", "arrivalTime": "06:47", "departureTime": "06:47", "stopSequence": 8 },
-
-  { "tripId": "M1-T2", "routeId": "M1", "stopId": "S1", "arrivalTime": "09:00", "departureTime": "09:02", "stopSequence": 1 },
-  { "tripId": "M1-T2", "routeId": "M1", "stopId": "S2", "arrivalTime": "09:07", "departureTime": "09:08", "stopSequence": 2 },
-  { "tripId": "M1-T2", "routeId": "M1", "stopId": "S3", "arrivalTime": "09:14", "departureTime": "09:15", "stopSequence": 3 },
-  { "tripId": "M1-T2", "routeId": "M1", "stopId": "S4", "arrivalTime": "09:21", "departureTime": "09:22", "stopSequence": 4 },
-  { "tripId": "M1-T2", "routeId": "M1", "stopId": "S5", "arrivalTime": "09:28", "departureTime": "09:29", "stopSequence": 5 },
-  { "tripId": "M1-T2", "routeId": "M1", "stopId": "S6", "arrivalTime": "09:34", "departureTime": "09:35", "stopSequence": 6 },
-  { "tripId": "M1-T2", "routeId": "M1", "stopId": "S7", "arrivalTime": "09:40", "departureTime": "09:41", "stopSequence": 7 },
-  { "tripId": "M1-T2", "routeId": "M1", "stopId": "S8", "arrivalTime": "09:47", "departureTime": "09:47", "stopSequence": 8 },
-
-  { "tripId": "M1-T3", "routeId": "M1", "stopId": "S1", "arrivalTime": "12:00", "departureTime": "12:02", "stopSequence": 1 },
-  { "tripId": "M1-T3", "routeId": "M1", "stopId": "S2", "arrivalTime": "12:07", "departureTime": "12:08", "stopSequence": 2 },
-  { "tripId": "M1-T3", "routeId": "M1", "stopId": "S3", "arrivalTime": "12:14", "departureTime": "12:15", "stopSequence": 3 },
-  { "tripId": "M1-T3", "routeId": "M1", "stopId": "S4", "arrivalTime": "12:21", "departureTime": "12:22", "stopSequence": 4 },
-  { "tripId": "M1-T3", "routeId": "M1", "stopId": "S5", "arrivalTime": "12:28", "departureTime": "12:29", "stopSequence": 5 },
-  { "tripId": "M1-T3", "routeId": "M1", "stopId": "S6", "arrivalTime": "12:34", "departureTime": "12:35", "stopSequence": 6 },
-  { "tripId": "M1-T3", "routeId": "M1", "stopId": "S7", "arrivalTime": "12:40", "departureTime": "12:41", "stopSequence": 7 },
-  { "tripId": "M1-T3", "routeId": "M1", "stopId": "S8", "arrivalTime": "12:47", "departureTime": "12:47", "stopSequence": 8 },
-
-  { "tripId": "M1-T4", "routeId": "M1", "stopId": "S1", "arrivalTime": "15:00", "departureTime": "15:02", "stopSequence": 1 },
-  { "tripId": "M1-T4", "routeId": "M1", "stopId": "S2", "arrivalTime": "15:07", "departureTime": "15:08", "stopSequence": 2 },
-  { "tripId": "M1-T4", "routeId": "M1", "stopId": "S3", "arrivalTime": "15:14", "departureTime": "15:15", "stopSequence": 3 },
-  { "tripId": "M1-T4", "routeId": "M1", "stopId": "S4", "arrivalTime": "15:21", "departureTime": "15:22", "stopSequence": 4 },
-  { "tripId": "M1-T4", "routeId": "M1", "stopId": "S5", "arrivalTime": "15:28", "departureTime": "15:29", "stopSequence": 5 },
-  { "tripId": "M1-T4", "routeId": "M1", "stopId": "S6", "arrivalTime": "15:34", "departureTime": "15:35", "stopSequence": 6 },
-  { "tripId": "M1-T4", "routeId": "M1", "stopId": "S7", "arrivalTime": "15:40", "departureTime": "15:41", "stopSequence": 7 },
-  { "tripId": "M1-T4", "routeId": "M1", "stopId": "S8", "arrivalTime": "15:47", "departureTime": "15:47", "stopSequence": 8 }
+  {
+    "tripId": "PB-01-T1",
+    "routeId": "M1",
+    "stopId": "S1",
+    "arrivalTime": "06:01",
+    "departureTime": "06:02",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "PB-01-T1",
+    "routeId": "M1",
+    "stopId": "S2",
+    "arrivalTime": "06:14",
+    "departureTime": "06:15",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "PB-01-T1",
+    "routeId": "M1",
+    "stopId": "S3",
+    "arrivalTime": "06:24",
+    "departureTime": "06:25",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "PB-01-T1",
+    "routeId": "M1",
+    "stopId": "S4",
+    "arrivalTime": "06:34",
+    "departureTime": "06:35",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "PB-01-T1",
+    "routeId": "M1",
+    "stopId": "S5",
+    "arrivalTime": "06:47",
+    "departureTime": "06:48",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "PB-01-T1",
+    "routeId": "M1",
+    "stopId": "S6",
+    "arrivalTime": "07:01",
+    "departureTime": "07:02",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "PB-01-T1",
+    "routeId": "M1",
+    "stopId": "S7",
+    "arrivalTime": "07:16",
+    "departureTime": "07:17",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "PB-01-T1",
+    "routeId": "M1",
+    "stopId": "S8",
+    "arrivalTime": "07:30",
+    "departureTime": "07:31",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "PB-01-T1",
+    "routeId": "M1",
+    "stopId": "S9",
+    "arrivalTime": "07:42",
+    "departureTime": "07:43",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "PB-01-T1",
+    "routeId": "M1",
+    "stopId": "S10",
+    "arrivalTime": "07:51",
+    "departureTime": "07:52",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "PB-01-T1",
+    "routeId": "M1",
+    "stopId": "S11",
+    "arrivalTime": "08:05",
+    "departureTime": "08:06",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "PB-01-T1",
+    "routeId": "M1",
+    "stopId": "S12",
+    "arrivalTime": "08:13",
+    "departureTime": "08:14",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "PB-01-T1",
+    "routeId": "M1",
+    "stopId": "S13",
+    "arrivalTime": "08:21",
+    "departureTime": "08:22",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "PB-01-T2",
+    "routeId": "M1",
+    "stopId": "S1",
+    "arrivalTime": "08:17",
+    "departureTime": "08:18",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "PB-01-T2",
+    "routeId": "M1",
+    "stopId": "S2",
+    "arrivalTime": "08:26",
+    "departureTime": "08:27",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "PB-01-T2",
+    "routeId": "M1",
+    "stopId": "S3",
+    "arrivalTime": "08:39",
+    "departureTime": "08:40",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "PB-01-T2",
+    "routeId": "M1",
+    "stopId": "S4",
+    "arrivalTime": "08:53",
+    "departureTime": "08:54",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "PB-01-T2",
+    "routeId": "M1",
+    "stopId": "S5",
+    "arrivalTime": "09:02",
+    "departureTime": "09:03",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "PB-01-T2",
+    "routeId": "M1",
+    "stopId": "S6",
+    "arrivalTime": "09:15",
+    "departureTime": "09:16",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "PB-01-T2",
+    "routeId": "M1",
+    "stopId": "S7",
+    "arrivalTime": "09:24",
+    "departureTime": "09:25",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "PB-01-T2",
+    "routeId": "M1",
+    "stopId": "S8",
+    "arrivalTime": "09:36",
+    "departureTime": "09:37",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "PB-01-T2",
+    "routeId": "M1",
+    "stopId": "S9",
+    "arrivalTime": "09:45",
+    "departureTime": "09:46",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "PB-01-T2",
+    "routeId": "M1",
+    "stopId": "S10",
+    "arrivalTime": "09:56",
+    "departureTime": "09:57",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "PB-01-T2",
+    "routeId": "M1",
+    "stopId": "S11",
+    "arrivalTime": "10:07",
+    "departureTime": "10:08",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "PB-01-T2",
+    "routeId": "M1",
+    "stopId": "S12",
+    "arrivalTime": "10:17",
+    "departureTime": "10:18",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "PB-01-T2",
+    "routeId": "M1",
+    "stopId": "S13",
+    "arrivalTime": "10:26",
+    "departureTime": "10:27",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "PB-01-T3",
+    "routeId": "M1",
+    "stopId": "S1",
+    "arrivalTime": "11:07",
+    "departureTime": "11:08",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "PB-01-T3",
+    "routeId": "M1",
+    "stopId": "S2",
+    "arrivalTime": "11:16",
+    "departureTime": "11:17",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "PB-01-T3",
+    "routeId": "M1",
+    "stopId": "S3",
+    "arrivalTime": "11:27",
+    "departureTime": "11:28",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "PB-01-T3",
+    "routeId": "M1",
+    "stopId": "S4",
+    "arrivalTime": "11:37",
+    "departureTime": "11:38",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "PB-01-T3",
+    "routeId": "M1",
+    "stopId": "S5",
+    "arrivalTime": "11:49",
+    "departureTime": "11:50",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "PB-01-T3",
+    "routeId": "M1",
+    "stopId": "S6",
+    "arrivalTime": "11:57",
+    "departureTime": "11:58",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "PB-01-T3",
+    "routeId": "M1",
+    "stopId": "S7",
+    "arrivalTime": "12:05",
+    "departureTime": "12:06",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "PB-01-T3",
+    "routeId": "M1",
+    "stopId": "S8",
+    "arrivalTime": "12:17",
+    "departureTime": "12:18",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "PB-01-T3",
+    "routeId": "M1",
+    "stopId": "S9",
+    "arrivalTime": "12:28",
+    "departureTime": "12:29",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "PB-01-T3",
+    "routeId": "M1",
+    "stopId": "S10",
+    "arrivalTime": "12:41",
+    "departureTime": "12:42",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "PB-01-T3",
+    "routeId": "M1",
+    "stopId": "S11",
+    "arrivalTime": "12:51",
+    "departureTime": "12:52",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "PB-01-T3",
+    "routeId": "M1",
+    "stopId": "S12",
+    "arrivalTime": "13:00",
+    "departureTime": "13:01",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "PB-01-T3",
+    "routeId": "M1",
+    "stopId": "S13",
+    "arrivalTime": "13:15",
+    "departureTime": "13:16",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "PB-01-T4",
+    "routeId": "M1",
+    "stopId": "S1",
+    "arrivalTime": "14:29",
+    "departureTime": "14:30",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "PB-01-T4",
+    "routeId": "M1",
+    "stopId": "S2",
+    "arrivalTime": "14:42",
+    "departureTime": "14:43",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "PB-01-T4",
+    "routeId": "M1",
+    "stopId": "S3",
+    "arrivalTime": "14:50",
+    "departureTime": "14:51",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "PB-01-T4",
+    "routeId": "M1",
+    "stopId": "S4",
+    "arrivalTime": "15:02",
+    "departureTime": "15:03",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "PB-01-T4",
+    "routeId": "M1",
+    "stopId": "S5",
+    "arrivalTime": "15:13",
+    "departureTime": "15:14",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "PB-01-T4",
+    "routeId": "M1",
+    "stopId": "S6",
+    "arrivalTime": "15:28",
+    "departureTime": "15:29",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "PB-01-T4",
+    "routeId": "M1",
+    "stopId": "S7",
+    "arrivalTime": "15:40",
+    "departureTime": "15:41",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "PB-01-T4",
+    "routeId": "M1",
+    "stopId": "S8",
+    "arrivalTime": "15:51",
+    "departureTime": "15:52",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "PB-01-T4",
+    "routeId": "M1",
+    "stopId": "S9",
+    "arrivalTime": "16:00",
+    "departureTime": "16:01",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "PB-01-T4",
+    "routeId": "M1",
+    "stopId": "S10",
+    "arrivalTime": "16:11",
+    "departureTime": "16:12",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "PB-01-T4",
+    "routeId": "M1",
+    "stopId": "S11",
+    "arrivalTime": "16:19",
+    "departureTime": "16:20",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "PB-01-T4",
+    "routeId": "M1",
+    "stopId": "S12",
+    "arrivalTime": "16:28",
+    "departureTime": "16:29",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "PB-01-T4",
+    "routeId": "M1",
+    "stopId": "S13",
+    "arrivalTime": "16:38",
+    "departureTime": "16:39",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "PB-01-T5",
+    "routeId": "M1",
+    "stopId": "S1",
+    "arrivalTime": "16:25",
+    "departureTime": "16:26",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "PB-01-T5",
+    "routeId": "M1",
+    "stopId": "S2",
+    "arrivalTime": "16:36",
+    "departureTime": "16:37",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "PB-01-T5",
+    "routeId": "M1",
+    "stopId": "S3",
+    "arrivalTime": "16:45",
+    "departureTime": "16:46",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "PB-01-T5",
+    "routeId": "M1",
+    "stopId": "S4",
+    "arrivalTime": "16:54",
+    "departureTime": "16:55",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "PB-01-T5",
+    "routeId": "M1",
+    "stopId": "S5",
+    "arrivalTime": "17:04",
+    "departureTime": "17:05",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "PB-01-T5",
+    "routeId": "M1",
+    "stopId": "S6",
+    "arrivalTime": "17:19",
+    "departureTime": "17:20",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "PB-01-T5",
+    "routeId": "M1",
+    "stopId": "S7",
+    "arrivalTime": "17:27",
+    "departureTime": "17:28",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "PB-01-T5",
+    "routeId": "M1",
+    "stopId": "S8",
+    "arrivalTime": "17:38",
+    "departureTime": "17:39",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "PB-01-T5",
+    "routeId": "M1",
+    "stopId": "S9",
+    "arrivalTime": "17:53",
+    "departureTime": "17:54",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "PB-01-T5",
+    "routeId": "M1",
+    "stopId": "S10",
+    "arrivalTime": "18:01",
+    "departureTime": "18:02",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "PB-01-T5",
+    "routeId": "M1",
+    "stopId": "S11",
+    "arrivalTime": "18:11",
+    "departureTime": "18:12",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "PB-01-T5",
+    "routeId": "M1",
+    "stopId": "S12",
+    "arrivalTime": "18:25",
+    "departureTime": "18:26",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "PB-01-T5",
+    "routeId": "M1",
+    "stopId": "S13",
+    "arrivalTime": "18:33",
+    "departureTime": "18:34",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "PB-01-T6",
+    "routeId": "M1",
+    "stopId": "S1",
+    "arrivalTime": "18:20",
+    "departureTime": "18:21",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "PB-01-T6",
+    "routeId": "M1",
+    "stopId": "S2",
+    "arrivalTime": "18:34",
+    "departureTime": "18:35",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "PB-01-T6",
+    "routeId": "M1",
+    "stopId": "S3",
+    "arrivalTime": "18:46",
+    "departureTime": "18:47",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "PB-01-T6",
+    "routeId": "M1",
+    "stopId": "S4",
+    "arrivalTime": "18:57",
+    "departureTime": "18:58",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "PB-01-T6",
+    "routeId": "M1",
+    "stopId": "S5",
+    "arrivalTime": "19:08",
+    "departureTime": "19:09",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "PB-01-T6",
+    "routeId": "M1",
+    "stopId": "S6",
+    "arrivalTime": "19:16",
+    "departureTime": "19:17",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "PB-01-T6",
+    "routeId": "M1",
+    "stopId": "S7",
+    "arrivalTime": "19:25",
+    "departureTime": "19:26",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "PB-01-T6",
+    "routeId": "M1",
+    "stopId": "S8",
+    "arrivalTime": "19:38",
+    "departureTime": "19:39",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "PB-01-T6",
+    "routeId": "M1",
+    "stopId": "S9",
+    "arrivalTime": "19:51",
+    "departureTime": "19:52",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "PB-01-T6",
+    "routeId": "M1",
+    "stopId": "S10",
+    "arrivalTime": "20:03",
+    "departureTime": "20:04",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "PB-01-T6",
+    "routeId": "M1",
+    "stopId": "S11",
+    "arrivalTime": "20:13",
+    "departureTime": "20:14",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "PB-01-T6",
+    "routeId": "M1",
+    "stopId": "S12",
+    "arrivalTime": "20:21",
+    "departureTime": "20:22",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "PB-01-T6",
+    "routeId": "M1",
+    "stopId": "S13",
+    "arrivalTime": "20:36",
+    "departureTime": "20:37",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "PB-02-T1",
+    "routeId": "PB-02",
+    "stopId": "S14",
+    "arrivalTime": "06:28",
+    "departureTime": "06:29",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "PB-02-T1",
+    "routeId": "PB-02",
+    "stopId": "S15",
+    "arrivalTime": "06:36",
+    "departureTime": "06:37",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "PB-02-T1",
+    "routeId": "PB-02",
+    "stopId": "S16",
+    "arrivalTime": "06:47",
+    "departureTime": "06:48",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "PB-02-T1",
+    "routeId": "PB-02",
+    "stopId": "S17",
+    "arrivalTime": "06:55",
+    "departureTime": "06:56",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "PB-02-T1",
+    "routeId": "PB-02",
+    "stopId": "S18",
+    "arrivalTime": "07:10",
+    "departureTime": "07:11",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "PB-02-T1",
+    "routeId": "PB-02",
+    "stopId": "S19",
+    "arrivalTime": "07:18",
+    "departureTime": "07:19",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "PB-02-T1",
+    "routeId": "PB-02",
+    "stopId": "S20",
+    "arrivalTime": "07:28",
+    "departureTime": "07:29",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "PB-02-T1",
+    "routeId": "PB-02",
+    "stopId": "S21",
+    "arrivalTime": "07:43",
+    "departureTime": "07:44",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "PB-02-T1",
+    "routeId": "PB-02",
+    "stopId": "S22",
+    "arrivalTime": "07:54",
+    "departureTime": "07:55",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "PB-02-T1",
+    "routeId": "PB-02",
+    "stopId": "S23",
+    "arrivalTime": "08:04",
+    "departureTime": "08:05",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "PB-02-T1",
+    "routeId": "PB-02",
+    "stopId": "S24",
+    "arrivalTime": "08:19",
+    "departureTime": "08:20",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "PB-02-T2",
+    "routeId": "PB-02",
+    "stopId": "S14",
+    "arrivalTime": "08:12",
+    "departureTime": "08:13",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "PB-02-T2",
+    "routeId": "PB-02",
+    "stopId": "S15",
+    "arrivalTime": "08:21",
+    "departureTime": "08:22",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "PB-02-T2",
+    "routeId": "PB-02",
+    "stopId": "S16",
+    "arrivalTime": "08:32",
+    "departureTime": "08:33",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "PB-02-T2",
+    "routeId": "PB-02",
+    "stopId": "S17",
+    "arrivalTime": "08:46",
+    "departureTime": "08:47",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "PB-02-T2",
+    "routeId": "PB-02",
+    "stopId": "S18",
+    "arrivalTime": "09:00",
+    "departureTime": "09:01",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "PB-02-T2",
+    "routeId": "PB-02",
+    "stopId": "S19",
+    "arrivalTime": "09:12",
+    "departureTime": "09:13",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "PB-02-T2",
+    "routeId": "PB-02",
+    "stopId": "S20",
+    "arrivalTime": "09:21",
+    "departureTime": "09:22",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "PB-02-T2",
+    "routeId": "PB-02",
+    "stopId": "S21",
+    "arrivalTime": "09:31",
+    "departureTime": "09:32",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "PB-02-T2",
+    "routeId": "PB-02",
+    "stopId": "S22",
+    "arrivalTime": "09:41",
+    "departureTime": "09:42",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "PB-02-T2",
+    "routeId": "PB-02",
+    "stopId": "S23",
+    "arrivalTime": "09:51",
+    "departureTime": "09:52",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "PB-02-T2",
+    "routeId": "PB-02",
+    "stopId": "S24",
+    "arrivalTime": "09:59",
+    "departureTime": "10:00",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "PB-02-T3",
+    "routeId": "PB-02",
+    "stopId": "S14",
+    "arrivalTime": "11:07",
+    "departureTime": "11:08",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "PB-02-T3",
+    "routeId": "PB-02",
+    "stopId": "S15",
+    "arrivalTime": "11:18",
+    "departureTime": "11:19",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "PB-02-T3",
+    "routeId": "PB-02",
+    "stopId": "S16",
+    "arrivalTime": "11:32",
+    "departureTime": "11:33",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "PB-02-T3",
+    "routeId": "PB-02",
+    "stopId": "S17",
+    "arrivalTime": "11:43",
+    "departureTime": "11:44",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "PB-02-T3",
+    "routeId": "PB-02",
+    "stopId": "S18",
+    "arrivalTime": "11:52",
+    "departureTime": "11:53",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "PB-02-T3",
+    "routeId": "PB-02",
+    "stopId": "S19",
+    "arrivalTime": "12:07",
+    "departureTime": "12:08",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "PB-02-T3",
+    "routeId": "PB-02",
+    "stopId": "S20",
+    "arrivalTime": "12:17",
+    "departureTime": "12:18",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "PB-02-T3",
+    "routeId": "PB-02",
+    "stopId": "S21",
+    "arrivalTime": "12:29",
+    "departureTime": "12:30",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "PB-02-T3",
+    "routeId": "PB-02",
+    "stopId": "S22",
+    "arrivalTime": "12:44",
+    "departureTime": "12:45",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "PB-02-T3",
+    "routeId": "PB-02",
+    "stopId": "S23",
+    "arrivalTime": "12:56",
+    "departureTime": "12:57",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "PB-02-T3",
+    "routeId": "PB-02",
+    "stopId": "S24",
+    "arrivalTime": "13:05",
+    "departureTime": "13:06",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "PB-02-T4",
+    "routeId": "PB-02",
+    "stopId": "S14",
+    "arrivalTime": "14:27",
+    "departureTime": "14:28",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "PB-02-T4",
+    "routeId": "PB-02",
+    "stopId": "S15",
+    "arrivalTime": "14:36",
+    "departureTime": "14:37",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "PB-02-T4",
+    "routeId": "PB-02",
+    "stopId": "S16",
+    "arrivalTime": "14:48",
+    "departureTime": "14:49",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "PB-02-T4",
+    "routeId": "PB-02",
+    "stopId": "S17",
+    "arrivalTime": "14:57",
+    "departureTime": "14:58",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "PB-02-T4",
+    "routeId": "PB-02",
+    "stopId": "S18",
+    "arrivalTime": "15:11",
+    "departureTime": "15:12",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "PB-02-T4",
+    "routeId": "PB-02",
+    "stopId": "S19",
+    "arrivalTime": "15:26",
+    "departureTime": "15:27",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "PB-02-T4",
+    "routeId": "PB-02",
+    "stopId": "S20",
+    "arrivalTime": "15:38",
+    "departureTime": "15:39",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "PB-02-T4",
+    "routeId": "PB-02",
+    "stopId": "S21",
+    "arrivalTime": "15:53",
+    "departureTime": "15:54",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "PB-02-T4",
+    "routeId": "PB-02",
+    "stopId": "S22",
+    "arrivalTime": "16:07",
+    "departureTime": "16:08",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "PB-02-T4",
+    "routeId": "PB-02",
+    "stopId": "S23",
+    "arrivalTime": "16:22",
+    "departureTime": "16:23",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "PB-02-T4",
+    "routeId": "PB-02",
+    "stopId": "S24",
+    "arrivalTime": "16:32",
+    "departureTime": "16:33",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "PB-02-T5",
+    "routeId": "PB-02",
+    "stopId": "S14",
+    "arrivalTime": "16:11",
+    "departureTime": "16:12",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "PB-02-T5",
+    "routeId": "PB-02",
+    "stopId": "S15",
+    "arrivalTime": "16:26",
+    "departureTime": "16:27",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "PB-02-T5",
+    "routeId": "PB-02",
+    "stopId": "S16",
+    "arrivalTime": "16:35",
+    "departureTime": "16:36",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "PB-02-T5",
+    "routeId": "PB-02",
+    "stopId": "S17",
+    "arrivalTime": "16:46",
+    "departureTime": "16:47",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "PB-02-T5",
+    "routeId": "PB-02",
+    "stopId": "S18",
+    "arrivalTime": "16:59",
+    "departureTime": "17:00",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "PB-02-T5",
+    "routeId": "PB-02",
+    "stopId": "S19",
+    "arrivalTime": "17:11",
+    "departureTime": "17:12",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "PB-02-T5",
+    "routeId": "PB-02",
+    "stopId": "S20",
+    "arrivalTime": "17:25",
+    "departureTime": "17:26",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "PB-02-T5",
+    "routeId": "PB-02",
+    "stopId": "S21",
+    "arrivalTime": "17:38",
+    "departureTime": "17:39",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "PB-02-T5",
+    "routeId": "PB-02",
+    "stopId": "S22",
+    "arrivalTime": "17:52",
+    "departureTime": "17:53",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "PB-02-T5",
+    "routeId": "PB-02",
+    "stopId": "S23",
+    "arrivalTime": "18:06",
+    "departureTime": "18:07",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "PB-02-T5",
+    "routeId": "PB-02",
+    "stopId": "S24",
+    "arrivalTime": "18:15",
+    "departureTime": "18:16",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "PB-02-T6",
+    "routeId": "PB-02",
+    "stopId": "S14",
+    "arrivalTime": "18:27",
+    "departureTime": "18:28",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "PB-02-T6",
+    "routeId": "PB-02",
+    "stopId": "S15",
+    "arrivalTime": "18:39",
+    "departureTime": "18:40",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "PB-02-T6",
+    "routeId": "PB-02",
+    "stopId": "S16",
+    "arrivalTime": "18:52",
+    "departureTime": "18:53",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "PB-02-T6",
+    "routeId": "PB-02",
+    "stopId": "S17",
+    "arrivalTime": "19:03",
+    "departureTime": "19:04",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "PB-02-T6",
+    "routeId": "PB-02",
+    "stopId": "S18",
+    "arrivalTime": "19:11",
+    "departureTime": "19:12",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "PB-02-T6",
+    "routeId": "PB-02",
+    "stopId": "S19",
+    "arrivalTime": "19:20",
+    "departureTime": "19:21",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "PB-02-T6",
+    "routeId": "PB-02",
+    "stopId": "S20",
+    "arrivalTime": "19:32",
+    "departureTime": "19:33",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "PB-02-T6",
+    "routeId": "PB-02",
+    "stopId": "S21",
+    "arrivalTime": "19:44",
+    "departureTime": "19:45",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "PB-02-T6",
+    "routeId": "PB-02",
+    "stopId": "S22",
+    "arrivalTime": "19:55",
+    "departureTime": "19:56",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "PB-02-T6",
+    "routeId": "PB-02",
+    "stopId": "S23",
+    "arrivalTime": "20:03",
+    "departureTime": "20:04",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "PB-02-T6",
+    "routeId": "PB-02",
+    "stopId": "S24",
+    "arrivalTime": "20:12",
+    "departureTime": "20:13",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "RJ-01-T1",
+    "routeId": "RJ-01",
+    "stopId": "S25",
+    "arrivalTime": "06:09",
+    "departureTime": "06:10",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "RJ-01-T1",
+    "routeId": "RJ-01",
+    "stopId": "S26",
+    "arrivalTime": "06:23",
+    "departureTime": "06:24",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "RJ-01-T1",
+    "routeId": "RJ-01",
+    "stopId": "S27",
+    "arrivalTime": "06:31",
+    "departureTime": "06:32",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "RJ-01-T1",
+    "routeId": "RJ-01",
+    "stopId": "S28",
+    "arrivalTime": "06:44",
+    "departureTime": "06:45",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "RJ-01-T1",
+    "routeId": "RJ-01",
+    "stopId": "S29",
+    "arrivalTime": "06:52",
+    "departureTime": "06:53",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "RJ-01-T1",
+    "routeId": "RJ-01",
+    "stopId": "S30",
+    "arrivalTime": "07:00",
+    "departureTime": "07:01",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "RJ-01-T1",
+    "routeId": "RJ-01",
+    "stopId": "S31",
+    "arrivalTime": "07:15",
+    "departureTime": "07:16",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "RJ-01-T1",
+    "routeId": "RJ-01",
+    "stopId": "S32",
+    "arrivalTime": "07:24",
+    "departureTime": "07:25",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "RJ-01-T1",
+    "routeId": "RJ-01",
+    "stopId": "S33",
+    "arrivalTime": "07:36",
+    "departureTime": "07:37",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "RJ-01-T1",
+    "routeId": "RJ-01",
+    "stopId": "S34",
+    "arrivalTime": "07:46",
+    "departureTime": "07:47",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "RJ-01-T1",
+    "routeId": "RJ-01",
+    "stopId": "S35",
+    "arrivalTime": "07:59",
+    "departureTime": "08:00",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "RJ-01-T1",
+    "routeId": "RJ-01",
+    "stopId": "S36",
+    "arrivalTime": "08:07",
+    "departureTime": "08:08",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "RJ-01-T2",
+    "routeId": "RJ-01",
+    "stopId": "S25",
+    "arrivalTime": "08:29",
+    "departureTime": "08:30",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "RJ-01-T2",
+    "routeId": "RJ-01",
+    "stopId": "S26",
+    "arrivalTime": "08:40",
+    "departureTime": "08:41",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "RJ-01-T2",
+    "routeId": "RJ-01",
+    "stopId": "S27",
+    "arrivalTime": "08:55",
+    "departureTime": "08:56",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "RJ-01-T2",
+    "routeId": "RJ-01",
+    "stopId": "S28",
+    "arrivalTime": "09:09",
+    "departureTime": "09:10",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "RJ-01-T2",
+    "routeId": "RJ-01",
+    "stopId": "S29",
+    "arrivalTime": "09:24",
+    "departureTime": "09:25",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "RJ-01-T2",
+    "routeId": "RJ-01",
+    "stopId": "S30",
+    "arrivalTime": "09:38",
+    "departureTime": "09:39",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "RJ-01-T2",
+    "routeId": "RJ-01",
+    "stopId": "S31",
+    "arrivalTime": "09:50",
+    "departureTime": "09:51",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "RJ-01-T2",
+    "routeId": "RJ-01",
+    "stopId": "S32",
+    "arrivalTime": "10:01",
+    "departureTime": "10:02",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "RJ-01-T2",
+    "routeId": "RJ-01",
+    "stopId": "S33",
+    "arrivalTime": "10:09",
+    "departureTime": "10:10",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "RJ-01-T2",
+    "routeId": "RJ-01",
+    "stopId": "S34",
+    "arrivalTime": "10:17",
+    "departureTime": "10:18",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "RJ-01-T2",
+    "routeId": "RJ-01",
+    "stopId": "S35",
+    "arrivalTime": "10:26",
+    "departureTime": "10:27",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "RJ-01-T2",
+    "routeId": "RJ-01",
+    "stopId": "S36",
+    "arrivalTime": "10:41",
+    "departureTime": "10:42",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "RJ-01-T3",
+    "routeId": "RJ-01",
+    "stopId": "S25",
+    "arrivalTime": "11:23",
+    "departureTime": "11:24",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "RJ-01-T3",
+    "routeId": "RJ-01",
+    "stopId": "S26",
+    "arrivalTime": "11:38",
+    "departureTime": "11:39",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "RJ-01-T3",
+    "routeId": "RJ-01",
+    "stopId": "S27",
+    "arrivalTime": "11:52",
+    "departureTime": "11:53",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "RJ-01-T3",
+    "routeId": "RJ-01",
+    "stopId": "S28",
+    "arrivalTime": "12:07",
+    "departureTime": "12:08",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "RJ-01-T3",
+    "routeId": "RJ-01",
+    "stopId": "S29",
+    "arrivalTime": "12:20",
+    "departureTime": "12:21",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "RJ-01-T3",
+    "routeId": "RJ-01",
+    "stopId": "S30",
+    "arrivalTime": "12:31",
+    "departureTime": "12:32",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "RJ-01-T3",
+    "routeId": "RJ-01",
+    "stopId": "S31",
+    "arrivalTime": "12:45",
+    "departureTime": "12:46",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "RJ-01-T3",
+    "routeId": "RJ-01",
+    "stopId": "S32",
+    "arrivalTime": "12:56",
+    "departureTime": "12:57",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "RJ-01-T3",
+    "routeId": "RJ-01",
+    "stopId": "S33",
+    "arrivalTime": "13:05",
+    "departureTime": "13:06",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "RJ-01-T3",
+    "routeId": "RJ-01",
+    "stopId": "S34",
+    "arrivalTime": "13:20",
+    "departureTime": "13:21",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "RJ-01-T3",
+    "routeId": "RJ-01",
+    "stopId": "S35",
+    "arrivalTime": "13:31",
+    "departureTime": "13:32",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "RJ-01-T3",
+    "routeId": "RJ-01",
+    "stopId": "S36",
+    "arrivalTime": "13:40",
+    "departureTime": "13:41",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "RJ-01-T4",
+    "routeId": "RJ-01",
+    "stopId": "S25",
+    "arrivalTime": "14:15",
+    "departureTime": "14:16",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "RJ-01-T4",
+    "routeId": "RJ-01",
+    "stopId": "S26",
+    "arrivalTime": "14:30",
+    "departureTime": "14:31",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "RJ-01-T4",
+    "routeId": "RJ-01",
+    "stopId": "S27",
+    "arrivalTime": "14:41",
+    "departureTime": "14:42",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "RJ-01-T4",
+    "routeId": "RJ-01",
+    "stopId": "S28",
+    "arrivalTime": "14:52",
+    "departureTime": "14:53",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "RJ-01-T4",
+    "routeId": "RJ-01",
+    "stopId": "S29",
+    "arrivalTime": "15:00",
+    "departureTime": "15:01",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "RJ-01-T4",
+    "routeId": "RJ-01",
+    "stopId": "S30",
+    "arrivalTime": "15:10",
+    "departureTime": "15:11",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "RJ-01-T4",
+    "routeId": "RJ-01",
+    "stopId": "S31",
+    "arrivalTime": "15:22",
+    "departureTime": "15:23",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "RJ-01-T4",
+    "routeId": "RJ-01",
+    "stopId": "S32",
+    "arrivalTime": "15:35",
+    "departureTime": "15:36",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "RJ-01-T4",
+    "routeId": "RJ-01",
+    "stopId": "S33",
+    "arrivalTime": "15:50",
+    "departureTime": "15:51",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "RJ-01-T4",
+    "routeId": "RJ-01",
+    "stopId": "S34",
+    "arrivalTime": "15:58",
+    "departureTime": "15:59",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "RJ-01-T4",
+    "routeId": "RJ-01",
+    "stopId": "S35",
+    "arrivalTime": "16:08",
+    "departureTime": "16:09",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "RJ-01-T4",
+    "routeId": "RJ-01",
+    "stopId": "S36",
+    "arrivalTime": "16:23",
+    "departureTime": "16:24",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "RJ-01-T5",
+    "routeId": "RJ-01",
+    "stopId": "S25",
+    "arrivalTime": "16:28",
+    "departureTime": "16:29",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "RJ-01-T5",
+    "routeId": "RJ-01",
+    "stopId": "S26",
+    "arrivalTime": "16:42",
+    "departureTime": "16:43",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "RJ-01-T5",
+    "routeId": "RJ-01",
+    "stopId": "S27",
+    "arrivalTime": "16:51",
+    "departureTime": "16:52",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "RJ-01-T5",
+    "routeId": "RJ-01",
+    "stopId": "S28",
+    "arrivalTime": "17:03",
+    "departureTime": "17:04",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "RJ-01-T5",
+    "routeId": "RJ-01",
+    "stopId": "S29",
+    "arrivalTime": "17:13",
+    "departureTime": "17:14",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "RJ-01-T5",
+    "routeId": "RJ-01",
+    "stopId": "S30",
+    "arrivalTime": "17:27",
+    "departureTime": "17:28",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "RJ-01-T5",
+    "routeId": "RJ-01",
+    "stopId": "S31",
+    "arrivalTime": "17:42",
+    "departureTime": "17:43",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "RJ-01-T5",
+    "routeId": "RJ-01",
+    "stopId": "S32",
+    "arrivalTime": "17:55",
+    "departureTime": "17:56",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "RJ-01-T5",
+    "routeId": "RJ-01",
+    "stopId": "S33",
+    "arrivalTime": "18:05",
+    "departureTime": "18:06",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "RJ-01-T5",
+    "routeId": "RJ-01",
+    "stopId": "S34",
+    "arrivalTime": "18:15",
+    "departureTime": "18:16",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "RJ-01-T5",
+    "routeId": "RJ-01",
+    "stopId": "S35",
+    "arrivalTime": "18:23",
+    "departureTime": "18:24",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "RJ-01-T5",
+    "routeId": "RJ-01",
+    "stopId": "S36",
+    "arrivalTime": "18:35",
+    "departureTime": "18:36",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "RJ-01-T6",
+    "routeId": "RJ-01",
+    "stopId": "S25",
+    "arrivalTime": "18:30",
+    "departureTime": "18:31",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "RJ-01-T6",
+    "routeId": "RJ-01",
+    "stopId": "S26",
+    "arrivalTime": "18:45",
+    "departureTime": "18:46",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "RJ-01-T6",
+    "routeId": "RJ-01",
+    "stopId": "S27",
+    "arrivalTime": "18:56",
+    "departureTime": "18:57",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "RJ-01-T6",
+    "routeId": "RJ-01",
+    "stopId": "S28",
+    "arrivalTime": "19:08",
+    "departureTime": "19:09",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "RJ-01-T6",
+    "routeId": "RJ-01",
+    "stopId": "S29",
+    "arrivalTime": "19:23",
+    "departureTime": "19:24",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "RJ-01-T6",
+    "routeId": "RJ-01",
+    "stopId": "S30",
+    "arrivalTime": "19:33",
+    "departureTime": "19:34",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "RJ-01-T6",
+    "routeId": "RJ-01",
+    "stopId": "S31",
+    "arrivalTime": "19:47",
+    "departureTime": "19:48",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "RJ-01-T6",
+    "routeId": "RJ-01",
+    "stopId": "S32",
+    "arrivalTime": "19:57",
+    "departureTime": "19:58",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "RJ-01-T6",
+    "routeId": "RJ-01",
+    "stopId": "S33",
+    "arrivalTime": "20:12",
+    "departureTime": "20:13",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "RJ-01-T6",
+    "routeId": "RJ-01",
+    "stopId": "S34",
+    "arrivalTime": "20:21",
+    "departureTime": "20:22",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "RJ-01-T6",
+    "routeId": "RJ-01",
+    "stopId": "S35",
+    "arrivalTime": "20:32",
+    "departureTime": "20:33",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "RJ-01-T6",
+    "routeId": "RJ-01",
+    "stopId": "S36",
+    "arrivalTime": "20:41",
+    "departureTime": "20:42",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "RJ-02-T1",
+    "routeId": "RJ-02",
+    "stopId": "S37",
+    "arrivalTime": "06:23",
+    "departureTime": "06:24",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "RJ-02-T1",
+    "routeId": "RJ-02",
+    "stopId": "S38",
+    "arrivalTime": "06:33",
+    "departureTime": "06:34",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "RJ-02-T1",
+    "routeId": "RJ-02",
+    "stopId": "S39",
+    "arrivalTime": "06:44",
+    "departureTime": "06:45",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "RJ-02-T1",
+    "routeId": "RJ-02",
+    "stopId": "S40",
+    "arrivalTime": "06:53",
+    "departureTime": "06:54",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "RJ-02-T1",
+    "routeId": "RJ-02",
+    "stopId": "S41",
+    "arrivalTime": "07:04",
+    "departureTime": "07:05",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "RJ-02-T1",
+    "routeId": "RJ-02",
+    "stopId": "S42",
+    "arrivalTime": "07:14",
+    "departureTime": "07:15",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "RJ-02-T1",
+    "routeId": "RJ-02",
+    "stopId": "S43",
+    "arrivalTime": "07:24",
+    "departureTime": "07:25",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "RJ-02-T1",
+    "routeId": "RJ-02",
+    "stopId": "S44",
+    "arrivalTime": "07:36",
+    "departureTime": "07:37",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "RJ-02-T1",
+    "routeId": "RJ-02",
+    "stopId": "S45",
+    "arrivalTime": "07:46",
+    "departureTime": "07:47",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "RJ-02-T1",
+    "routeId": "RJ-02",
+    "stopId": "S46",
+    "arrivalTime": "07:56",
+    "departureTime": "07:57",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "RJ-02-T1",
+    "routeId": "RJ-02",
+    "stopId": "S47",
+    "arrivalTime": "08:09",
+    "departureTime": "08:10",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "RJ-02-T1",
+    "routeId": "RJ-02",
+    "stopId": "S48",
+    "arrivalTime": "08:24",
+    "departureTime": "08:25",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "RJ-02-T1",
+    "routeId": "RJ-02",
+    "stopId": "S49",
+    "arrivalTime": "08:32",
+    "departureTime": "08:33",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "RJ-02-T2",
+    "routeId": "RJ-02",
+    "stopId": "S37",
+    "arrivalTime": "08:22",
+    "departureTime": "08:23",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "RJ-02-T2",
+    "routeId": "RJ-02",
+    "stopId": "S38",
+    "arrivalTime": "08:32",
+    "departureTime": "08:33",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "RJ-02-T2",
+    "routeId": "RJ-02",
+    "stopId": "S39",
+    "arrivalTime": "08:46",
+    "departureTime": "08:47",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "RJ-02-T2",
+    "routeId": "RJ-02",
+    "stopId": "S40",
+    "arrivalTime": "09:00",
+    "departureTime": "09:01",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "RJ-02-T2",
+    "routeId": "RJ-02",
+    "stopId": "S41",
+    "arrivalTime": "09:10",
+    "departureTime": "09:11",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "RJ-02-T2",
+    "routeId": "RJ-02",
+    "stopId": "S42",
+    "arrivalTime": "09:25",
+    "departureTime": "09:26",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "RJ-02-T2",
+    "routeId": "RJ-02",
+    "stopId": "S43",
+    "arrivalTime": "09:35",
+    "departureTime": "09:36",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "RJ-02-T2",
+    "routeId": "RJ-02",
+    "stopId": "S44",
+    "arrivalTime": "09:44",
+    "departureTime": "09:45",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "RJ-02-T2",
+    "routeId": "RJ-02",
+    "stopId": "S45",
+    "arrivalTime": "09:55",
+    "departureTime": "09:56",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "RJ-02-T2",
+    "routeId": "RJ-02",
+    "stopId": "S46",
+    "arrivalTime": "10:10",
+    "departureTime": "10:11",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "RJ-02-T2",
+    "routeId": "RJ-02",
+    "stopId": "S47",
+    "arrivalTime": "10:24",
+    "departureTime": "10:25",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "RJ-02-T2",
+    "routeId": "RJ-02",
+    "stopId": "S48",
+    "arrivalTime": "10:32",
+    "departureTime": "10:33",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "RJ-02-T2",
+    "routeId": "RJ-02",
+    "stopId": "S49",
+    "arrivalTime": "10:43",
+    "departureTime": "10:44",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "RJ-02-T3",
+    "routeId": "RJ-02",
+    "stopId": "S37",
+    "arrivalTime": "11:11",
+    "departureTime": "11:12",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "RJ-02-T3",
+    "routeId": "RJ-02",
+    "stopId": "S38",
+    "arrivalTime": "11:21",
+    "departureTime": "11:22",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "RJ-02-T3",
+    "routeId": "RJ-02",
+    "stopId": "S39",
+    "arrivalTime": "11:31",
+    "departureTime": "11:32",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "RJ-02-T3",
+    "routeId": "RJ-02",
+    "stopId": "S40",
+    "arrivalTime": "11:45",
+    "departureTime": "11:46",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "RJ-02-T3",
+    "routeId": "RJ-02",
+    "stopId": "S41",
+    "arrivalTime": "11:58",
+    "departureTime": "11:59",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "RJ-02-T3",
+    "routeId": "RJ-02",
+    "stopId": "S42",
+    "arrivalTime": "12:09",
+    "departureTime": "12:10",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "RJ-02-T3",
+    "routeId": "RJ-02",
+    "stopId": "S43",
+    "arrivalTime": "12:20",
+    "departureTime": "12:21",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "RJ-02-T3",
+    "routeId": "RJ-02",
+    "stopId": "S44",
+    "arrivalTime": "12:35",
+    "departureTime": "12:36",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "RJ-02-T3",
+    "routeId": "RJ-02",
+    "stopId": "S45",
+    "arrivalTime": "12:47",
+    "departureTime": "12:48",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "RJ-02-T3",
+    "routeId": "RJ-02",
+    "stopId": "S46",
+    "arrivalTime": "13:02",
+    "departureTime": "13:03",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "RJ-02-T3",
+    "routeId": "RJ-02",
+    "stopId": "S47",
+    "arrivalTime": "13:13",
+    "departureTime": "13:14",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "RJ-02-T3",
+    "routeId": "RJ-02",
+    "stopId": "S48",
+    "arrivalTime": "13:26",
+    "departureTime": "13:27",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "RJ-02-T3",
+    "routeId": "RJ-02",
+    "stopId": "S49",
+    "arrivalTime": "13:35",
+    "departureTime": "13:36",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "RJ-02-T4",
+    "routeId": "RJ-02",
+    "stopId": "S37",
+    "arrivalTime": "14:26",
+    "departureTime": "14:27",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "RJ-02-T4",
+    "routeId": "RJ-02",
+    "stopId": "S38",
+    "arrivalTime": "14:37",
+    "departureTime": "14:38",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "RJ-02-T4",
+    "routeId": "RJ-02",
+    "stopId": "S39",
+    "arrivalTime": "14:47",
+    "departureTime": "14:48",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "RJ-02-T4",
+    "routeId": "RJ-02",
+    "stopId": "S40",
+    "arrivalTime": "14:56",
+    "departureTime": "14:57",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "RJ-02-T4",
+    "routeId": "RJ-02",
+    "stopId": "S41",
+    "arrivalTime": "15:05",
+    "departureTime": "15:06",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "RJ-02-T4",
+    "routeId": "RJ-02",
+    "stopId": "S42",
+    "arrivalTime": "15:13",
+    "departureTime": "15:14",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "RJ-02-T4",
+    "routeId": "RJ-02",
+    "stopId": "S43",
+    "arrivalTime": "15:22",
+    "departureTime": "15:23",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "RJ-02-T4",
+    "routeId": "RJ-02",
+    "stopId": "S44",
+    "arrivalTime": "15:37",
+    "departureTime": "15:38",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "RJ-02-T4",
+    "routeId": "RJ-02",
+    "stopId": "S45",
+    "arrivalTime": "15:52",
+    "departureTime": "15:53",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "RJ-02-T4",
+    "routeId": "RJ-02",
+    "stopId": "S46",
+    "arrivalTime": "16:03",
+    "departureTime": "16:04",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "RJ-02-T4",
+    "routeId": "RJ-02",
+    "stopId": "S47",
+    "arrivalTime": "16:12",
+    "departureTime": "16:13",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "RJ-02-T4",
+    "routeId": "RJ-02",
+    "stopId": "S48",
+    "arrivalTime": "16:20",
+    "departureTime": "16:21",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "RJ-02-T4",
+    "routeId": "RJ-02",
+    "stopId": "S49",
+    "arrivalTime": "16:35",
+    "departureTime": "16:36",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "RJ-02-T5",
+    "routeId": "RJ-02",
+    "stopId": "S37",
+    "arrivalTime": "16:26",
+    "departureTime": "16:27",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "RJ-02-T5",
+    "routeId": "RJ-02",
+    "stopId": "S38",
+    "arrivalTime": "16:39",
+    "departureTime": "16:40",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "RJ-02-T5",
+    "routeId": "RJ-02",
+    "stopId": "S39",
+    "arrivalTime": "16:49",
+    "departureTime": "16:50",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "RJ-02-T5",
+    "routeId": "RJ-02",
+    "stopId": "S40",
+    "arrivalTime": "17:00",
+    "departureTime": "17:01",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "RJ-02-T5",
+    "routeId": "RJ-02",
+    "stopId": "S41",
+    "arrivalTime": "17:11",
+    "departureTime": "17:12",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "RJ-02-T5",
+    "routeId": "RJ-02",
+    "stopId": "S42",
+    "arrivalTime": "17:26",
+    "departureTime": "17:27",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "RJ-02-T5",
+    "routeId": "RJ-02",
+    "stopId": "S43",
+    "arrivalTime": "17:41",
+    "departureTime": "17:42",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "RJ-02-T5",
+    "routeId": "RJ-02",
+    "stopId": "S44",
+    "arrivalTime": "17:53",
+    "departureTime": "17:54",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "RJ-02-T5",
+    "routeId": "RJ-02",
+    "stopId": "S45",
+    "arrivalTime": "18:04",
+    "departureTime": "18:05",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "RJ-02-T5",
+    "routeId": "RJ-02",
+    "stopId": "S46",
+    "arrivalTime": "18:14",
+    "departureTime": "18:15",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "RJ-02-T5",
+    "routeId": "RJ-02",
+    "stopId": "S47",
+    "arrivalTime": "18:22",
+    "departureTime": "18:23",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "RJ-02-T5",
+    "routeId": "RJ-02",
+    "stopId": "S48",
+    "arrivalTime": "18:31",
+    "departureTime": "18:32",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "RJ-02-T5",
+    "routeId": "RJ-02",
+    "stopId": "S49",
+    "arrivalTime": "18:45",
+    "departureTime": "18:46",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "RJ-02-T6",
+    "routeId": "RJ-02",
+    "stopId": "S37",
+    "arrivalTime": "18:07",
+    "departureTime": "18:08",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "RJ-02-T6",
+    "routeId": "RJ-02",
+    "stopId": "S38",
+    "arrivalTime": "18:15",
+    "departureTime": "18:16",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "RJ-02-T6",
+    "routeId": "RJ-02",
+    "stopId": "S39",
+    "arrivalTime": "18:24",
+    "departureTime": "18:25",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "RJ-02-T6",
+    "routeId": "RJ-02",
+    "stopId": "S40",
+    "arrivalTime": "18:33",
+    "departureTime": "18:34",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "RJ-02-T6",
+    "routeId": "RJ-02",
+    "stopId": "S41",
+    "arrivalTime": "18:44",
+    "departureTime": "18:45",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "RJ-02-T6",
+    "routeId": "RJ-02",
+    "stopId": "S42",
+    "arrivalTime": "18:54",
+    "departureTime": "18:55",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "RJ-02-T6",
+    "routeId": "RJ-02",
+    "stopId": "S43",
+    "arrivalTime": "19:03",
+    "departureTime": "19:04",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "RJ-02-T6",
+    "routeId": "RJ-02",
+    "stopId": "S44",
+    "arrivalTime": "19:18",
+    "departureTime": "19:19",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "RJ-02-T6",
+    "routeId": "RJ-02",
+    "stopId": "S45",
+    "arrivalTime": "19:28",
+    "departureTime": "19:29",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "RJ-02-T6",
+    "routeId": "RJ-02",
+    "stopId": "S46",
+    "arrivalTime": "19:43",
+    "departureTime": "19:44",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "RJ-02-T6",
+    "routeId": "RJ-02",
+    "stopId": "S47",
+    "arrivalTime": "19:51",
+    "departureTime": "19:52",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "RJ-02-T6",
+    "routeId": "RJ-02",
+    "stopId": "S48",
+    "arrivalTime": "19:59",
+    "departureTime": "20:00",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "RJ-02-T6",
+    "routeId": "RJ-02",
+    "stopId": "S49",
+    "arrivalTime": "20:09",
+    "departureTime": "20:10",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "UP-01-T1",
+    "routeId": "UP-01",
+    "stopId": "S50",
+    "arrivalTime": "06:04",
+    "departureTime": "06:05",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "UP-01-T1",
+    "routeId": "UP-01",
+    "stopId": "S51",
+    "arrivalTime": "06:18",
+    "departureTime": "06:19",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "UP-01-T1",
+    "routeId": "UP-01",
+    "stopId": "S52",
+    "arrivalTime": "06:31",
+    "departureTime": "06:32",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "UP-01-T1",
+    "routeId": "UP-01",
+    "stopId": "S53",
+    "arrivalTime": "06:43",
+    "departureTime": "06:44",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "UP-01-T1",
+    "routeId": "UP-01",
+    "stopId": "S54",
+    "arrivalTime": "06:51",
+    "departureTime": "06:52",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "UP-01-T1",
+    "routeId": "UP-01",
+    "stopId": "S55",
+    "arrivalTime": "06:59",
+    "departureTime": "07:00",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "UP-01-T1",
+    "routeId": "UP-01",
+    "stopId": "S56",
+    "arrivalTime": "07:11",
+    "departureTime": "07:12",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "UP-01-T1",
+    "routeId": "UP-01",
+    "stopId": "S57",
+    "arrivalTime": "07:25",
+    "departureTime": "07:26",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "UP-01-T1",
+    "routeId": "UP-01",
+    "stopId": "S58",
+    "arrivalTime": "07:39",
+    "departureTime": "07:40",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "UP-01-T1",
+    "routeId": "UP-01",
+    "stopId": "S59",
+    "arrivalTime": "07:50",
+    "departureTime": "07:51",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "UP-01-T1",
+    "routeId": "UP-01",
+    "stopId": "S60",
+    "arrivalTime": "08:04",
+    "departureTime": "08:05",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "UP-01-T1",
+    "routeId": "UP-01",
+    "stopId": "S61",
+    "arrivalTime": "08:17",
+    "departureTime": "08:18",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "UP-01-T2",
+    "routeId": "UP-01",
+    "stopId": "S50",
+    "arrivalTime": "08:17",
+    "departureTime": "08:18",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "UP-01-T2",
+    "routeId": "UP-01",
+    "stopId": "S51",
+    "arrivalTime": "08:26",
+    "departureTime": "08:27",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "UP-01-T2",
+    "routeId": "UP-01",
+    "stopId": "S52",
+    "arrivalTime": "08:36",
+    "departureTime": "08:37",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "UP-01-T2",
+    "routeId": "UP-01",
+    "stopId": "S53",
+    "arrivalTime": "08:47",
+    "departureTime": "08:48",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "UP-01-T2",
+    "routeId": "UP-01",
+    "stopId": "S54",
+    "arrivalTime": "09:01",
+    "departureTime": "09:02",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "UP-01-T2",
+    "routeId": "UP-01",
+    "stopId": "S55",
+    "arrivalTime": "09:11",
+    "departureTime": "09:12",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "UP-01-T2",
+    "routeId": "UP-01",
+    "stopId": "S56",
+    "arrivalTime": "09:22",
+    "departureTime": "09:23",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "UP-01-T2",
+    "routeId": "UP-01",
+    "stopId": "S57",
+    "arrivalTime": "09:35",
+    "departureTime": "09:36",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "UP-01-T2",
+    "routeId": "UP-01",
+    "stopId": "S58",
+    "arrivalTime": "09:49",
+    "departureTime": "09:50",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "UP-01-T2",
+    "routeId": "UP-01",
+    "stopId": "S59",
+    "arrivalTime": "09:57",
+    "departureTime": "09:58",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "UP-01-T2",
+    "routeId": "UP-01",
+    "stopId": "S60",
+    "arrivalTime": "10:07",
+    "departureTime": "10:08",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "UP-01-T2",
+    "routeId": "UP-01",
+    "stopId": "S61",
+    "arrivalTime": "10:20",
+    "departureTime": "10:21",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "UP-01-T3",
+    "routeId": "UP-01",
+    "stopId": "S50",
+    "arrivalTime": "11:19",
+    "departureTime": "11:20",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "UP-01-T3",
+    "routeId": "UP-01",
+    "stopId": "S51",
+    "arrivalTime": "11:27",
+    "departureTime": "11:28",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "UP-01-T3",
+    "routeId": "UP-01",
+    "stopId": "S52",
+    "arrivalTime": "11:38",
+    "departureTime": "11:39",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "UP-01-T3",
+    "routeId": "UP-01",
+    "stopId": "S53",
+    "arrivalTime": "11:51",
+    "departureTime": "11:52",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "UP-01-T3",
+    "routeId": "UP-01",
+    "stopId": "S54",
+    "arrivalTime": "12:06",
+    "departureTime": "12:07",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "UP-01-T3",
+    "routeId": "UP-01",
+    "stopId": "S55",
+    "arrivalTime": "12:14",
+    "departureTime": "12:15",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "UP-01-T3",
+    "routeId": "UP-01",
+    "stopId": "S56",
+    "arrivalTime": "12:28",
+    "departureTime": "12:29",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "UP-01-T3",
+    "routeId": "UP-01",
+    "stopId": "S57",
+    "arrivalTime": "12:42",
+    "departureTime": "12:43",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "UP-01-T3",
+    "routeId": "UP-01",
+    "stopId": "S58",
+    "arrivalTime": "12:50",
+    "departureTime": "12:51",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "UP-01-T3",
+    "routeId": "UP-01",
+    "stopId": "S59",
+    "arrivalTime": "13:02",
+    "departureTime": "13:03",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "UP-01-T3",
+    "routeId": "UP-01",
+    "stopId": "S60",
+    "arrivalTime": "13:15",
+    "departureTime": "13:16",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "UP-01-T3",
+    "routeId": "UP-01",
+    "stopId": "S61",
+    "arrivalTime": "13:30",
+    "departureTime": "13:31",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "UP-01-T4",
+    "routeId": "UP-01",
+    "stopId": "S50",
+    "arrivalTime": "14:02",
+    "departureTime": "14:03",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "UP-01-T4",
+    "routeId": "UP-01",
+    "stopId": "S51",
+    "arrivalTime": "14:10",
+    "departureTime": "14:11",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "UP-01-T4",
+    "routeId": "UP-01",
+    "stopId": "S52",
+    "arrivalTime": "14:20",
+    "departureTime": "14:21",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "UP-01-T4",
+    "routeId": "UP-01",
+    "stopId": "S53",
+    "arrivalTime": "14:29",
+    "departureTime": "14:30",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "UP-01-T4",
+    "routeId": "UP-01",
+    "stopId": "S54",
+    "arrivalTime": "14:38",
+    "departureTime": "14:39",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "UP-01-T4",
+    "routeId": "UP-01",
+    "stopId": "S55",
+    "arrivalTime": "14:49",
+    "departureTime": "14:50",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "UP-01-T4",
+    "routeId": "UP-01",
+    "stopId": "S56",
+    "arrivalTime": "15:04",
+    "departureTime": "15:05",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "UP-01-T4",
+    "routeId": "UP-01",
+    "stopId": "S57",
+    "arrivalTime": "15:14",
+    "departureTime": "15:15",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "UP-01-T4",
+    "routeId": "UP-01",
+    "stopId": "S58",
+    "arrivalTime": "15:27",
+    "departureTime": "15:28",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "UP-01-T4",
+    "routeId": "UP-01",
+    "stopId": "S59",
+    "arrivalTime": "15:37",
+    "departureTime": "15:38",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "UP-01-T4",
+    "routeId": "UP-01",
+    "stopId": "S60",
+    "arrivalTime": "15:48",
+    "departureTime": "15:49",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "UP-01-T4",
+    "routeId": "UP-01",
+    "stopId": "S61",
+    "arrivalTime": "15:58",
+    "departureTime": "15:59",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "UP-01-T5",
+    "routeId": "UP-01",
+    "stopId": "S50",
+    "arrivalTime": "16:25",
+    "departureTime": "16:26",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "UP-01-T5",
+    "routeId": "UP-01",
+    "stopId": "S51",
+    "arrivalTime": "16:37",
+    "departureTime": "16:38",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "UP-01-T5",
+    "routeId": "UP-01",
+    "stopId": "S52",
+    "arrivalTime": "16:49",
+    "departureTime": "16:50",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "UP-01-T5",
+    "routeId": "UP-01",
+    "stopId": "S53",
+    "arrivalTime": "16:58",
+    "departureTime": "16:59",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "UP-01-T5",
+    "routeId": "UP-01",
+    "stopId": "S54",
+    "arrivalTime": "17:10",
+    "departureTime": "17:11",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "UP-01-T5",
+    "routeId": "UP-01",
+    "stopId": "S55",
+    "arrivalTime": "17:24",
+    "departureTime": "17:25",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "UP-01-T5",
+    "routeId": "UP-01",
+    "stopId": "S56",
+    "arrivalTime": "17:34",
+    "departureTime": "17:35",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "UP-01-T5",
+    "routeId": "UP-01",
+    "stopId": "S57",
+    "arrivalTime": "17:44",
+    "departureTime": "17:45",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "UP-01-T5",
+    "routeId": "UP-01",
+    "stopId": "S58",
+    "arrivalTime": "17:53",
+    "departureTime": "17:54",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "UP-01-T5",
+    "routeId": "UP-01",
+    "stopId": "S59",
+    "arrivalTime": "18:01",
+    "departureTime": "18:02",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "UP-01-T5",
+    "routeId": "UP-01",
+    "stopId": "S60",
+    "arrivalTime": "18:09",
+    "departureTime": "18:10",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "UP-01-T5",
+    "routeId": "UP-01",
+    "stopId": "S61",
+    "arrivalTime": "18:22",
+    "departureTime": "18:23",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "UP-01-T6",
+    "routeId": "UP-01",
+    "stopId": "S50",
+    "arrivalTime": "18:18",
+    "departureTime": "18:19",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "UP-01-T6",
+    "routeId": "UP-01",
+    "stopId": "S51",
+    "arrivalTime": "18:31",
+    "departureTime": "18:32",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "UP-01-T6",
+    "routeId": "UP-01",
+    "stopId": "S52",
+    "arrivalTime": "18:42",
+    "departureTime": "18:43",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "UP-01-T6",
+    "routeId": "UP-01",
+    "stopId": "S53",
+    "arrivalTime": "18:51",
+    "departureTime": "18:52",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "UP-01-T6",
+    "routeId": "UP-01",
+    "stopId": "S54",
+    "arrivalTime": "19:06",
+    "departureTime": "19:07",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "UP-01-T6",
+    "routeId": "UP-01",
+    "stopId": "S55",
+    "arrivalTime": "19:19",
+    "departureTime": "19:20",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "UP-01-T6",
+    "routeId": "UP-01",
+    "stopId": "S56",
+    "arrivalTime": "19:30",
+    "departureTime": "19:31",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "UP-01-T6",
+    "routeId": "UP-01",
+    "stopId": "S57",
+    "arrivalTime": "19:42",
+    "departureTime": "19:43",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "UP-01-T6",
+    "routeId": "UP-01",
+    "stopId": "S58",
+    "arrivalTime": "19:51",
+    "departureTime": "19:52",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "UP-01-T6",
+    "routeId": "UP-01",
+    "stopId": "S59",
+    "arrivalTime": "19:59",
+    "departureTime": "20:00",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "UP-01-T6",
+    "routeId": "UP-01",
+    "stopId": "S60",
+    "arrivalTime": "20:07",
+    "departureTime": "20:08",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "UP-01-T6",
+    "routeId": "UP-01",
+    "stopId": "S61",
+    "arrivalTime": "20:15",
+    "departureTime": "20:16",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "UP-02-T1",
+    "routeId": "UP-02",
+    "stopId": "S62",
+    "arrivalTime": "06:02",
+    "departureTime": "06:03",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "UP-02-T1",
+    "routeId": "UP-02",
+    "stopId": "S63",
+    "arrivalTime": "06:10",
+    "departureTime": "06:11",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "UP-02-T1",
+    "routeId": "UP-02",
+    "stopId": "S64",
+    "arrivalTime": "06:25",
+    "departureTime": "06:26",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "UP-02-T1",
+    "routeId": "UP-02",
+    "stopId": "S65",
+    "arrivalTime": "06:36",
+    "departureTime": "06:37",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "UP-02-T1",
+    "routeId": "UP-02",
+    "stopId": "S66",
+    "arrivalTime": "06:51",
+    "departureTime": "06:52",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "UP-02-T1",
+    "routeId": "UP-02",
+    "stopId": "S67",
+    "arrivalTime": "07:05",
+    "departureTime": "07:06",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "UP-02-T1",
+    "routeId": "UP-02",
+    "stopId": "S68",
+    "arrivalTime": "07:18",
+    "departureTime": "07:19",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "UP-02-T1",
+    "routeId": "UP-02",
+    "stopId": "S69",
+    "arrivalTime": "07:27",
+    "departureTime": "07:28",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "UP-02-T1",
+    "routeId": "UP-02",
+    "stopId": "S70",
+    "arrivalTime": "07:38",
+    "departureTime": "07:39",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "UP-02-T1",
+    "routeId": "UP-02",
+    "stopId": "S71",
+    "arrivalTime": "07:52",
+    "departureTime": "07:53",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "UP-02-T1",
+    "routeId": "UP-02",
+    "stopId": "S72",
+    "arrivalTime": "08:00",
+    "departureTime": "08:01",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "UP-02-T1",
+    "routeId": "UP-02",
+    "stopId": "S73",
+    "arrivalTime": "08:08",
+    "departureTime": "08:09",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "UP-02-T1",
+    "routeId": "UP-02",
+    "stopId": "S74",
+    "arrivalTime": "08:20",
+    "departureTime": "08:21",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "UP-02-T2",
+    "routeId": "UP-02",
+    "stopId": "S62",
+    "arrivalTime": "08:03",
+    "departureTime": "08:04",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "UP-02-T2",
+    "routeId": "UP-02",
+    "stopId": "S63",
+    "arrivalTime": "08:12",
+    "departureTime": "08:13",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "UP-02-T2",
+    "routeId": "UP-02",
+    "stopId": "S64",
+    "arrivalTime": "08:22",
+    "departureTime": "08:23",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "UP-02-T2",
+    "routeId": "UP-02",
+    "stopId": "S65",
+    "arrivalTime": "08:30",
+    "departureTime": "08:31",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "UP-02-T2",
+    "routeId": "UP-02",
+    "stopId": "S66",
+    "arrivalTime": "08:45",
+    "departureTime": "08:46",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "UP-02-T2",
+    "routeId": "UP-02",
+    "stopId": "S67",
+    "arrivalTime": "09:00",
+    "departureTime": "09:01",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "UP-02-T2",
+    "routeId": "UP-02",
+    "stopId": "S68",
+    "arrivalTime": "09:09",
+    "departureTime": "09:10",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "UP-02-T2",
+    "routeId": "UP-02",
+    "stopId": "S69",
+    "arrivalTime": "09:18",
+    "departureTime": "09:19",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "UP-02-T2",
+    "routeId": "UP-02",
+    "stopId": "S70",
+    "arrivalTime": "09:28",
+    "departureTime": "09:29",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "UP-02-T2",
+    "routeId": "UP-02",
+    "stopId": "S71",
+    "arrivalTime": "09:40",
+    "departureTime": "09:41",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "UP-02-T2",
+    "routeId": "UP-02",
+    "stopId": "S72",
+    "arrivalTime": "09:51",
+    "departureTime": "09:52",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "UP-02-T2",
+    "routeId": "UP-02",
+    "stopId": "S73",
+    "arrivalTime": "10:01",
+    "departureTime": "10:02",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "UP-02-T2",
+    "routeId": "UP-02",
+    "stopId": "S74",
+    "arrivalTime": "10:13",
+    "departureTime": "10:14",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "UP-02-T3",
+    "routeId": "UP-02",
+    "stopId": "S62",
+    "arrivalTime": "11:22",
+    "departureTime": "11:23",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "UP-02-T3",
+    "routeId": "UP-02",
+    "stopId": "S63",
+    "arrivalTime": "11:30",
+    "departureTime": "11:31",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "UP-02-T3",
+    "routeId": "UP-02",
+    "stopId": "S64",
+    "arrivalTime": "11:41",
+    "departureTime": "11:42",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "UP-02-T3",
+    "routeId": "UP-02",
+    "stopId": "S65",
+    "arrivalTime": "11:56",
+    "departureTime": "11:57",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "UP-02-T3",
+    "routeId": "UP-02",
+    "stopId": "S66",
+    "arrivalTime": "12:04",
+    "departureTime": "12:05",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "UP-02-T3",
+    "routeId": "UP-02",
+    "stopId": "S67",
+    "arrivalTime": "12:13",
+    "departureTime": "12:14",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "UP-02-T3",
+    "routeId": "UP-02",
+    "stopId": "S68",
+    "arrivalTime": "12:22",
+    "departureTime": "12:23",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "UP-02-T3",
+    "routeId": "UP-02",
+    "stopId": "S69",
+    "arrivalTime": "12:34",
+    "departureTime": "12:35",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "UP-02-T3",
+    "routeId": "UP-02",
+    "stopId": "S70",
+    "arrivalTime": "12:44",
+    "departureTime": "12:45",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "UP-02-T3",
+    "routeId": "UP-02",
+    "stopId": "S71",
+    "arrivalTime": "12:57",
+    "departureTime": "12:58",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "UP-02-T3",
+    "routeId": "UP-02",
+    "stopId": "S72",
+    "arrivalTime": "13:08",
+    "departureTime": "13:09",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "UP-02-T3",
+    "routeId": "UP-02",
+    "stopId": "S73",
+    "arrivalTime": "13:19",
+    "departureTime": "13:20",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "UP-02-T3",
+    "routeId": "UP-02",
+    "stopId": "S74",
+    "arrivalTime": "13:32",
+    "departureTime": "13:33",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "UP-02-T4",
+    "routeId": "UP-02",
+    "stopId": "S62",
+    "arrivalTime": "14:30",
+    "departureTime": "14:31",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "UP-02-T4",
+    "routeId": "UP-02",
+    "stopId": "S63",
+    "arrivalTime": "14:41",
+    "departureTime": "14:42",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "UP-02-T4",
+    "routeId": "UP-02",
+    "stopId": "S64",
+    "arrivalTime": "14:49",
+    "departureTime": "14:50",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "UP-02-T4",
+    "routeId": "UP-02",
+    "stopId": "S65",
+    "arrivalTime": "14:58",
+    "departureTime": "14:59",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "UP-02-T4",
+    "routeId": "UP-02",
+    "stopId": "S66",
+    "arrivalTime": "15:12",
+    "departureTime": "15:13",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "UP-02-T4",
+    "routeId": "UP-02",
+    "stopId": "S67",
+    "arrivalTime": "15:22",
+    "departureTime": "15:23",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "UP-02-T4",
+    "routeId": "UP-02",
+    "stopId": "S68",
+    "arrivalTime": "15:36",
+    "departureTime": "15:37",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "UP-02-T4",
+    "routeId": "UP-02",
+    "stopId": "S69",
+    "arrivalTime": "15:48",
+    "departureTime": "15:49",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "UP-02-T4",
+    "routeId": "UP-02",
+    "stopId": "S70",
+    "arrivalTime": "16:03",
+    "departureTime": "16:04",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "UP-02-T4",
+    "routeId": "UP-02",
+    "stopId": "S71",
+    "arrivalTime": "16:15",
+    "departureTime": "16:16",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "UP-02-T4",
+    "routeId": "UP-02",
+    "stopId": "S72",
+    "arrivalTime": "16:24",
+    "departureTime": "16:25",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "UP-02-T4",
+    "routeId": "UP-02",
+    "stopId": "S73",
+    "arrivalTime": "16:39",
+    "departureTime": "16:40",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "UP-02-T4",
+    "routeId": "UP-02",
+    "stopId": "S74",
+    "arrivalTime": "16:54",
+    "departureTime": "16:55",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "UP-02-T5",
+    "routeId": "UP-02",
+    "stopId": "S62",
+    "arrivalTime": "16:00",
+    "departureTime": "16:01",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "UP-02-T5",
+    "routeId": "UP-02",
+    "stopId": "S63",
+    "arrivalTime": "16:10",
+    "departureTime": "16:11",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "UP-02-T5",
+    "routeId": "UP-02",
+    "stopId": "S64",
+    "arrivalTime": "16:19",
+    "departureTime": "16:20",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "UP-02-T5",
+    "routeId": "UP-02",
+    "stopId": "S65",
+    "arrivalTime": "16:34",
+    "departureTime": "16:35",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "UP-02-T5",
+    "routeId": "UP-02",
+    "stopId": "S66",
+    "arrivalTime": "16:49",
+    "departureTime": "16:50",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "UP-02-T5",
+    "routeId": "UP-02",
+    "stopId": "S67",
+    "arrivalTime": "17:04",
+    "departureTime": "17:05",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "UP-02-T5",
+    "routeId": "UP-02",
+    "stopId": "S68",
+    "arrivalTime": "17:17",
+    "departureTime": "17:18",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "UP-02-T5",
+    "routeId": "UP-02",
+    "stopId": "S69",
+    "arrivalTime": "17:29",
+    "departureTime": "17:30",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "UP-02-T5",
+    "routeId": "UP-02",
+    "stopId": "S70",
+    "arrivalTime": "17:39",
+    "departureTime": "17:40",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "UP-02-T5",
+    "routeId": "UP-02",
+    "stopId": "S71",
+    "arrivalTime": "17:53",
+    "departureTime": "17:54",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "UP-02-T5",
+    "routeId": "UP-02",
+    "stopId": "S72",
+    "arrivalTime": "18:03",
+    "departureTime": "18:04",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "UP-02-T5",
+    "routeId": "UP-02",
+    "stopId": "S73",
+    "arrivalTime": "18:18",
+    "departureTime": "18:19",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "UP-02-T5",
+    "routeId": "UP-02",
+    "stopId": "S74",
+    "arrivalTime": "18:30",
+    "departureTime": "18:31",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "UP-02-T6",
+    "routeId": "UP-02",
+    "stopId": "S62",
+    "arrivalTime": "18:17",
+    "departureTime": "18:18",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "UP-02-T6",
+    "routeId": "UP-02",
+    "stopId": "S63",
+    "arrivalTime": "18:27",
+    "departureTime": "18:28",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "UP-02-T6",
+    "routeId": "UP-02",
+    "stopId": "S64",
+    "arrivalTime": "18:40",
+    "departureTime": "18:41",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "UP-02-T6",
+    "routeId": "UP-02",
+    "stopId": "S65",
+    "arrivalTime": "18:50",
+    "departureTime": "18:51",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "UP-02-T6",
+    "routeId": "UP-02",
+    "stopId": "S66",
+    "arrivalTime": "19:04",
+    "departureTime": "19:05",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "UP-02-T6",
+    "routeId": "UP-02",
+    "stopId": "S67",
+    "arrivalTime": "19:18",
+    "departureTime": "19:19",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "UP-02-T6",
+    "routeId": "UP-02",
+    "stopId": "S68",
+    "arrivalTime": "19:26",
+    "departureTime": "19:27",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "UP-02-T6",
+    "routeId": "UP-02",
+    "stopId": "S69",
+    "arrivalTime": "19:41",
+    "departureTime": "19:42",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "UP-02-T6",
+    "routeId": "UP-02",
+    "stopId": "S70",
+    "arrivalTime": "19:50",
+    "departureTime": "19:51",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "UP-02-T6",
+    "routeId": "UP-02",
+    "stopId": "S71",
+    "arrivalTime": "20:01",
+    "departureTime": "20:02",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "UP-02-T6",
+    "routeId": "UP-02",
+    "stopId": "S72",
+    "arrivalTime": "20:11",
+    "departureTime": "20:12",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "UP-02-T6",
+    "routeId": "UP-02",
+    "stopId": "S73",
+    "arrivalTime": "20:24",
+    "departureTime": "20:25",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "UP-02-T6",
+    "routeId": "UP-02",
+    "stopId": "S74",
+    "arrivalTime": "20:37",
+    "departureTime": "20:38",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "MH-01-T1",
+    "routeId": "MH-01",
+    "stopId": "S75",
+    "arrivalTime": "06:19",
+    "departureTime": "06:20",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "MH-01-T1",
+    "routeId": "MH-01",
+    "stopId": "S76",
+    "arrivalTime": "06:28",
+    "departureTime": "06:29",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "MH-01-T1",
+    "routeId": "MH-01",
+    "stopId": "S77",
+    "arrivalTime": "06:36",
+    "departureTime": "06:37",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "MH-01-T1",
+    "routeId": "MH-01",
+    "stopId": "S78",
+    "arrivalTime": "06:45",
+    "departureTime": "06:46",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "MH-01-T1",
+    "routeId": "MH-01",
+    "stopId": "S79",
+    "arrivalTime": "06:54",
+    "departureTime": "06:55",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "MH-01-T1",
+    "routeId": "MH-01",
+    "stopId": "S80",
+    "arrivalTime": "07:03",
+    "departureTime": "07:04",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "MH-01-T1",
+    "routeId": "MH-01",
+    "stopId": "S81",
+    "arrivalTime": "07:16",
+    "departureTime": "07:17",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "MH-01-T1",
+    "routeId": "MH-01",
+    "stopId": "S82",
+    "arrivalTime": "07:26",
+    "departureTime": "07:27",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "MH-01-T1",
+    "routeId": "MH-01",
+    "stopId": "S83",
+    "arrivalTime": "07:34",
+    "departureTime": "07:35",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "MH-01-T1",
+    "routeId": "MH-01",
+    "stopId": "S84",
+    "arrivalTime": "07:42",
+    "departureTime": "07:43",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "MH-01-T1",
+    "routeId": "MH-01",
+    "stopId": "S85",
+    "arrivalTime": "07:55",
+    "departureTime": "07:56",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "MH-01-T1",
+    "routeId": "MH-01",
+    "stopId": "S86",
+    "arrivalTime": "08:08",
+    "departureTime": "08:09",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "MH-01-T1",
+    "routeId": "MH-01",
+    "stopId": "S87",
+    "arrivalTime": "08:18",
+    "departureTime": "08:19",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "MH-01-T1",
+    "routeId": "MH-01",
+    "stopId": "S88",
+    "arrivalTime": "08:33",
+    "departureTime": "08:34",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "MH-01-T1",
+    "routeId": "MH-01",
+    "stopId": "S89",
+    "arrivalTime": "08:43",
+    "departureTime": "08:44",
+    "stopSequence": 15
+  },
+  {
+    "tripId": "MH-01-T2",
+    "routeId": "MH-01",
+    "stopId": "S75",
+    "arrivalTime": "08:02",
+    "departureTime": "08:03",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "MH-01-T2",
+    "routeId": "MH-01",
+    "stopId": "S76",
+    "arrivalTime": "08:15",
+    "departureTime": "08:16",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "MH-01-T2",
+    "routeId": "MH-01",
+    "stopId": "S77",
+    "arrivalTime": "08:28",
+    "departureTime": "08:29",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "MH-01-T2",
+    "routeId": "MH-01",
+    "stopId": "S78",
+    "arrivalTime": "08:40",
+    "departureTime": "08:41",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "MH-01-T2",
+    "routeId": "MH-01",
+    "stopId": "S79",
+    "arrivalTime": "08:53",
+    "departureTime": "08:54",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "MH-01-T2",
+    "routeId": "MH-01",
+    "stopId": "S80",
+    "arrivalTime": "09:03",
+    "departureTime": "09:04",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "MH-01-T2",
+    "routeId": "MH-01",
+    "stopId": "S81",
+    "arrivalTime": "09:14",
+    "departureTime": "09:15",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "MH-01-T2",
+    "routeId": "MH-01",
+    "stopId": "S82",
+    "arrivalTime": "09:23",
+    "departureTime": "09:24",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "MH-01-T2",
+    "routeId": "MH-01",
+    "stopId": "S83",
+    "arrivalTime": "09:31",
+    "departureTime": "09:32",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "MH-01-T2",
+    "routeId": "MH-01",
+    "stopId": "S84",
+    "arrivalTime": "09:41",
+    "departureTime": "09:42",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "MH-01-T2",
+    "routeId": "MH-01",
+    "stopId": "S85",
+    "arrivalTime": "09:56",
+    "departureTime": "09:57",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "MH-01-T2",
+    "routeId": "MH-01",
+    "stopId": "S86",
+    "arrivalTime": "10:06",
+    "departureTime": "10:07",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "MH-01-T2",
+    "routeId": "MH-01",
+    "stopId": "S87",
+    "arrivalTime": "10:19",
+    "departureTime": "10:20",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "MH-01-T2",
+    "routeId": "MH-01",
+    "stopId": "S88",
+    "arrivalTime": "10:29",
+    "departureTime": "10:30",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "MH-01-T2",
+    "routeId": "MH-01",
+    "stopId": "S89",
+    "arrivalTime": "10:43",
+    "departureTime": "10:44",
+    "stopSequence": 15
+  },
+  {
+    "tripId": "MH-01-T3",
+    "routeId": "MH-01",
+    "stopId": "S75",
+    "arrivalTime": "11:30",
+    "departureTime": "11:31",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "MH-01-T3",
+    "routeId": "MH-01",
+    "stopId": "S76",
+    "arrivalTime": "11:43",
+    "departureTime": "11:44",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "MH-01-T3",
+    "routeId": "MH-01",
+    "stopId": "S77",
+    "arrivalTime": "11:52",
+    "departureTime": "11:53",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "MH-01-T3",
+    "routeId": "MH-01",
+    "stopId": "S78",
+    "arrivalTime": "12:06",
+    "departureTime": "12:07",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "MH-01-T3",
+    "routeId": "MH-01",
+    "stopId": "S79",
+    "arrivalTime": "12:17",
+    "departureTime": "12:18",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "MH-01-T3",
+    "routeId": "MH-01",
+    "stopId": "S80",
+    "arrivalTime": "12:25",
+    "departureTime": "12:26",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "MH-01-T3",
+    "routeId": "MH-01",
+    "stopId": "S81",
+    "arrivalTime": "12:38",
+    "departureTime": "12:39",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "MH-01-T3",
+    "routeId": "MH-01",
+    "stopId": "S82",
+    "arrivalTime": "12:49",
+    "departureTime": "12:50",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "MH-01-T3",
+    "routeId": "MH-01",
+    "stopId": "S83",
+    "arrivalTime": "12:57",
+    "departureTime": "12:58",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "MH-01-T3",
+    "routeId": "MH-01",
+    "stopId": "S84",
+    "arrivalTime": "13:10",
+    "departureTime": "13:11",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "MH-01-T3",
+    "routeId": "MH-01",
+    "stopId": "S85",
+    "arrivalTime": "13:18",
+    "departureTime": "13:19",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "MH-01-T3",
+    "routeId": "MH-01",
+    "stopId": "S86",
+    "arrivalTime": "13:26",
+    "departureTime": "13:27",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "MH-01-T3",
+    "routeId": "MH-01",
+    "stopId": "S87",
+    "arrivalTime": "13:36",
+    "departureTime": "13:37",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "MH-01-T3",
+    "routeId": "MH-01",
+    "stopId": "S88",
+    "arrivalTime": "13:47",
+    "departureTime": "13:48",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "MH-01-T3",
+    "routeId": "MH-01",
+    "stopId": "S89",
+    "arrivalTime": "13:56",
+    "departureTime": "13:57",
+    "stopSequence": 15
+  },
+  {
+    "tripId": "MH-01-T4",
+    "routeId": "MH-01",
+    "stopId": "S75",
+    "arrivalTime": "14:14",
+    "departureTime": "14:15",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "MH-01-T4",
+    "routeId": "MH-01",
+    "stopId": "S76",
+    "arrivalTime": "14:29",
+    "departureTime": "14:30",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "MH-01-T4",
+    "routeId": "MH-01",
+    "stopId": "S77",
+    "arrivalTime": "14:39",
+    "departureTime": "14:40",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "MH-01-T4",
+    "routeId": "MH-01",
+    "stopId": "S78",
+    "arrivalTime": "14:50",
+    "departureTime": "14:51",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "MH-01-T4",
+    "routeId": "MH-01",
+    "stopId": "S79",
+    "arrivalTime": "14:59",
+    "departureTime": "15:00",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "MH-01-T4",
+    "routeId": "MH-01",
+    "stopId": "S80",
+    "arrivalTime": "15:09",
+    "departureTime": "15:10",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "MH-01-T4",
+    "routeId": "MH-01",
+    "stopId": "S81",
+    "arrivalTime": "15:19",
+    "departureTime": "15:20",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "MH-01-T4",
+    "routeId": "MH-01",
+    "stopId": "S82",
+    "arrivalTime": "15:32",
+    "departureTime": "15:33",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "MH-01-T4",
+    "routeId": "MH-01",
+    "stopId": "S83",
+    "arrivalTime": "15:45",
+    "departureTime": "15:46",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "MH-01-T4",
+    "routeId": "MH-01",
+    "stopId": "S84",
+    "arrivalTime": "15:54",
+    "departureTime": "15:55",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "MH-01-T4",
+    "routeId": "MH-01",
+    "stopId": "S85",
+    "arrivalTime": "16:03",
+    "departureTime": "16:04",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "MH-01-T4",
+    "routeId": "MH-01",
+    "stopId": "S86",
+    "arrivalTime": "16:17",
+    "departureTime": "16:18",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "MH-01-T4",
+    "routeId": "MH-01",
+    "stopId": "S87",
+    "arrivalTime": "16:32",
+    "departureTime": "16:33",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "MH-01-T4",
+    "routeId": "MH-01",
+    "stopId": "S88",
+    "arrivalTime": "16:41",
+    "departureTime": "16:42",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "MH-01-T4",
+    "routeId": "MH-01",
+    "stopId": "S89",
+    "arrivalTime": "16:50",
+    "departureTime": "16:51",
+    "stopSequence": 15
+  },
+  {
+    "tripId": "MH-01-T5",
+    "routeId": "MH-01",
+    "stopId": "S75",
+    "arrivalTime": "16:29",
+    "departureTime": "16:30",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "MH-01-T5",
+    "routeId": "MH-01",
+    "stopId": "S76",
+    "arrivalTime": "16:40",
+    "departureTime": "16:41",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "MH-01-T5",
+    "routeId": "MH-01",
+    "stopId": "S77",
+    "arrivalTime": "16:54",
+    "departureTime": "16:55",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "MH-01-T5",
+    "routeId": "MH-01",
+    "stopId": "S78",
+    "arrivalTime": "17:07",
+    "departureTime": "17:08",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "MH-01-T5",
+    "routeId": "MH-01",
+    "stopId": "S79",
+    "arrivalTime": "17:15",
+    "departureTime": "17:16",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "MH-01-T5",
+    "routeId": "MH-01",
+    "stopId": "S80",
+    "arrivalTime": "17:26",
+    "departureTime": "17:27",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "MH-01-T5",
+    "routeId": "MH-01",
+    "stopId": "S81",
+    "arrivalTime": "17:34",
+    "departureTime": "17:35",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "MH-01-T5",
+    "routeId": "MH-01",
+    "stopId": "S82",
+    "arrivalTime": "17:48",
+    "departureTime": "17:49",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "MH-01-T5",
+    "routeId": "MH-01",
+    "stopId": "S83",
+    "arrivalTime": "18:03",
+    "departureTime": "18:04",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "MH-01-T5",
+    "routeId": "MH-01",
+    "stopId": "S84",
+    "arrivalTime": "18:14",
+    "departureTime": "18:15",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "MH-01-T5",
+    "routeId": "MH-01",
+    "stopId": "S85",
+    "arrivalTime": "18:23",
+    "departureTime": "18:24",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "MH-01-T5",
+    "routeId": "MH-01",
+    "stopId": "S86",
+    "arrivalTime": "18:31",
+    "departureTime": "18:32",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "MH-01-T5",
+    "routeId": "MH-01",
+    "stopId": "S87",
+    "arrivalTime": "18:40",
+    "departureTime": "18:41",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "MH-01-T5",
+    "routeId": "MH-01",
+    "stopId": "S88",
+    "arrivalTime": "18:53",
+    "departureTime": "18:54",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "MH-01-T5",
+    "routeId": "MH-01",
+    "stopId": "S89",
+    "arrivalTime": "19:04",
+    "departureTime": "19:05",
+    "stopSequence": 15
+  },
+  {
+    "tripId": "MH-01-T6",
+    "routeId": "MH-01",
+    "stopId": "S75",
+    "arrivalTime": "18:17",
+    "departureTime": "18:18",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "MH-01-T6",
+    "routeId": "MH-01",
+    "stopId": "S76",
+    "arrivalTime": "18:25",
+    "departureTime": "18:26",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "MH-01-T6",
+    "routeId": "MH-01",
+    "stopId": "S77",
+    "arrivalTime": "18:33",
+    "departureTime": "18:34",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "MH-01-T6",
+    "routeId": "MH-01",
+    "stopId": "S78",
+    "arrivalTime": "18:45",
+    "departureTime": "18:46",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "MH-01-T6",
+    "routeId": "MH-01",
+    "stopId": "S79",
+    "arrivalTime": "18:57",
+    "departureTime": "18:58",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "MH-01-T6",
+    "routeId": "MH-01",
+    "stopId": "S80",
+    "arrivalTime": "19:06",
+    "departureTime": "19:07",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "MH-01-T6",
+    "routeId": "MH-01",
+    "stopId": "S81",
+    "arrivalTime": "19:19",
+    "departureTime": "19:20",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "MH-01-T6",
+    "routeId": "MH-01",
+    "stopId": "S82",
+    "arrivalTime": "19:31",
+    "departureTime": "19:32",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "MH-01-T6",
+    "routeId": "MH-01",
+    "stopId": "S83",
+    "arrivalTime": "19:43",
+    "departureTime": "19:44",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "MH-01-T6",
+    "routeId": "MH-01",
+    "stopId": "S84",
+    "arrivalTime": "19:54",
+    "departureTime": "19:55",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "MH-01-T6",
+    "routeId": "MH-01",
+    "stopId": "S85",
+    "arrivalTime": "20:03",
+    "departureTime": "20:04",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "MH-01-T6",
+    "routeId": "MH-01",
+    "stopId": "S86",
+    "arrivalTime": "20:13",
+    "departureTime": "20:14",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "MH-01-T6",
+    "routeId": "MH-01",
+    "stopId": "S87",
+    "arrivalTime": "20:23",
+    "departureTime": "20:24",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "MH-01-T6",
+    "routeId": "MH-01",
+    "stopId": "S88",
+    "arrivalTime": "20:33",
+    "departureTime": "20:34",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "MH-01-T6",
+    "routeId": "MH-01",
+    "stopId": "S89",
+    "arrivalTime": "20:45",
+    "departureTime": "20:46",
+    "stopSequence": 15
+  },
+  {
+    "tripId": "MH-02-T1",
+    "routeId": "MH-02",
+    "stopId": "S90",
+    "arrivalTime": "06:14",
+    "departureTime": "06:15",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "MH-02-T1",
+    "routeId": "MH-02",
+    "stopId": "S91",
+    "arrivalTime": "06:24",
+    "departureTime": "06:25",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "MH-02-T1",
+    "routeId": "MH-02",
+    "stopId": "S92",
+    "arrivalTime": "06:32",
+    "departureTime": "06:33",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "MH-02-T1",
+    "routeId": "MH-02",
+    "stopId": "S93",
+    "arrivalTime": "06:43",
+    "departureTime": "06:44",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "MH-02-T1",
+    "routeId": "MH-02",
+    "stopId": "S94",
+    "arrivalTime": "06:51",
+    "departureTime": "06:52",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "MH-02-T1",
+    "routeId": "MH-02",
+    "stopId": "S95",
+    "arrivalTime": "07:06",
+    "departureTime": "07:07",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "MH-02-T1",
+    "routeId": "MH-02",
+    "stopId": "S96",
+    "arrivalTime": "07:19",
+    "departureTime": "07:20",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "MH-02-T1",
+    "routeId": "MH-02",
+    "stopId": "S97",
+    "arrivalTime": "07:30",
+    "departureTime": "07:31",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "MH-02-T1",
+    "routeId": "MH-02",
+    "stopId": "S98",
+    "arrivalTime": "07:39",
+    "departureTime": "07:40",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "MH-02-T1",
+    "routeId": "MH-02",
+    "stopId": "S99",
+    "arrivalTime": "07:54",
+    "departureTime": "07:55",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "MH-02-T1",
+    "routeId": "MH-02",
+    "stopId": "S100",
+    "arrivalTime": "08:03",
+    "departureTime": "08:04",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "MH-02-T1",
+    "routeId": "MH-02",
+    "stopId": "S101",
+    "arrivalTime": "08:12",
+    "departureTime": "08:13",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "MH-02-T1",
+    "routeId": "MH-02",
+    "stopId": "S102",
+    "arrivalTime": "08:23",
+    "departureTime": "08:24",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "MH-02-T1",
+    "routeId": "MH-02",
+    "stopId": "S103",
+    "arrivalTime": "08:36",
+    "departureTime": "08:37",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "MH-02-T2",
+    "routeId": "MH-02",
+    "stopId": "S90",
+    "arrivalTime": "08:12",
+    "departureTime": "08:13",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "MH-02-T2",
+    "routeId": "MH-02",
+    "stopId": "S91",
+    "arrivalTime": "08:25",
+    "departureTime": "08:26",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "MH-02-T2",
+    "routeId": "MH-02",
+    "stopId": "S92",
+    "arrivalTime": "08:35",
+    "departureTime": "08:36",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "MH-02-T2",
+    "routeId": "MH-02",
+    "stopId": "S93",
+    "arrivalTime": "08:49",
+    "departureTime": "08:50",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "MH-02-T2",
+    "routeId": "MH-02",
+    "stopId": "S94",
+    "arrivalTime": "09:03",
+    "departureTime": "09:04",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "MH-02-T2",
+    "routeId": "MH-02",
+    "stopId": "S95",
+    "arrivalTime": "09:18",
+    "departureTime": "09:19",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "MH-02-T2",
+    "routeId": "MH-02",
+    "stopId": "S96",
+    "arrivalTime": "09:32",
+    "departureTime": "09:33",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "MH-02-T2",
+    "routeId": "MH-02",
+    "stopId": "S97",
+    "arrivalTime": "09:40",
+    "departureTime": "09:41",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "MH-02-T2",
+    "routeId": "MH-02",
+    "stopId": "S98",
+    "arrivalTime": "09:48",
+    "departureTime": "09:49",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "MH-02-T2",
+    "routeId": "MH-02",
+    "stopId": "S99",
+    "arrivalTime": "10:01",
+    "departureTime": "10:02",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "MH-02-T2",
+    "routeId": "MH-02",
+    "stopId": "S100",
+    "arrivalTime": "10:14",
+    "departureTime": "10:15",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "MH-02-T2",
+    "routeId": "MH-02",
+    "stopId": "S101",
+    "arrivalTime": "10:22",
+    "departureTime": "10:23",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "MH-02-T2",
+    "routeId": "MH-02",
+    "stopId": "S102",
+    "arrivalTime": "10:32",
+    "departureTime": "10:33",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "MH-02-T2",
+    "routeId": "MH-02",
+    "stopId": "S103",
+    "arrivalTime": "10:46",
+    "departureTime": "10:47",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "MH-02-T3",
+    "routeId": "MH-02",
+    "stopId": "S90",
+    "arrivalTime": "11:22",
+    "departureTime": "11:23",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "MH-02-T3",
+    "routeId": "MH-02",
+    "stopId": "S91",
+    "arrivalTime": "11:35",
+    "departureTime": "11:36",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "MH-02-T3",
+    "routeId": "MH-02",
+    "stopId": "S92",
+    "arrivalTime": "11:49",
+    "departureTime": "11:50",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "MH-02-T3",
+    "routeId": "MH-02",
+    "stopId": "S93",
+    "arrivalTime": "11:59",
+    "departureTime": "12:00",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "MH-02-T3",
+    "routeId": "MH-02",
+    "stopId": "S94",
+    "arrivalTime": "12:12",
+    "departureTime": "12:13",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "MH-02-T3",
+    "routeId": "MH-02",
+    "stopId": "S95",
+    "arrivalTime": "12:26",
+    "departureTime": "12:27",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "MH-02-T3",
+    "routeId": "MH-02",
+    "stopId": "S96",
+    "arrivalTime": "12:38",
+    "departureTime": "12:39",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "MH-02-T3",
+    "routeId": "MH-02",
+    "stopId": "S97",
+    "arrivalTime": "12:46",
+    "departureTime": "12:47",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "MH-02-T3",
+    "routeId": "MH-02",
+    "stopId": "S98",
+    "arrivalTime": "12:55",
+    "departureTime": "12:56",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "MH-02-T3",
+    "routeId": "MH-02",
+    "stopId": "S99",
+    "arrivalTime": "13:07",
+    "departureTime": "13:08",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "MH-02-T3",
+    "routeId": "MH-02",
+    "stopId": "S100",
+    "arrivalTime": "13:19",
+    "departureTime": "13:20",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "MH-02-T3",
+    "routeId": "MH-02",
+    "stopId": "S101",
+    "arrivalTime": "13:31",
+    "departureTime": "13:32",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "MH-02-T3",
+    "routeId": "MH-02",
+    "stopId": "S102",
+    "arrivalTime": "13:42",
+    "departureTime": "13:43",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "MH-02-T3",
+    "routeId": "MH-02",
+    "stopId": "S103",
+    "arrivalTime": "13:50",
+    "departureTime": "13:51",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "MH-02-T4",
+    "routeId": "MH-02",
+    "stopId": "S90",
+    "arrivalTime": "14:23",
+    "departureTime": "14:24",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "MH-02-T4",
+    "routeId": "MH-02",
+    "stopId": "S91",
+    "arrivalTime": "14:38",
+    "departureTime": "14:39",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "MH-02-T4",
+    "routeId": "MH-02",
+    "stopId": "S92",
+    "arrivalTime": "14:50",
+    "departureTime": "14:51",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "MH-02-T4",
+    "routeId": "MH-02",
+    "stopId": "S93",
+    "arrivalTime": "15:00",
+    "departureTime": "15:01",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "MH-02-T4",
+    "routeId": "MH-02",
+    "stopId": "S94",
+    "arrivalTime": "15:11",
+    "departureTime": "15:12",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "MH-02-T4",
+    "routeId": "MH-02",
+    "stopId": "S95",
+    "arrivalTime": "15:25",
+    "departureTime": "15:26",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "MH-02-T4",
+    "routeId": "MH-02",
+    "stopId": "S96",
+    "arrivalTime": "15:34",
+    "departureTime": "15:35",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "MH-02-T4",
+    "routeId": "MH-02",
+    "stopId": "S97",
+    "arrivalTime": "15:42",
+    "departureTime": "15:43",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "MH-02-T4",
+    "routeId": "MH-02",
+    "stopId": "S98",
+    "arrivalTime": "15:54",
+    "departureTime": "15:55",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "MH-02-T4",
+    "routeId": "MH-02",
+    "stopId": "S99",
+    "arrivalTime": "16:06",
+    "departureTime": "16:07",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "MH-02-T4",
+    "routeId": "MH-02",
+    "stopId": "S100",
+    "arrivalTime": "16:18",
+    "departureTime": "16:19",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "MH-02-T4",
+    "routeId": "MH-02",
+    "stopId": "S101",
+    "arrivalTime": "16:26",
+    "departureTime": "16:27",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "MH-02-T4",
+    "routeId": "MH-02",
+    "stopId": "S102",
+    "arrivalTime": "16:41",
+    "departureTime": "16:42",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "MH-02-T4",
+    "routeId": "MH-02",
+    "stopId": "S103",
+    "arrivalTime": "16:53",
+    "departureTime": "16:54",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "MH-02-T5",
+    "routeId": "MH-02",
+    "stopId": "S90",
+    "arrivalTime": "16:27",
+    "departureTime": "16:28",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "MH-02-T5",
+    "routeId": "MH-02",
+    "stopId": "S91",
+    "arrivalTime": "16:35",
+    "departureTime": "16:36",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "MH-02-T5",
+    "routeId": "MH-02",
+    "stopId": "S92",
+    "arrivalTime": "16:44",
+    "departureTime": "16:45",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "MH-02-T5",
+    "routeId": "MH-02",
+    "stopId": "S93",
+    "arrivalTime": "16:53",
+    "departureTime": "16:54",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "MH-02-T5",
+    "routeId": "MH-02",
+    "stopId": "S94",
+    "arrivalTime": "17:04",
+    "departureTime": "17:05",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "MH-02-T5",
+    "routeId": "MH-02",
+    "stopId": "S95",
+    "arrivalTime": "17:19",
+    "departureTime": "17:20",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "MH-02-T5",
+    "routeId": "MH-02",
+    "stopId": "S96",
+    "arrivalTime": "17:31",
+    "departureTime": "17:32",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "MH-02-T5",
+    "routeId": "MH-02",
+    "stopId": "S97",
+    "arrivalTime": "17:46",
+    "departureTime": "17:47",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "MH-02-T5",
+    "routeId": "MH-02",
+    "stopId": "S98",
+    "arrivalTime": "17:59",
+    "departureTime": "18:00",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "MH-02-T5",
+    "routeId": "MH-02",
+    "stopId": "S99",
+    "arrivalTime": "18:14",
+    "departureTime": "18:15",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "MH-02-T5",
+    "routeId": "MH-02",
+    "stopId": "S100",
+    "arrivalTime": "18:26",
+    "departureTime": "18:27",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "MH-02-T5",
+    "routeId": "MH-02",
+    "stopId": "S101",
+    "arrivalTime": "18:41",
+    "departureTime": "18:42",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "MH-02-T5",
+    "routeId": "MH-02",
+    "stopId": "S102",
+    "arrivalTime": "18:50",
+    "departureTime": "18:51",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "MH-02-T5",
+    "routeId": "MH-02",
+    "stopId": "S103",
+    "arrivalTime": "18:58",
+    "departureTime": "18:59",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "MH-02-T6",
+    "routeId": "MH-02",
+    "stopId": "S90",
+    "arrivalTime": "18:29",
+    "departureTime": "18:30",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "MH-02-T6",
+    "routeId": "MH-02",
+    "stopId": "S91",
+    "arrivalTime": "18:42",
+    "departureTime": "18:43",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "MH-02-T6",
+    "routeId": "MH-02",
+    "stopId": "S92",
+    "arrivalTime": "18:52",
+    "departureTime": "18:53",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "MH-02-T6",
+    "routeId": "MH-02",
+    "stopId": "S93",
+    "arrivalTime": "19:03",
+    "departureTime": "19:04",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "MH-02-T6",
+    "routeId": "MH-02",
+    "stopId": "S94",
+    "arrivalTime": "19:15",
+    "departureTime": "19:16",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "MH-02-T6",
+    "routeId": "MH-02",
+    "stopId": "S95",
+    "arrivalTime": "19:29",
+    "departureTime": "19:30",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "MH-02-T6",
+    "routeId": "MH-02",
+    "stopId": "S96",
+    "arrivalTime": "19:40",
+    "departureTime": "19:41",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "MH-02-T6",
+    "routeId": "MH-02",
+    "stopId": "S97",
+    "arrivalTime": "19:52",
+    "departureTime": "19:53",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "MH-02-T6",
+    "routeId": "MH-02",
+    "stopId": "S98",
+    "arrivalTime": "20:01",
+    "departureTime": "20:02",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "MH-02-T6",
+    "routeId": "MH-02",
+    "stopId": "S99",
+    "arrivalTime": "20:16",
+    "departureTime": "20:17",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "MH-02-T6",
+    "routeId": "MH-02",
+    "stopId": "S100",
+    "arrivalTime": "20:24",
+    "departureTime": "20:25",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "MH-02-T6",
+    "routeId": "MH-02",
+    "stopId": "S101",
+    "arrivalTime": "20:32",
+    "departureTime": "20:33",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "MH-02-T6",
+    "routeId": "MH-02",
+    "stopId": "S102",
+    "arrivalTime": "20:41",
+    "departureTime": "20:42",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "MH-02-T6",
+    "routeId": "MH-02",
+    "stopId": "S103",
+    "arrivalTime": "20:52",
+    "departureTime": "20:53",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "KA-01-T1",
+    "routeId": "KA-01",
+    "stopId": "S104",
+    "arrivalTime": "06:11",
+    "departureTime": "06:12",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "KA-01-T1",
+    "routeId": "KA-01",
+    "stopId": "S105",
+    "arrivalTime": "06:26",
+    "departureTime": "06:27",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "KA-01-T1",
+    "routeId": "KA-01",
+    "stopId": "S106",
+    "arrivalTime": "06:37",
+    "departureTime": "06:38",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "KA-01-T1",
+    "routeId": "KA-01",
+    "stopId": "S107",
+    "arrivalTime": "06:48",
+    "departureTime": "06:49",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "KA-01-T1",
+    "routeId": "KA-01",
+    "stopId": "S108",
+    "arrivalTime": "07:01",
+    "departureTime": "07:02",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "KA-01-T1",
+    "routeId": "KA-01",
+    "stopId": "S109",
+    "arrivalTime": "07:09",
+    "departureTime": "07:10",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "KA-01-T1",
+    "routeId": "KA-01",
+    "stopId": "S110",
+    "arrivalTime": "07:17",
+    "departureTime": "07:18",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "KA-01-T1",
+    "routeId": "KA-01",
+    "stopId": "S111",
+    "arrivalTime": "07:26",
+    "departureTime": "07:27",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "KA-01-T1",
+    "routeId": "KA-01",
+    "stopId": "S112",
+    "arrivalTime": "07:36",
+    "departureTime": "07:37",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "KA-01-T1",
+    "routeId": "KA-01",
+    "stopId": "S113",
+    "arrivalTime": "07:45",
+    "departureTime": "07:46",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "KA-01-T1",
+    "routeId": "KA-01",
+    "stopId": "S114",
+    "arrivalTime": "07:54",
+    "departureTime": "07:55",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "KA-01-T1",
+    "routeId": "KA-01",
+    "stopId": "S115",
+    "arrivalTime": "08:09",
+    "departureTime": "08:10",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "KA-01-T2",
+    "routeId": "KA-01",
+    "stopId": "S104",
+    "arrivalTime": "08:13",
+    "departureTime": "08:14",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "KA-01-T2",
+    "routeId": "KA-01",
+    "stopId": "S105",
+    "arrivalTime": "08:24",
+    "departureTime": "08:25",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "KA-01-T2",
+    "routeId": "KA-01",
+    "stopId": "S106",
+    "arrivalTime": "08:37",
+    "departureTime": "08:38",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "KA-01-T2",
+    "routeId": "KA-01",
+    "stopId": "S107",
+    "arrivalTime": "08:51",
+    "departureTime": "08:52",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "KA-01-T2",
+    "routeId": "KA-01",
+    "stopId": "S108",
+    "arrivalTime": "09:03",
+    "departureTime": "09:04",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "KA-01-T2",
+    "routeId": "KA-01",
+    "stopId": "S109",
+    "arrivalTime": "09:13",
+    "departureTime": "09:14",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "KA-01-T2",
+    "routeId": "KA-01",
+    "stopId": "S110",
+    "arrivalTime": "09:25",
+    "departureTime": "09:26",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "KA-01-T2",
+    "routeId": "KA-01",
+    "stopId": "S111",
+    "arrivalTime": "09:39",
+    "departureTime": "09:40",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "KA-01-T2",
+    "routeId": "KA-01",
+    "stopId": "S112",
+    "arrivalTime": "09:49",
+    "departureTime": "09:50",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "KA-01-T2",
+    "routeId": "KA-01",
+    "stopId": "S113",
+    "arrivalTime": "09:59",
+    "departureTime": "10:00",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "KA-01-T2",
+    "routeId": "KA-01",
+    "stopId": "S114",
+    "arrivalTime": "10:10",
+    "departureTime": "10:11",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "KA-01-T2",
+    "routeId": "KA-01",
+    "stopId": "S115",
+    "arrivalTime": "10:25",
+    "departureTime": "10:26",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "KA-01-T3",
+    "routeId": "KA-01",
+    "stopId": "S104",
+    "arrivalTime": "11:04",
+    "departureTime": "11:05",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "KA-01-T3",
+    "routeId": "KA-01",
+    "stopId": "S105",
+    "arrivalTime": "11:16",
+    "departureTime": "11:17",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "KA-01-T3",
+    "routeId": "KA-01",
+    "stopId": "S106",
+    "arrivalTime": "11:31",
+    "departureTime": "11:32",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "KA-01-T3",
+    "routeId": "KA-01",
+    "stopId": "S107",
+    "arrivalTime": "11:46",
+    "departureTime": "11:47",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "KA-01-T3",
+    "routeId": "KA-01",
+    "stopId": "S108",
+    "arrivalTime": "11:58",
+    "departureTime": "11:59",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "KA-01-T3",
+    "routeId": "KA-01",
+    "stopId": "S109",
+    "arrivalTime": "12:06",
+    "departureTime": "12:07",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "KA-01-T3",
+    "routeId": "KA-01",
+    "stopId": "S110",
+    "arrivalTime": "12:14",
+    "departureTime": "12:15",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "KA-01-T3",
+    "routeId": "KA-01",
+    "stopId": "S111",
+    "arrivalTime": "12:23",
+    "departureTime": "12:24",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "KA-01-T3",
+    "routeId": "KA-01",
+    "stopId": "S112",
+    "arrivalTime": "12:31",
+    "departureTime": "12:32",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "KA-01-T3",
+    "routeId": "KA-01",
+    "stopId": "S113",
+    "arrivalTime": "12:43",
+    "departureTime": "12:44",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "KA-01-T3",
+    "routeId": "KA-01",
+    "stopId": "S114",
+    "arrivalTime": "12:51",
+    "departureTime": "12:52",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "KA-01-T3",
+    "routeId": "KA-01",
+    "stopId": "S115",
+    "arrivalTime": "13:01",
+    "departureTime": "13:02",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "KA-01-T4",
+    "routeId": "KA-01",
+    "stopId": "S104",
+    "arrivalTime": "14:12",
+    "departureTime": "14:13",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "KA-01-T4",
+    "routeId": "KA-01",
+    "stopId": "S105",
+    "arrivalTime": "14:21",
+    "departureTime": "14:22",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "KA-01-T4",
+    "routeId": "KA-01",
+    "stopId": "S106",
+    "arrivalTime": "14:33",
+    "departureTime": "14:34",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "KA-01-T4",
+    "routeId": "KA-01",
+    "stopId": "S107",
+    "arrivalTime": "14:48",
+    "departureTime": "14:49",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "KA-01-T4",
+    "routeId": "KA-01",
+    "stopId": "S108",
+    "arrivalTime": "14:59",
+    "departureTime": "15:00",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "KA-01-T4",
+    "routeId": "KA-01",
+    "stopId": "S109",
+    "arrivalTime": "15:08",
+    "departureTime": "15:09",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "KA-01-T4",
+    "routeId": "KA-01",
+    "stopId": "S110",
+    "arrivalTime": "15:20",
+    "departureTime": "15:21",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "KA-01-T4",
+    "routeId": "KA-01",
+    "stopId": "S111",
+    "arrivalTime": "15:28",
+    "departureTime": "15:29",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "KA-01-T4",
+    "routeId": "KA-01",
+    "stopId": "S112",
+    "arrivalTime": "15:38",
+    "departureTime": "15:39",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "KA-01-T4",
+    "routeId": "KA-01",
+    "stopId": "S113",
+    "arrivalTime": "15:51",
+    "departureTime": "15:52",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "KA-01-T4",
+    "routeId": "KA-01",
+    "stopId": "S114",
+    "arrivalTime": "16:04",
+    "departureTime": "16:05",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "KA-01-T4",
+    "routeId": "KA-01",
+    "stopId": "S115",
+    "arrivalTime": "16:13",
+    "departureTime": "16:14",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "KA-01-T5",
+    "routeId": "KA-01",
+    "stopId": "S104",
+    "arrivalTime": "16:25",
+    "departureTime": "16:26",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "KA-01-T5",
+    "routeId": "KA-01",
+    "stopId": "S105",
+    "arrivalTime": "16:38",
+    "departureTime": "16:39",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "KA-01-T5",
+    "routeId": "KA-01",
+    "stopId": "S106",
+    "arrivalTime": "16:49",
+    "departureTime": "16:50",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "KA-01-T5",
+    "routeId": "KA-01",
+    "stopId": "S107",
+    "arrivalTime": "16:58",
+    "departureTime": "16:59",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "KA-01-T5",
+    "routeId": "KA-01",
+    "stopId": "S108",
+    "arrivalTime": "17:13",
+    "departureTime": "17:14",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "KA-01-T5",
+    "routeId": "KA-01",
+    "stopId": "S109",
+    "arrivalTime": "17:28",
+    "departureTime": "17:29",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "KA-01-T5",
+    "routeId": "KA-01",
+    "stopId": "S110",
+    "arrivalTime": "17:42",
+    "departureTime": "17:43",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "KA-01-T5",
+    "routeId": "KA-01",
+    "stopId": "S111",
+    "arrivalTime": "17:57",
+    "departureTime": "17:58",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "KA-01-T5",
+    "routeId": "KA-01",
+    "stopId": "S112",
+    "arrivalTime": "18:12",
+    "departureTime": "18:13",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "KA-01-T5",
+    "routeId": "KA-01",
+    "stopId": "S113",
+    "arrivalTime": "18:21",
+    "departureTime": "18:22",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "KA-01-T5",
+    "routeId": "KA-01",
+    "stopId": "S114",
+    "arrivalTime": "18:33",
+    "departureTime": "18:34",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "KA-01-T5",
+    "routeId": "KA-01",
+    "stopId": "S115",
+    "arrivalTime": "18:46",
+    "departureTime": "18:47",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "KA-01-T6",
+    "routeId": "KA-01",
+    "stopId": "S104",
+    "arrivalTime": "18:02",
+    "departureTime": "18:03",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "KA-01-T6",
+    "routeId": "KA-01",
+    "stopId": "S105",
+    "arrivalTime": "18:14",
+    "departureTime": "18:15",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "KA-01-T6",
+    "routeId": "KA-01",
+    "stopId": "S106",
+    "arrivalTime": "18:24",
+    "departureTime": "18:25",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "KA-01-T6",
+    "routeId": "KA-01",
+    "stopId": "S107",
+    "arrivalTime": "18:35",
+    "departureTime": "18:36",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "KA-01-T6",
+    "routeId": "KA-01",
+    "stopId": "S108",
+    "arrivalTime": "18:44",
+    "departureTime": "18:45",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "KA-01-T6",
+    "routeId": "KA-01",
+    "stopId": "S109",
+    "arrivalTime": "18:56",
+    "departureTime": "18:57",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "KA-01-T6",
+    "routeId": "KA-01",
+    "stopId": "S110",
+    "arrivalTime": "19:04",
+    "departureTime": "19:05",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "KA-01-T6",
+    "routeId": "KA-01",
+    "stopId": "S111",
+    "arrivalTime": "19:14",
+    "departureTime": "19:15",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "KA-01-T6",
+    "routeId": "KA-01",
+    "stopId": "S112",
+    "arrivalTime": "19:26",
+    "departureTime": "19:27",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "KA-01-T6",
+    "routeId": "KA-01",
+    "stopId": "S113",
+    "arrivalTime": "19:41",
+    "departureTime": "19:42",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "KA-01-T6",
+    "routeId": "KA-01",
+    "stopId": "S114",
+    "arrivalTime": "19:52",
+    "departureTime": "19:53",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "KA-01-T6",
+    "routeId": "KA-01",
+    "stopId": "S115",
+    "arrivalTime": "20:00",
+    "departureTime": "20:01",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "KA-02-T1",
+    "routeId": "KA-02",
+    "stopId": "S116",
+    "arrivalTime": "06:20",
+    "departureTime": "06:21",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "KA-02-T1",
+    "routeId": "KA-02",
+    "stopId": "S117",
+    "arrivalTime": "06:32",
+    "departureTime": "06:33",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "KA-02-T1",
+    "routeId": "KA-02",
+    "stopId": "S118",
+    "arrivalTime": "06:42",
+    "departureTime": "06:43",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "KA-02-T1",
+    "routeId": "KA-02",
+    "stopId": "S119",
+    "arrivalTime": "06:57",
+    "departureTime": "06:58",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "KA-02-T1",
+    "routeId": "KA-02",
+    "stopId": "S120",
+    "arrivalTime": "07:10",
+    "departureTime": "07:11",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "KA-02-T1",
+    "routeId": "KA-02",
+    "stopId": "S121",
+    "arrivalTime": "07:20",
+    "departureTime": "07:21",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "KA-02-T1",
+    "routeId": "KA-02",
+    "stopId": "S122",
+    "arrivalTime": "07:28",
+    "departureTime": "07:29",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "KA-02-T1",
+    "routeId": "KA-02",
+    "stopId": "S123",
+    "arrivalTime": "07:41",
+    "departureTime": "07:42",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "KA-02-T1",
+    "routeId": "KA-02",
+    "stopId": "S124",
+    "arrivalTime": "07:50",
+    "departureTime": "07:51",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "KA-02-T1",
+    "routeId": "KA-02",
+    "stopId": "S125",
+    "arrivalTime": "08:01",
+    "departureTime": "08:02",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "KA-02-T1",
+    "routeId": "KA-02",
+    "stopId": "S126",
+    "arrivalTime": "08:10",
+    "departureTime": "08:11",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "KA-02-T1",
+    "routeId": "KA-02",
+    "stopId": "S127",
+    "arrivalTime": "08:20",
+    "departureTime": "08:21",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "KA-02-T1",
+    "routeId": "KA-02",
+    "stopId": "S128",
+    "arrivalTime": "08:28",
+    "departureTime": "08:29",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "KA-02-T1",
+    "routeId": "KA-02",
+    "stopId": "S129",
+    "arrivalTime": "08:41",
+    "departureTime": "08:42",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "KA-02-T1",
+    "routeId": "KA-02",
+    "stopId": "S130",
+    "arrivalTime": "08:52",
+    "departureTime": "08:53",
+    "stopSequence": 15
+  },
+  {
+    "tripId": "KA-02-T2",
+    "routeId": "KA-02",
+    "stopId": "S116",
+    "arrivalTime": "08:18",
+    "departureTime": "08:19",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "KA-02-T2",
+    "routeId": "KA-02",
+    "stopId": "S117",
+    "arrivalTime": "08:26",
+    "departureTime": "08:27",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "KA-02-T2",
+    "routeId": "KA-02",
+    "stopId": "S118",
+    "arrivalTime": "08:34",
+    "departureTime": "08:35",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "KA-02-T2",
+    "routeId": "KA-02",
+    "stopId": "S119",
+    "arrivalTime": "08:45",
+    "departureTime": "08:46",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "KA-02-T2",
+    "routeId": "KA-02",
+    "stopId": "S120",
+    "arrivalTime": "08:56",
+    "departureTime": "08:57",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "KA-02-T2",
+    "routeId": "KA-02",
+    "stopId": "S121",
+    "arrivalTime": "09:08",
+    "departureTime": "09:09",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "KA-02-T2",
+    "routeId": "KA-02",
+    "stopId": "S122",
+    "arrivalTime": "09:16",
+    "departureTime": "09:17",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "KA-02-T2",
+    "routeId": "KA-02",
+    "stopId": "S123",
+    "arrivalTime": "09:29",
+    "departureTime": "09:30",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "KA-02-T2",
+    "routeId": "KA-02",
+    "stopId": "S124",
+    "arrivalTime": "09:42",
+    "departureTime": "09:43",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "KA-02-T2",
+    "routeId": "KA-02",
+    "stopId": "S125",
+    "arrivalTime": "09:57",
+    "departureTime": "09:58",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "KA-02-T2",
+    "routeId": "KA-02",
+    "stopId": "S126",
+    "arrivalTime": "10:09",
+    "departureTime": "10:10",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "KA-02-T2",
+    "routeId": "KA-02",
+    "stopId": "S127",
+    "arrivalTime": "10:21",
+    "departureTime": "10:22",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "KA-02-T2",
+    "routeId": "KA-02",
+    "stopId": "S128",
+    "arrivalTime": "10:36",
+    "departureTime": "10:37",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "KA-02-T2",
+    "routeId": "KA-02",
+    "stopId": "S129",
+    "arrivalTime": "10:45",
+    "departureTime": "10:46",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "KA-02-T2",
+    "routeId": "KA-02",
+    "stopId": "S130",
+    "arrivalTime": "10:55",
+    "departureTime": "10:56",
+    "stopSequence": 15
+  },
+  {
+    "tripId": "KA-02-T3",
+    "routeId": "KA-02",
+    "stopId": "S116",
+    "arrivalTime": "11:17",
+    "departureTime": "11:18",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "KA-02-T3",
+    "routeId": "KA-02",
+    "stopId": "S117",
+    "arrivalTime": "11:29",
+    "departureTime": "11:30",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "KA-02-T3",
+    "routeId": "KA-02",
+    "stopId": "S118",
+    "arrivalTime": "11:44",
+    "departureTime": "11:45",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "KA-02-T3",
+    "routeId": "KA-02",
+    "stopId": "S119",
+    "arrivalTime": "11:54",
+    "departureTime": "11:55",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "KA-02-T3",
+    "routeId": "KA-02",
+    "stopId": "S120",
+    "arrivalTime": "12:06",
+    "departureTime": "12:07",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "KA-02-T3",
+    "routeId": "KA-02",
+    "stopId": "S121",
+    "arrivalTime": "12:20",
+    "departureTime": "12:21",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "KA-02-T3",
+    "routeId": "KA-02",
+    "stopId": "S122",
+    "arrivalTime": "12:31",
+    "departureTime": "12:32",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "KA-02-T3",
+    "routeId": "KA-02",
+    "stopId": "S123",
+    "arrivalTime": "12:46",
+    "departureTime": "12:47",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "KA-02-T3",
+    "routeId": "KA-02",
+    "stopId": "S124",
+    "arrivalTime": "12:56",
+    "departureTime": "12:57",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "KA-02-T3",
+    "routeId": "KA-02",
+    "stopId": "S125",
+    "arrivalTime": "13:04",
+    "departureTime": "13:05",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "KA-02-T3",
+    "routeId": "KA-02",
+    "stopId": "S126",
+    "arrivalTime": "13:16",
+    "departureTime": "13:17",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "KA-02-T3",
+    "routeId": "KA-02",
+    "stopId": "S127",
+    "arrivalTime": "13:30",
+    "departureTime": "13:31",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "KA-02-T3",
+    "routeId": "KA-02",
+    "stopId": "S128",
+    "arrivalTime": "13:45",
+    "departureTime": "13:46",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "KA-02-T3",
+    "routeId": "KA-02",
+    "stopId": "S129",
+    "arrivalTime": "13:58",
+    "departureTime": "13:59",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "KA-02-T3",
+    "routeId": "KA-02",
+    "stopId": "S130",
+    "arrivalTime": "14:09",
+    "departureTime": "14:10",
+    "stopSequence": 15
+  },
+  {
+    "tripId": "KA-02-T4",
+    "routeId": "KA-02",
+    "stopId": "S116",
+    "arrivalTime": "14:28",
+    "departureTime": "14:29",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "KA-02-T4",
+    "routeId": "KA-02",
+    "stopId": "S117",
+    "arrivalTime": "14:41",
+    "departureTime": "14:42",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "KA-02-T4",
+    "routeId": "KA-02",
+    "stopId": "S118",
+    "arrivalTime": "14:55",
+    "departureTime": "14:56",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "KA-02-T4",
+    "routeId": "KA-02",
+    "stopId": "S119",
+    "arrivalTime": "15:08",
+    "departureTime": "15:09",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "KA-02-T4",
+    "routeId": "KA-02",
+    "stopId": "S120",
+    "arrivalTime": "15:19",
+    "departureTime": "15:20",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "KA-02-T4",
+    "routeId": "KA-02",
+    "stopId": "S121",
+    "arrivalTime": "15:31",
+    "departureTime": "15:32",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "KA-02-T4",
+    "routeId": "KA-02",
+    "stopId": "S122",
+    "arrivalTime": "15:40",
+    "departureTime": "15:41",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "KA-02-T4",
+    "routeId": "KA-02",
+    "stopId": "S123",
+    "arrivalTime": "15:51",
+    "departureTime": "15:52",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "KA-02-T4",
+    "routeId": "KA-02",
+    "stopId": "S124",
+    "arrivalTime": "16:03",
+    "departureTime": "16:04",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "KA-02-T4",
+    "routeId": "KA-02",
+    "stopId": "S125",
+    "arrivalTime": "16:18",
+    "departureTime": "16:19",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "KA-02-T4",
+    "routeId": "KA-02",
+    "stopId": "S126",
+    "arrivalTime": "16:29",
+    "departureTime": "16:30",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "KA-02-T4",
+    "routeId": "KA-02",
+    "stopId": "S127",
+    "arrivalTime": "16:38",
+    "departureTime": "16:39",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "KA-02-T4",
+    "routeId": "KA-02",
+    "stopId": "S128",
+    "arrivalTime": "16:49",
+    "departureTime": "16:50",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "KA-02-T4",
+    "routeId": "KA-02",
+    "stopId": "S129",
+    "arrivalTime": "16:58",
+    "departureTime": "16:59",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "KA-02-T4",
+    "routeId": "KA-02",
+    "stopId": "S130",
+    "arrivalTime": "17:12",
+    "departureTime": "17:13",
+    "stopSequence": 15
+  },
+  {
+    "tripId": "KA-02-T5",
+    "routeId": "KA-02",
+    "stopId": "S116",
+    "arrivalTime": "16:24",
+    "departureTime": "16:25",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "KA-02-T5",
+    "routeId": "KA-02",
+    "stopId": "S117",
+    "arrivalTime": "16:35",
+    "departureTime": "16:36",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "KA-02-T5",
+    "routeId": "KA-02",
+    "stopId": "S118",
+    "arrivalTime": "16:48",
+    "departureTime": "16:49",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "KA-02-T5",
+    "routeId": "KA-02",
+    "stopId": "S119",
+    "arrivalTime": "17:02",
+    "departureTime": "17:03",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "KA-02-T5",
+    "routeId": "KA-02",
+    "stopId": "S120",
+    "arrivalTime": "17:11",
+    "departureTime": "17:12",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "KA-02-T5",
+    "routeId": "KA-02",
+    "stopId": "S121",
+    "arrivalTime": "17:21",
+    "departureTime": "17:22",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "KA-02-T5",
+    "routeId": "KA-02",
+    "stopId": "S122",
+    "arrivalTime": "17:30",
+    "departureTime": "17:31",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "KA-02-T5",
+    "routeId": "KA-02",
+    "stopId": "S123",
+    "arrivalTime": "17:40",
+    "departureTime": "17:41",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "KA-02-T5",
+    "routeId": "KA-02",
+    "stopId": "S124",
+    "arrivalTime": "17:52",
+    "departureTime": "17:53",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "KA-02-T5",
+    "routeId": "KA-02",
+    "stopId": "S125",
+    "arrivalTime": "18:07",
+    "departureTime": "18:08",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "KA-02-T5",
+    "routeId": "KA-02",
+    "stopId": "S126",
+    "arrivalTime": "18:16",
+    "departureTime": "18:17",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "KA-02-T5",
+    "routeId": "KA-02",
+    "stopId": "S127",
+    "arrivalTime": "18:24",
+    "departureTime": "18:25",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "KA-02-T5",
+    "routeId": "KA-02",
+    "stopId": "S128",
+    "arrivalTime": "18:39",
+    "departureTime": "18:40",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "KA-02-T5",
+    "routeId": "KA-02",
+    "stopId": "S129",
+    "arrivalTime": "18:48",
+    "departureTime": "18:49",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "KA-02-T5",
+    "routeId": "KA-02",
+    "stopId": "S130",
+    "arrivalTime": "18:56",
+    "departureTime": "18:57",
+    "stopSequence": 15
+  },
+  {
+    "tripId": "KA-02-T6",
+    "routeId": "KA-02",
+    "stopId": "S116",
+    "arrivalTime": "18:16",
+    "departureTime": "18:17",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "KA-02-T6",
+    "routeId": "KA-02",
+    "stopId": "S117",
+    "arrivalTime": "18:30",
+    "departureTime": "18:31",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "KA-02-T6",
+    "routeId": "KA-02",
+    "stopId": "S118",
+    "arrivalTime": "18:41",
+    "departureTime": "18:42",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "KA-02-T6",
+    "routeId": "KA-02",
+    "stopId": "S119",
+    "arrivalTime": "18:49",
+    "departureTime": "18:50",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "KA-02-T6",
+    "routeId": "KA-02",
+    "stopId": "S120",
+    "arrivalTime": "19:02",
+    "departureTime": "19:03",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "KA-02-T6",
+    "routeId": "KA-02",
+    "stopId": "S121",
+    "arrivalTime": "19:17",
+    "departureTime": "19:18",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "KA-02-T6",
+    "routeId": "KA-02",
+    "stopId": "S122",
+    "arrivalTime": "19:30",
+    "departureTime": "19:31",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "KA-02-T6",
+    "routeId": "KA-02",
+    "stopId": "S123",
+    "arrivalTime": "19:45",
+    "departureTime": "19:46",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "KA-02-T6",
+    "routeId": "KA-02",
+    "stopId": "S124",
+    "arrivalTime": "20:00",
+    "departureTime": "20:01",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "KA-02-T6",
+    "routeId": "KA-02",
+    "stopId": "S125",
+    "arrivalTime": "20:12",
+    "departureTime": "20:13",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "KA-02-T6",
+    "routeId": "KA-02",
+    "stopId": "S126",
+    "arrivalTime": "20:20",
+    "departureTime": "20:21",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "KA-02-T6",
+    "routeId": "KA-02",
+    "stopId": "S127",
+    "arrivalTime": "20:31",
+    "departureTime": "20:32",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "KA-02-T6",
+    "routeId": "KA-02",
+    "stopId": "S128",
+    "arrivalTime": "20:44",
+    "departureTime": "20:45",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "KA-02-T6",
+    "routeId": "KA-02",
+    "stopId": "S129",
+    "arrivalTime": "20:54",
+    "departureTime": "20:55",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "KA-02-T6",
+    "routeId": "KA-02",
+    "stopId": "S130",
+    "arrivalTime": "21:07",
+    "departureTime": "21:08",
+    "stopSequence": 15
+  },
+  {
+    "tripId": "BR-01-T1",
+    "routeId": "BR-01",
+    "stopId": "S131",
+    "arrivalTime": "06:22",
+    "departureTime": "06:23",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "BR-01-T1",
+    "routeId": "BR-01",
+    "stopId": "S132",
+    "arrivalTime": "06:35",
+    "departureTime": "06:36",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "BR-01-T1",
+    "routeId": "BR-01",
+    "stopId": "S133",
+    "arrivalTime": "06:48",
+    "departureTime": "06:49",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "BR-01-T1",
+    "routeId": "BR-01",
+    "stopId": "S134",
+    "arrivalTime": "06:59",
+    "departureTime": "07:00",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "BR-01-T1",
+    "routeId": "BR-01",
+    "stopId": "S135",
+    "arrivalTime": "07:09",
+    "departureTime": "07:10",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "BR-01-T1",
+    "routeId": "BR-01",
+    "stopId": "S136",
+    "arrivalTime": "07:19",
+    "departureTime": "07:20",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "BR-01-T1",
+    "routeId": "BR-01",
+    "stopId": "S137",
+    "arrivalTime": "07:32",
+    "departureTime": "07:33",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "BR-01-T1",
+    "routeId": "BR-01",
+    "stopId": "S138",
+    "arrivalTime": "07:42",
+    "departureTime": "07:43",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "BR-01-T1",
+    "routeId": "BR-01",
+    "stopId": "S139",
+    "arrivalTime": "07:52",
+    "departureTime": "07:53",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "BR-01-T1",
+    "routeId": "BR-01",
+    "stopId": "S140",
+    "arrivalTime": "08:04",
+    "departureTime": "08:05",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "BR-01-T2",
+    "routeId": "BR-01",
+    "stopId": "S131",
+    "arrivalTime": "08:27",
+    "departureTime": "08:28",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "BR-01-T2",
+    "routeId": "BR-01",
+    "stopId": "S132",
+    "arrivalTime": "08:39",
+    "departureTime": "08:40",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "BR-01-T2",
+    "routeId": "BR-01",
+    "stopId": "S133",
+    "arrivalTime": "08:52",
+    "departureTime": "08:53",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "BR-01-T2",
+    "routeId": "BR-01",
+    "stopId": "S134",
+    "arrivalTime": "09:00",
+    "departureTime": "09:01",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "BR-01-T2",
+    "routeId": "BR-01",
+    "stopId": "S135",
+    "arrivalTime": "09:10",
+    "departureTime": "09:11",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "BR-01-T2",
+    "routeId": "BR-01",
+    "stopId": "S136",
+    "arrivalTime": "09:22",
+    "departureTime": "09:23",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "BR-01-T2",
+    "routeId": "BR-01",
+    "stopId": "S137",
+    "arrivalTime": "09:34",
+    "departureTime": "09:35",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "BR-01-T2",
+    "routeId": "BR-01",
+    "stopId": "S138",
+    "arrivalTime": "09:45",
+    "departureTime": "09:46",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "BR-01-T2",
+    "routeId": "BR-01",
+    "stopId": "S139",
+    "arrivalTime": "09:58",
+    "departureTime": "09:59",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "BR-01-T2",
+    "routeId": "BR-01",
+    "stopId": "S140",
+    "arrivalTime": "10:13",
+    "departureTime": "10:14",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "BR-01-T3",
+    "routeId": "BR-01",
+    "stopId": "S131",
+    "arrivalTime": "11:20",
+    "departureTime": "11:21",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "BR-01-T3",
+    "routeId": "BR-01",
+    "stopId": "S132",
+    "arrivalTime": "11:33",
+    "departureTime": "11:34",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "BR-01-T3",
+    "routeId": "BR-01",
+    "stopId": "S133",
+    "arrivalTime": "11:41",
+    "departureTime": "11:42",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "BR-01-T3",
+    "routeId": "BR-01",
+    "stopId": "S134",
+    "arrivalTime": "11:56",
+    "departureTime": "11:57",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "BR-01-T3",
+    "routeId": "BR-01",
+    "stopId": "S135",
+    "arrivalTime": "12:05",
+    "departureTime": "12:06",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "BR-01-T3",
+    "routeId": "BR-01",
+    "stopId": "S136",
+    "arrivalTime": "12:18",
+    "departureTime": "12:19",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "BR-01-T3",
+    "routeId": "BR-01",
+    "stopId": "S137",
+    "arrivalTime": "12:33",
+    "departureTime": "12:34",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "BR-01-T3",
+    "routeId": "BR-01",
+    "stopId": "S138",
+    "arrivalTime": "12:44",
+    "departureTime": "12:45",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "BR-01-T3",
+    "routeId": "BR-01",
+    "stopId": "S139",
+    "arrivalTime": "12:59",
+    "departureTime": "13:00",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "BR-01-T3",
+    "routeId": "BR-01",
+    "stopId": "S140",
+    "arrivalTime": "13:14",
+    "departureTime": "13:15",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "BR-01-T4",
+    "routeId": "BR-01",
+    "stopId": "S131",
+    "arrivalTime": "14:29",
+    "departureTime": "14:30",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "BR-01-T4",
+    "routeId": "BR-01",
+    "stopId": "S132",
+    "arrivalTime": "14:43",
+    "departureTime": "14:44",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "BR-01-T4",
+    "routeId": "BR-01",
+    "stopId": "S133",
+    "arrivalTime": "14:55",
+    "departureTime": "14:56",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "BR-01-T4",
+    "routeId": "BR-01",
+    "stopId": "S134",
+    "arrivalTime": "15:04",
+    "departureTime": "15:05",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "BR-01-T4",
+    "routeId": "BR-01",
+    "stopId": "S135",
+    "arrivalTime": "15:19",
+    "departureTime": "15:20",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "BR-01-T4",
+    "routeId": "BR-01",
+    "stopId": "S136",
+    "arrivalTime": "15:29",
+    "departureTime": "15:30",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "BR-01-T4",
+    "routeId": "BR-01",
+    "stopId": "S137",
+    "arrivalTime": "15:38",
+    "departureTime": "15:39",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "BR-01-T4",
+    "routeId": "BR-01",
+    "stopId": "S138",
+    "arrivalTime": "15:47",
+    "departureTime": "15:48",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "BR-01-T4",
+    "routeId": "BR-01",
+    "stopId": "S139",
+    "arrivalTime": "15:55",
+    "departureTime": "15:56",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "BR-01-T4",
+    "routeId": "BR-01",
+    "stopId": "S140",
+    "arrivalTime": "16:08",
+    "departureTime": "16:09",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "BR-01-T5",
+    "routeId": "BR-01",
+    "stopId": "S131",
+    "arrivalTime": "16:13",
+    "departureTime": "16:14",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "BR-01-T5",
+    "routeId": "BR-01",
+    "stopId": "S132",
+    "arrivalTime": "16:25",
+    "departureTime": "16:26",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "BR-01-T5",
+    "routeId": "BR-01",
+    "stopId": "S133",
+    "arrivalTime": "16:38",
+    "departureTime": "16:39",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "BR-01-T5",
+    "routeId": "BR-01",
+    "stopId": "S134",
+    "arrivalTime": "16:53",
+    "departureTime": "16:54",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "BR-01-T5",
+    "routeId": "BR-01",
+    "stopId": "S135",
+    "arrivalTime": "17:02",
+    "departureTime": "17:03",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "BR-01-T5",
+    "routeId": "BR-01",
+    "stopId": "S136",
+    "arrivalTime": "17:14",
+    "departureTime": "17:15",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "BR-01-T5",
+    "routeId": "BR-01",
+    "stopId": "S137",
+    "arrivalTime": "17:25",
+    "departureTime": "17:26",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "BR-01-T5",
+    "routeId": "BR-01",
+    "stopId": "S138",
+    "arrivalTime": "17:38",
+    "departureTime": "17:39",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "BR-01-T5",
+    "routeId": "BR-01",
+    "stopId": "S139",
+    "arrivalTime": "17:46",
+    "departureTime": "17:47",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "BR-01-T5",
+    "routeId": "BR-01",
+    "stopId": "S140",
+    "arrivalTime": "17:54",
+    "departureTime": "17:55",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "BR-01-T6",
+    "routeId": "BR-01",
+    "stopId": "S131",
+    "arrivalTime": "18:06",
+    "departureTime": "18:07",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "BR-01-T6",
+    "routeId": "BR-01",
+    "stopId": "S132",
+    "arrivalTime": "18:19",
+    "departureTime": "18:20",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "BR-01-T6",
+    "routeId": "BR-01",
+    "stopId": "S133",
+    "arrivalTime": "18:29",
+    "departureTime": "18:30",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "BR-01-T6",
+    "routeId": "BR-01",
+    "stopId": "S134",
+    "arrivalTime": "18:39",
+    "departureTime": "18:40",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "BR-01-T6",
+    "routeId": "BR-01",
+    "stopId": "S135",
+    "arrivalTime": "18:54",
+    "departureTime": "18:55",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "BR-01-T6",
+    "routeId": "BR-01",
+    "stopId": "S136",
+    "arrivalTime": "19:05",
+    "departureTime": "19:06",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "BR-01-T6",
+    "routeId": "BR-01",
+    "stopId": "S137",
+    "arrivalTime": "19:19",
+    "departureTime": "19:20",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "BR-01-T6",
+    "routeId": "BR-01",
+    "stopId": "S138",
+    "arrivalTime": "19:29",
+    "departureTime": "19:30",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "BR-01-T6",
+    "routeId": "BR-01",
+    "stopId": "S139",
+    "arrivalTime": "19:37",
+    "departureTime": "19:38",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "BR-01-T6",
+    "routeId": "BR-01",
+    "stopId": "S140",
+    "arrivalTime": "19:45",
+    "departureTime": "19:46",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "AS-01-T1",
+    "routeId": "AS-01",
+    "stopId": "S141",
+    "arrivalTime": "06:12",
+    "departureTime": "06:13",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "AS-01-T1",
+    "routeId": "AS-01",
+    "stopId": "S142",
+    "arrivalTime": "06:25",
+    "departureTime": "06:26",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "AS-01-T1",
+    "routeId": "AS-01",
+    "stopId": "S143",
+    "arrivalTime": "06:40",
+    "departureTime": "06:41",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "AS-01-T1",
+    "routeId": "AS-01",
+    "stopId": "S144",
+    "arrivalTime": "06:53",
+    "departureTime": "06:54",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "AS-01-T1",
+    "routeId": "AS-01",
+    "stopId": "S145",
+    "arrivalTime": "07:01",
+    "departureTime": "07:02",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "AS-01-T1",
+    "routeId": "AS-01",
+    "stopId": "S146",
+    "arrivalTime": "07:11",
+    "departureTime": "07:12",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "AS-01-T1",
+    "routeId": "AS-01",
+    "stopId": "S147",
+    "arrivalTime": "07:21",
+    "departureTime": "07:22",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "AS-01-T1",
+    "routeId": "AS-01",
+    "stopId": "S148",
+    "arrivalTime": "07:33",
+    "departureTime": "07:34",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "AS-01-T1",
+    "routeId": "AS-01",
+    "stopId": "S149",
+    "arrivalTime": "07:43",
+    "departureTime": "07:44",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "AS-01-T1",
+    "routeId": "AS-01",
+    "stopId": "S150",
+    "arrivalTime": "07:56",
+    "departureTime": "07:57",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "AS-01-T1",
+    "routeId": "AS-01",
+    "stopId": "S151",
+    "arrivalTime": "08:10",
+    "departureTime": "08:11",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "AS-01-T1",
+    "routeId": "AS-01",
+    "stopId": "S152",
+    "arrivalTime": "08:23",
+    "departureTime": "08:24",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "AS-01-T1",
+    "routeId": "AS-01",
+    "stopId": "S153",
+    "arrivalTime": "08:32",
+    "departureTime": "08:33",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "AS-01-T1",
+    "routeId": "AS-01",
+    "stopId": "S154",
+    "arrivalTime": "08:47",
+    "departureTime": "08:48",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "AS-01-T1",
+    "routeId": "AS-01",
+    "stopId": "S155",
+    "arrivalTime": "09:02",
+    "departureTime": "09:03",
+    "stopSequence": 15
+  },
+  {
+    "tripId": "AS-01-T2",
+    "routeId": "AS-01",
+    "stopId": "S141",
+    "arrivalTime": "08:02",
+    "departureTime": "08:03",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "AS-01-T2",
+    "routeId": "AS-01",
+    "stopId": "S142",
+    "arrivalTime": "08:11",
+    "departureTime": "08:12",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "AS-01-T2",
+    "routeId": "AS-01",
+    "stopId": "S143",
+    "arrivalTime": "08:20",
+    "departureTime": "08:21",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "AS-01-T2",
+    "routeId": "AS-01",
+    "stopId": "S144",
+    "arrivalTime": "08:35",
+    "departureTime": "08:36",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "AS-01-T2",
+    "routeId": "AS-01",
+    "stopId": "S145",
+    "arrivalTime": "08:49",
+    "departureTime": "08:50",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "AS-01-T2",
+    "routeId": "AS-01",
+    "stopId": "S146",
+    "arrivalTime": "09:02",
+    "departureTime": "09:03",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "AS-01-T2",
+    "routeId": "AS-01",
+    "stopId": "S147",
+    "arrivalTime": "09:17",
+    "departureTime": "09:18",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "AS-01-T2",
+    "routeId": "AS-01",
+    "stopId": "S148",
+    "arrivalTime": "09:26",
+    "departureTime": "09:27",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "AS-01-T2",
+    "routeId": "AS-01",
+    "stopId": "S149",
+    "arrivalTime": "09:35",
+    "departureTime": "09:36",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "AS-01-T2",
+    "routeId": "AS-01",
+    "stopId": "S150",
+    "arrivalTime": "09:44",
+    "departureTime": "09:45",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "AS-01-T2",
+    "routeId": "AS-01",
+    "stopId": "S151",
+    "arrivalTime": "09:59",
+    "departureTime": "10:00",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "AS-01-T2",
+    "routeId": "AS-01",
+    "stopId": "S152",
+    "arrivalTime": "10:11",
+    "departureTime": "10:12",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "AS-01-T2",
+    "routeId": "AS-01",
+    "stopId": "S153",
+    "arrivalTime": "10:25",
+    "departureTime": "10:26",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "AS-01-T2",
+    "routeId": "AS-01",
+    "stopId": "S154",
+    "arrivalTime": "10:37",
+    "departureTime": "10:38",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "AS-01-T2",
+    "routeId": "AS-01",
+    "stopId": "S155",
+    "arrivalTime": "10:46",
+    "departureTime": "10:47",
+    "stopSequence": 15
+  },
+  {
+    "tripId": "AS-01-T3",
+    "routeId": "AS-01",
+    "stopId": "S141",
+    "arrivalTime": "11:20",
+    "departureTime": "11:21",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "AS-01-T3",
+    "routeId": "AS-01",
+    "stopId": "S142",
+    "arrivalTime": "11:33",
+    "departureTime": "11:34",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "AS-01-T3",
+    "routeId": "AS-01",
+    "stopId": "S143",
+    "arrivalTime": "11:45",
+    "departureTime": "11:46",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "AS-01-T3",
+    "routeId": "AS-01",
+    "stopId": "S144",
+    "arrivalTime": "11:53",
+    "departureTime": "11:54",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "AS-01-T3",
+    "routeId": "AS-01",
+    "stopId": "S145",
+    "arrivalTime": "12:06",
+    "departureTime": "12:07",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "AS-01-T3",
+    "routeId": "AS-01",
+    "stopId": "S146",
+    "arrivalTime": "12:19",
+    "departureTime": "12:20",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "AS-01-T3",
+    "routeId": "AS-01",
+    "stopId": "S147",
+    "arrivalTime": "12:29",
+    "departureTime": "12:30",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "AS-01-T3",
+    "routeId": "AS-01",
+    "stopId": "S148",
+    "arrivalTime": "12:43",
+    "departureTime": "12:44",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "AS-01-T3",
+    "routeId": "AS-01",
+    "stopId": "S149",
+    "arrivalTime": "12:52",
+    "departureTime": "12:53",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "AS-01-T3",
+    "routeId": "AS-01",
+    "stopId": "S150",
+    "arrivalTime": "13:03",
+    "departureTime": "13:04",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "AS-01-T3",
+    "routeId": "AS-01",
+    "stopId": "S151",
+    "arrivalTime": "13:11",
+    "departureTime": "13:12",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "AS-01-T3",
+    "routeId": "AS-01",
+    "stopId": "S152",
+    "arrivalTime": "13:24",
+    "departureTime": "13:25",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "AS-01-T3",
+    "routeId": "AS-01",
+    "stopId": "S153",
+    "arrivalTime": "13:38",
+    "departureTime": "13:39",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "AS-01-T3",
+    "routeId": "AS-01",
+    "stopId": "S154",
+    "arrivalTime": "13:50",
+    "departureTime": "13:51",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "AS-01-T3",
+    "routeId": "AS-01",
+    "stopId": "S155",
+    "arrivalTime": "14:04",
+    "departureTime": "14:05",
+    "stopSequence": 15
+  },
+  {
+    "tripId": "AS-01-T4",
+    "routeId": "AS-01",
+    "stopId": "S141",
+    "arrivalTime": "14:20",
+    "departureTime": "14:21",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "AS-01-T4",
+    "routeId": "AS-01",
+    "stopId": "S142",
+    "arrivalTime": "14:31",
+    "departureTime": "14:32",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "AS-01-T4",
+    "routeId": "AS-01",
+    "stopId": "S143",
+    "arrivalTime": "14:39",
+    "departureTime": "14:40",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "AS-01-T4",
+    "routeId": "AS-01",
+    "stopId": "S144",
+    "arrivalTime": "14:52",
+    "departureTime": "14:53",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "AS-01-T4",
+    "routeId": "AS-01",
+    "stopId": "S145",
+    "arrivalTime": "15:03",
+    "departureTime": "15:04",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "AS-01-T4",
+    "routeId": "AS-01",
+    "stopId": "S146",
+    "arrivalTime": "15:16",
+    "departureTime": "15:17",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "AS-01-T4",
+    "routeId": "AS-01",
+    "stopId": "S147",
+    "arrivalTime": "15:28",
+    "departureTime": "15:29",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "AS-01-T4",
+    "routeId": "AS-01",
+    "stopId": "S148",
+    "arrivalTime": "15:41",
+    "departureTime": "15:42",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "AS-01-T4",
+    "routeId": "AS-01",
+    "stopId": "S149",
+    "arrivalTime": "15:52",
+    "departureTime": "15:53",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "AS-01-T4",
+    "routeId": "AS-01",
+    "stopId": "S150",
+    "arrivalTime": "16:01",
+    "departureTime": "16:02",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "AS-01-T4",
+    "routeId": "AS-01",
+    "stopId": "S151",
+    "arrivalTime": "16:14",
+    "departureTime": "16:15",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "AS-01-T4",
+    "routeId": "AS-01",
+    "stopId": "S152",
+    "arrivalTime": "16:28",
+    "departureTime": "16:29",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "AS-01-T4",
+    "routeId": "AS-01",
+    "stopId": "S153",
+    "arrivalTime": "16:41",
+    "departureTime": "16:42",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "AS-01-T4",
+    "routeId": "AS-01",
+    "stopId": "S154",
+    "arrivalTime": "16:53",
+    "departureTime": "16:54",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "AS-01-T4",
+    "routeId": "AS-01",
+    "stopId": "S155",
+    "arrivalTime": "17:07",
+    "departureTime": "17:08",
+    "stopSequence": 15
+  },
+  {
+    "tripId": "AS-01-T5",
+    "routeId": "AS-01",
+    "stopId": "S141",
+    "arrivalTime": "16:18",
+    "departureTime": "16:19",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "AS-01-T5",
+    "routeId": "AS-01",
+    "stopId": "S142",
+    "arrivalTime": "16:33",
+    "departureTime": "16:34",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "AS-01-T5",
+    "routeId": "AS-01",
+    "stopId": "S143",
+    "arrivalTime": "16:46",
+    "departureTime": "16:47",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "AS-01-T5",
+    "routeId": "AS-01",
+    "stopId": "S144",
+    "arrivalTime": "16:54",
+    "departureTime": "16:55",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "AS-01-T5",
+    "routeId": "AS-01",
+    "stopId": "S145",
+    "arrivalTime": "17:07",
+    "departureTime": "17:08",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "AS-01-T5",
+    "routeId": "AS-01",
+    "stopId": "S146",
+    "arrivalTime": "17:15",
+    "departureTime": "17:16",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "AS-01-T5",
+    "routeId": "AS-01",
+    "stopId": "S147",
+    "arrivalTime": "17:27",
+    "departureTime": "17:28",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "AS-01-T5",
+    "routeId": "AS-01",
+    "stopId": "S148",
+    "arrivalTime": "17:40",
+    "departureTime": "17:41",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "AS-01-T5",
+    "routeId": "AS-01",
+    "stopId": "S149",
+    "arrivalTime": "17:54",
+    "departureTime": "17:55",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "AS-01-T5",
+    "routeId": "AS-01",
+    "stopId": "S150",
+    "arrivalTime": "18:07",
+    "departureTime": "18:08",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "AS-01-T5",
+    "routeId": "AS-01",
+    "stopId": "S151",
+    "arrivalTime": "18:17",
+    "departureTime": "18:18",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "AS-01-T5",
+    "routeId": "AS-01",
+    "stopId": "S152",
+    "arrivalTime": "18:28",
+    "departureTime": "18:29",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "AS-01-T5",
+    "routeId": "AS-01",
+    "stopId": "S153",
+    "arrivalTime": "18:43",
+    "departureTime": "18:44",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "AS-01-T5",
+    "routeId": "AS-01",
+    "stopId": "S154",
+    "arrivalTime": "18:56",
+    "departureTime": "18:57",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "AS-01-T5",
+    "routeId": "AS-01",
+    "stopId": "S155",
+    "arrivalTime": "19:04",
+    "departureTime": "19:05",
+    "stopSequence": 15
+  },
+  {
+    "tripId": "AS-01-T6",
+    "routeId": "AS-01",
+    "stopId": "S141",
+    "arrivalTime": "18:22",
+    "departureTime": "18:23",
+    "stopSequence": 1
+  },
+  {
+    "tripId": "AS-01-T6",
+    "routeId": "AS-01",
+    "stopId": "S142",
+    "arrivalTime": "18:31",
+    "departureTime": "18:32",
+    "stopSequence": 2
+  },
+  {
+    "tripId": "AS-01-T6",
+    "routeId": "AS-01",
+    "stopId": "S143",
+    "arrivalTime": "18:44",
+    "departureTime": "18:45",
+    "stopSequence": 3
+  },
+  {
+    "tripId": "AS-01-T6",
+    "routeId": "AS-01",
+    "stopId": "S144",
+    "arrivalTime": "18:54",
+    "departureTime": "18:55",
+    "stopSequence": 4
+  },
+  {
+    "tripId": "AS-01-T6",
+    "routeId": "AS-01",
+    "stopId": "S145",
+    "arrivalTime": "19:05",
+    "departureTime": "19:06",
+    "stopSequence": 5
+  },
+  {
+    "tripId": "AS-01-T6",
+    "routeId": "AS-01",
+    "stopId": "S146",
+    "arrivalTime": "19:16",
+    "departureTime": "19:17",
+    "stopSequence": 6
+  },
+  {
+    "tripId": "AS-01-T6",
+    "routeId": "AS-01",
+    "stopId": "S147",
+    "arrivalTime": "19:29",
+    "departureTime": "19:30",
+    "stopSequence": 7
+  },
+  {
+    "tripId": "AS-01-T6",
+    "routeId": "AS-01",
+    "stopId": "S148",
+    "arrivalTime": "19:42",
+    "departureTime": "19:43",
+    "stopSequence": 8
+  },
+  {
+    "tripId": "AS-01-T6",
+    "routeId": "AS-01",
+    "stopId": "S149",
+    "arrivalTime": "19:56",
+    "departureTime": "19:57",
+    "stopSequence": 9
+  },
+  {
+    "tripId": "AS-01-T6",
+    "routeId": "AS-01",
+    "stopId": "S150",
+    "arrivalTime": "20:09",
+    "departureTime": "20:10",
+    "stopSequence": 10
+  },
+  {
+    "tripId": "AS-01-T6",
+    "routeId": "AS-01",
+    "stopId": "S151",
+    "arrivalTime": "20:21",
+    "departureTime": "20:22",
+    "stopSequence": 11
+  },
+  {
+    "tripId": "AS-01-T6",
+    "routeId": "AS-01",
+    "stopId": "S152",
+    "arrivalTime": "20:35",
+    "departureTime": "20:36",
+    "stopSequence": 12
+  },
+  {
+    "tripId": "AS-01-T6",
+    "routeId": "AS-01",
+    "stopId": "S153",
+    "arrivalTime": "20:44",
+    "departureTime": "20:45",
+    "stopSequence": 13
+  },
+  {
+    "tripId": "AS-01-T6",
+    "routeId": "AS-01",
+    "stopId": "S154",
+    "arrivalTime": "20:52",
+    "departureTime": "20:53",
+    "stopSequence": 14
+  },
+  {
+    "tripId": "AS-01-T6",
+    "routeId": "AS-01",
+    "stopId": "S155",
+    "arrivalTime": "21:00",
+    "departureTime": "21:01",
+    "stopSequence": 15
+  }
 ]

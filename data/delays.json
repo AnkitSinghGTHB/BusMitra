@@ -1,20 +1,155 @@
 [
   {
     "routeId": "M1",
-    "name": "Railway Crossing",
-    "lat": 30.8100,
-    "lng": 75.1480,
-    "avgDelayMinutes": 7,
-    "probability": 0.6,
-    "description": "Level crossing on Moga-Firozpur rail line"
+    "name": "Traffic/Crossing near Stop 2 (Moga - Dagru)",
+    "lat": 30.814879,
+    "lng": 75.166149,
+    "avgDelayMinutes": 9,
+    "probability": 0.88,
+    "description": "Rural congestion / Railway crossing"
   },
   {
     "routeId": "M1",
-    "name": "Bhagwan Chowk",
-    "lat": 30.8180,
-    "lng": 75.1690,
-    "avgDelayMinutes": 5,
-    "probability": 0.4,
-    "description": "Driver chai break and passenger boarding point"
+    "name": "Traffic/Crossing near Stop 8 (Moga - Dagru)",
+    "lat": 30.830232,
+    "lng": 75.092563,
+    "avgDelayMinutes": 13,
+    "probability": 0.7,
+    "description": "Rural congestion / Railway crossing"
+  },
+  {
+    "routeId": "PB-02",
+    "name": "Traffic/Crossing near Stop 5 (Moga - Baghapurana)",
+    "lat": 30.753978,
+    "lng": 75.116389,
+    "avgDelayMinutes": 11,
+    "probability": 0.69,
+    "description": "Rural congestion / Railway crossing"
+  },
+  {
+    "routeId": "RJ-01",
+    "name": "Traffic/Crossing near Stop 7 (Bikaner - Nokha)",
+    "lat": 27.869664,
+    "lng": 73.273146,
+    "avgDelayMinutes": 10,
+    "probability": 0.89,
+    "description": "Rural congestion / Railway crossing"
+  },
+  {
+    "routeId": "RJ-01",
+    "name": "Traffic/Crossing near Stop 11 (Bikaner - Nokha)",
+    "lat": 27.748123,
+    "lng": 73.369496,
+    "avgDelayMinutes": 14,
+    "probability": 0.81,
+    "description": "Rural congestion / Railway crossing"
+  },
+  {
+    "routeId": "RJ-02",
+    "name": "Traffic/Crossing near Stop 9 (Udaipur - Nathdwara)",
+    "lat": 24.804965,
+    "lng": 73.761091,
+    "avgDelayMinutes": 7,
+    "probability": 0.41,
+    "description": "Rural congestion / Railway crossing"
+  },
+  {
+    "routeId": "RJ-02",
+    "name": "Traffic/Crossing near Stop 7 (Udaipur - Nathdwara)",
+    "lat": 24.711133,
+    "lng": 73.731726,
+    "avgDelayMinutes": 11,
+    "probability": 0.46,
+    "description": "Rural congestion / Railway crossing"
+  },
+  {
+    "routeId": "UP-01",
+    "name": "Traffic/Crossing near Stop 11 (Gorakhpur - Kushinagar)",
+    "lat": 26.741411,
+    "lng": 83.881209,
+    "avgDelayMinutes": 7,
+    "probability": 0.42,
+    "description": "Rural congestion / Railway crossing"
+  },
+  {
+    "routeId": "UP-02",
+    "name": "Traffic/Crossing near Stop 3 (Jhansi - Babina)",
+    "lat": 25.408704,
+    "lng": 78.563055,
+    "avgDelayMinutes": 6,
+    "probability": 0.7,
+    "description": "Rural congestion / Railway crossing"
+  },
+  {
+    "routeId": "MH-01",
+    "name": "Traffic/Crossing near Stop 14 (Latur - Ausa)",
+    "lat": 18.266388,
+    "lng": 76.520838,
+    "avgDelayMinutes": 9,
+    "probability": 0.58,
+    "description": "Rural congestion / Railway crossing"
+  },
+  {
+    "routeId": "MH-02",
+    "name": "Traffic/Crossing near Stop 3 (Nanded - Mudkhed)",
+    "lat": 19.151842,
+    "lng": 77.331696,
+    "avgDelayMinutes": 6,
+    "probability": 0.88,
+    "description": "Rural congestion / Railway crossing"
+  },
+  {
+    "routeId": "KA-01",
+    "name": "Traffic/Crossing near Stop 9 (Hubballi - Dharwad)",
+    "lat": 15.418602,
+    "lng": 75.040984,
+    "avgDelayMinutes": 9,
+    "probability": 0.71,
+    "description": "Rural congestion / Railway crossing"
+  },
+  {
+    "routeId": "KA-02",
+    "name": "Traffic/Crossing near Stop 12 (Hassan - Belur)",
+    "lat": 13.09137,
+    "lng": 75.896945,
+    "avgDelayMinutes": 6,
+    "probability": 0.82,
+    "description": "Rural congestion / Railway crossing"
+  },
+  {
+    "routeId": "KA-02",
+    "name": "Traffic/Crossing near Stop 9 (Hassan - Belur)",
+    "lat": 13.035775,
+    "lng": 75.915305,
+    "avgDelayMinutes": 14,
+    "probability": 0.84,
+    "description": "Rural congestion / Railway crossing"
+  },
+  {
+    "routeId": "BR-01",
+    "name": "Traffic/Crossing near Stop 2 (Muzaffarpur - Hajipur)",
+    "lat": 26.095978,
+    "lng": 85.37933,
+    "avgDelayMinutes": 8,
+    "probability": 0.77,
+    "description": "Rural congestion / Railway crossing"
+  },
+  {
+    "routeId": "AS-01",
+    "name": "Traffic/Crossing near Stop 11 (Tezpur - Dhekiajuli)",
+    "lat": 26.69476,
+    "lng": 92.587342,
+    "avgDelayMinutes": 12,
+    "probability": 0.59,
+    "description": "Rural congestion / Railway crossing"
+  },
+  {
+    "routeId": "AS-01",
+    "name": "Traffic/Crossing near Stop 6 (Tezpur - Dhekiajuli)",
+    "lat": 26.677699,
+    "lng": 92.712789,
+    "avgDelayMinutes": 10,
+    "probability": 0.46,
+    "description": "Rural congestion / Railway crossing"
   }
 ]

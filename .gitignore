@@ -3,3 +3,5 @@ node_modules/
 *.log
 dist/
 .DS_Store
+frontend_backup
+frontend_update

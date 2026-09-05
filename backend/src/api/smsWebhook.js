@@ -18,8 +18,8 @@ router.post('/', (req, res) => {
         return res.json({ reply: 'Invalid format. Send "BUS <ROUTE>" (e.g. "BUS M1") or "BUS <ROUTE> <STOP>" (e.g. "BUS M1 HOSPITAL").' });
     }
     
-    // Support "BUS M1", "BUS M1 HOSPITAL", "BUS M1 S4", "BUS M1 CIVIL HOSPITAL"
-    const match = body.trim().match(/^BUS\s+(\w+)(?:\s+(.+))?$/i);
+    // Support "BUS M1", "BUS RJ-01", "BUS M1 HOSPITAL", "BUS M1 S4"
+    const match = body.trim().match(/^BUS\s+([a-zA-Z0-9_-]+)(?:\s+(.+))?$/i);
     if (!match) {
         return res.json({ reply: 'Invalid format. Send "BUS <ROUTE>" (e.g. "BUS M1") or "BUS <ROUTE> <STOP>" (e.g. "BUS M1 HOSPITAL").' });
     }
