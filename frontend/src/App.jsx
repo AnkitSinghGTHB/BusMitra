@@ -302,17 +302,10 @@ export default function App() {
       attributionControl: false
     });
 
-<<<<<<< HEAD
     // Official OpenStreetMap tiles (100% free, zero API key required)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-=======
-    // Dark sleek mobile tiles (CartoDB Voyager or Dark)
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      maxZoom: 19,
-      subdomains: 'abcd',
->>>>>>> 2d0efafd95a3d2863dad616c14ad9506a1250bea
     }).addTo(map);
 
     // Route M1 Polyline
