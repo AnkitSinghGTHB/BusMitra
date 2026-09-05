@@ -74,7 +74,7 @@ export const useBusStore = create((set, get) => ({
     get().fetchRoutes();
     if (socketInstance) return;
 
-    socketInstance = io('/', { transports: ['websocket', 'polling'] });
+    socketInstance = io(import.meta.env.VITE_BACKEND_URL || '/', { transports: ['websocket', 'polling'] });
 
     socketInstance.on('connect', () => {
       set({ socketConnected: true });

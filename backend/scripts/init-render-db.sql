@@ -1,0 +1,192 @@
+-- =========================================================
+-- BusMitra Database Schema (PostgreSQL + PostGIS)
+-- Derived from docs/DATABASE_ARCHITECTURE.md
+-- =========================================================
+
+-- Enable PostGIS spatial extensions
+CREATE EXTENSION IF NOT EXISTS postgis;
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+-- 1. Routes Table
+CREATE TABLE IF NOT EXISTS routes (
+    id VARCHAR(50) PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    color VARCHAR(7) DEFAULT '#1a56db',
+    polyline JSONB,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 2. Stops Table (with PostGIS geometry)
+CREATE TABLE IF NOT EXISTS stops (
+    id VARCHAR(50) PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    lat DECIMAL(10,8) NOT NULL,
+    lng DECIMAL(11,8) NOT NULL,
+    order_num INTEGER NOT NULL,
+    route_id VARCHAR(50) REFERENCES routes(id) ON DELETE SET NULL,
+    location GEOMETRY(Point, 4326) GENERATED ALWAYS AS (ST_SetSRID(ST_MakePoint(lng, lat), 4326)) STORED
+);
+
+-- 3. Drivers Table
+CREATE TABLE IF NOT EXISTS drivers (
+    id VARCHAR(50) PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    phone VARCHAR(15) UNIQUE NOT NULL,
+    route_id VARCHAR(50) REFERENCES routes(id) ON DELETE SET NULL,
+    score INTEGER DEFAULT 0,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 4. Buses Table
+CREATE TABLE IF NOT EXISTS buses (
+    id VARCHAR(50) PRIMARY KEY,
+    route_id VARCHAR(50) REFERENCES routes(id) ON DELETE SET NULL,
+    driver_id VARCHAR(50) REFERENCES drivers(id) ON DELETE SET NULL,
+    current_lat DECIMAL(10,8),
+    current_lng DECIMAL(11,8),
+    speed DECIMAL(5,2) DEFAULT 0,
+    status VARCHAR(20) DEFAULT 'inactive', -- 'live', 'scheduled', 'crowd_restored', 'inactive'
+    last_update TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    heading INTEGER DEFAULT 0,
+    onboard INTEGER DEFAULT 0
+);
+
+-- 5. Trip Sessions Table
+CREATE TABLE IF NOT EXISTS trip_sessions (
+    id VARCHAR(50) PRIMARY KEY,
+    bus_id VARCHAR(50) REFERENCES buses(id) ON DELETE CASCADE,
+    driver_id VARCHAR(50) REFERENCES drivers(id) ON DELETE SET NULL,
+    route_id VARCHAR(50) REFERENCES routes(id) ON DELETE SET NULL,
+    start_time TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    end_time TIMESTAMP WITH TIME ZONE,
+    duration_sec INTEGER,
+    status VARCHAR(20) DEFAULT 'active' -- 'active', 'completed', 'cancelled'
+);
+
+-- 6. Check-ins Table (Passenger Relay Consensus)
+CREATE TABLE IF NOT EXISTS checkins (
+    id VARCHAR(50) PRIMARY KEY,
+    bus_id VARCHAR(50) REFERENCES buses(id) ON DELETE CASCADE,
+    user_id VARCHAR(50) NOT NULL,
+    lat DECIMAL(10,8) NOT NULL,
+    lng DECIMAL(11,8) NOT NULL,
+    timestamp TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 7. GTFS Schedules Table
+CREATE TABLE IF NOT EXISTS gtfs_data (
+    id VARCHAR(50) PRIMARY KEY,
+    route_id VARCHAR(50) REFERENCES routes(id) ON DELETE CASCADE,
+    stop_id VARCHAR(50) REFERENCES stops(id) ON DELETE CASCADE,
+    arrival_time TIME NOT NULL,
+    departure_time TIME NOT NULL,
+    stop_sequence INTEGER NOT NULL,
+    day_type VARCHAR(20) DEFAULT 'weekday'
+);
+
+-- 8. Historical Speeds Table (For Dynamic ETA)
+CREATE TABLE IF NOT EXISTS historical_speeds (
+    id SERIAL PRIMARY KEY,
+    route_id VARCHAR(50) REFERENCES routes(id) ON DELETE CASCADE,
+    hour INTEGER CHECK (hour >= 0 AND hour <= 23),
+    avg_speed_kmh DECIMAL(5,2) NOT NULL,
+    sample_count INTEGER DEFAULT 0,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- =========================================================
+-- Indices for Performance & Spatial Queries
+-- =========================================================
+CREATE INDEX IF NOT EXISTS idx_stops_location ON stops USING GIST (location);
+CREATE INDEX IF NOT EXISTS idx_buses_status ON buses(status);
+CREATE INDEX IF NOT EXISTS idx_trip_sessions_status ON trip_sessions(status);
+CREATE INDEX IF NOT EXISTS idx_checkins_bus_id ON checkins(bus_id);
+CREATE INDEX IF NOT EXISTS idx_checkins_timestamp ON checkins(timestamp DESC);
+CREATE INDEX IF NOT EXISTS idx_gtfs_route_stop ON gtfs_data(route_id, stop_id);
+
+-- =========================================================
+-- BusMitra Database Seed Data
+-- Seeded from data/routes.json, data/stops.json, data/gtfs.json
+-- =========================================================
+
+-- Seed Route M1 (Moga -> Dagru)
+INSERT INTO routes (id, name, description, color, polyline)
+VALUES (
+    'M1',
+    'Moga → Dagru',
+    'Main city route from Moga Bus Stand to Dagru Village via GT Road',
+    '#1a56db',
+    '[
+      { "lat": 30.8163, "lng": 75.1720 },
+      { "lat": 30.8165, "lng": 75.1710 },
+      { "lat": 30.8170, "lng": 75.1695 },
+      { "lat": 30.8175, "lng": 75.1685 },
+      { "lat": 30.8180, "lng": 75.1670 },
+      { "lat": 30.8185, "lng": 75.1650 },
+      { "lat": 30.8190, "lng": 75.1630 },
+      { "lat": 30.8195, "lng": 75.1600 },
+      { "lat": 30.8205, "lng": 75.1570 },
+      { "lat": 30.8215, "lng": 75.1530 },
+      { "lat": 30.8225, "lng": 75.1490 },
+      { "lat": 30.8240, "lng": 75.1440 },
+      { "lat": 30.8255, "lng": 75.1390 },
+      { "lat": 30.8270, "lng": 75.1340 },
+      { "lat": 30.8290, "lng": 75.1280 },
+      { "lat": 30.8310, "lng": 75.1220 },
+      { "lat": 30.8325, "lng": 75.1180 },
+      { "lat": 30.8335, "lng": 75.1165 },
+      { "lat": 30.8345, "lng": 75.1155 },
+      { "lat": 30.8350, "lng": 75.1150 }
+    ]'::jsonb
+) ON CONFLICT (id) DO NOTHING;
+
+-- Seed Driver D1
+INSERT INTO drivers (id, name, phone, route_id, score)
+VALUES ('D1', 'Rajesh Kumar', '+919876543210', 'M1', 88)
+ON CONFLICT (id) DO NOTHING;
+
+-- Seed Bus M1
+INSERT INTO buses (id, route_id, driver_id, current_lat, current_lng, speed, status, heading, onboard)
+VALUES ('M1', 'M1', 'D1', 30.8163, 75.1720, 0, 'scheduled', 0, 14)
+ON CONFLICT (id) DO UPDATE SET
+    current_lat = EXCLUDED.current_lat,
+    current_lng = EXCLUDED.current_lng;
+
+-- Seed 8 Stops along Route M1
+INSERT INTO stops (id, name, lat, lng, order_num, route_id) VALUES
+('S1', 'Moga Bus Stand', 30.8163, 75.1720, 1, 'M1'),
+('S2', 'Bhagwan Chowk', 30.8175, 75.1685, 2, 'M1'),
+('S3', 'Railway Station', 30.8190, 75.1630, 3, 'M1'),
+('S4', 'Civil Hospital', 30.8215, 75.1530, 4, 'M1'),
+('S5', 'Guru Nanak Chowk', 30.8240, 75.1440, 5, 'M1'),
+('S6', 'Kot Ise Khan Road', 30.8270, 75.1340, 6, 'M1'),
+('S7', 'Dairy Complex', 30.8310, 75.1220, 7, 'M1'),
+('S8', 'Dagru Village', 30.8350, 75.1150, 8, 'M1')
+ON CONFLICT (id) DO NOTHING;
+
+-- Seed GTFS Timetable Data (Trip M1-T1 and M1-T2)
+INSERT INTO gtfs_data (id, route_id, stop_id, arrival_time, departure_time, stop_sequence, day_type) VALUES
+('GTFS-1', 'M1', 'S1', '06:00:00', '06:02:00', 1, 'weekday'),
+('GTFS-2', 'M1', 'S2', '06:07:00', '06:08:00', 2, 'weekday'),
+('GTFS-3', 'M1', 'S3', '06:14:00', '06:15:00', 3, 'weekday'),
+('GTFS-4', 'M1', 'S4', '06:21:00', '06:22:00', 4, 'weekday'),
+('GTFS-5', 'M1', 'S5', '06:28:00', '06:29:00', 5, 'weekday'),
+('GTFS-6', 'M1', 'S6', '06:34:00', '06:35:00', 6, 'weekday'),
+('GTFS-7', 'M1', 'S7', '06:40:00', '06:41:00', 7, 'weekday'),
+('GTFS-8', 'M1', 'S8', '06:47:00', '06:47:00', 8, 'weekday'),
+('GTFS-9', 'M1', 'S1', '09:00:00', '09:02:00', 1, 'weekday'),
+('GTFS-10', 'M1', 'S2', '09:07:00', '09:08:00', 2, 'weekday'),
+('GTFS-11', 'M1', 'S3', '09:14:00', '09:15:00', 3, 'weekday'),
+('GTFS-12', 'M1', 'S4', '09:21:00', '09:22:00', 4, 'weekday')
+ON CONFLICT (id) DO NOTHING;
+
+-- Seed Historical Speeds for Rush Hours and Regular Hours
+INSERT INTO historical_speeds (route_id, hour, avg_speed_kmh, sample_count) VALUES
+('M1', 8, 18.5, 42),
+('M1', 9, 16.0, 58),
+('M1', 12, 22.4, 35),
+('M1', 17, 17.2, 50),
+('M1', 18, 15.8, 62),
+('M1', 20, 24.0, 28)
+ON CONFLICT DO NOTHING;

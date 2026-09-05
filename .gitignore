@@ -5,3 +5,6 @@ dist/
 .DS_Store
 frontend_backup
 frontend_update
+.env.local
+.env.production.local
+.vercel/

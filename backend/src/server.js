@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const http = require('http');
 const { Server } = require('socket.io');
 const cors = require('cors');
@@ -107,6 +108,17 @@ app.get('/health', (req, res) => {
         activeBuses: busCache.getAllBuses().length
     });
 });
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../../frontend/dist')));
+    
+    // SPA fallback
+    app.get('*', (req, res) => {
+        if (!req.path.startsWith('/api')) {
+            res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'));
+        }
+    });
+}
 
 io.on('connection', (socket) => {
     console.log('Client connected:', socket.id);
