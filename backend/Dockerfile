@@ -13,9 +13,8 @@ COPY backend/scripts ./backend/scripts
 # Copy data files (used by the backend)
 COPY data ./data
 
-# The backend will look for frontend/dist if we serve statically
-# (Optional if frontend is ONLY on Vercel, but good for self-contained)
-COPY frontend/dist ./frontend/dist
+# Frontend is deployed separately on Vercel for this MVP.
+# We do not need to copy or serve frontend/dist from the backend.
 
 WORKDIR /app/backend
 EXPOSE 3000
