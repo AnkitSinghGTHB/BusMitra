@@ -21,7 +21,8 @@ function updateBus(busId, data) {
         anomaly_counter: data.anomaly_counter !== undefined ? data.anomaly_counter : (existing.anomaly_counter || 0),
         ble_count: data.ble_count !== undefined ? data.ble_count : (existing.ble_count || 0),
         occupancy_tier: data.occupancy_tier !== undefined ? data.occupancy_tier : (existing.occupancy_tier || 'unknown'),
-        status: data.status || existing.status || 'live'
+        status: data.status || existing.status || 'live',
+        isSimulated: data.isSimulated !== undefined ? data.isSimulated : (existing.isSimulated || false)
     };
 
     buses.set(busId, updated);
@@ -44,6 +45,14 @@ function getAllBuses() {
         }
     }
     return all;
+}
+
+function getSimulatedBuses() {
+    return getAllBuses().filter(b => b.isSimulated === true);
+}
+
+function getRealBuses() {
+    return getAllBuses().filter(b => !b.isSimulated);
 }
 
 function removeBus(busId) {
@@ -85,8 +94,11 @@ module.exports = {
     updateBus,
     getBus,
     getAllBuses,
+    getSimulatedBuses,
+    getRealBuses,
     removeBus,
     getBusByRoute,
     getSpeedVariance,
     pruneStaleBuses
 };
+

@@ -290,5 +290,68 @@ export const useBusStore = create((set, get) => ({
     } catch (e) {
       return 'Connection error. Offline buffer active.';
     }
+  },
+
+  // === Simulation System State & Actions ===
+  simulatedBuses: [],
+
+  fetchSimulatedBuses: async () => {
+    try {
+      const res = await fetch('/api/simulation/buses');
+      if (res.ok) {
+        const data = await res.json();
+        set({ simulatedBuses: data });
+      }
+    } catch (e) {}
+  },
+
+  deploySimBus: async (config) => {
+    try {
+      const res = await fetch('/api/simulation/deploy', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(config)
+      });
+      const data = await res.json();
+      if (res.ok) {
+        get().fetchSimulatedBuses();
+        return { success: true, bus: data.bus };
+      }
+      return { success: false, error: data.error };
+    } catch (e) {
+      return { success: false, error: e.message };
+    }
+  },
+
+  removeSimBus: async (busId) => {
+    try {
+      const res = await fetch(`/api/simulation/${busId}`, { method: 'DELETE' });
+      if (res.ok) get().fetchSimulatedBuses();
+    } catch (e) {}
+  },
+
+  pauseSimBus: async (busId) => {
+    try {
+      await fetch(`/api/simulation/${busId}/pause`, { method: 'POST' });
+      get().fetchSimulatedBuses();
+    } catch (e) {}
+  },
+
+  resumeSimBus: async (busId) => {
+    try {
+      await fetch(`/api/simulation/${busId}/resume`, { method: 'POST' });
+      get().fetchSimulatedBuses();
+    } catch (e) {}
+  },
+
+  setSimBusSpeed: async (busId, speedKmh) => {
+    try {
+      await fetch(`/api/simulation/${busId}/speed`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ speedKmh })
+      });
+      get().fetchSimulatedBuses();
+    } catch (e) {}
   }
 }));

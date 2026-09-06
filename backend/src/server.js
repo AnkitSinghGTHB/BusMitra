@@ -17,10 +17,12 @@ const gtfsRtRouter = require('./api/gtfsRt');
 const routesRouter = require('./api/routes');
 const stopsRouter = require('./api/stops');
 const tripPlanRouter = require('./api/tripPlan');
+const simulationRouter = require('./api/simulation');
 
 const startFallbackTimer = require('./utils/fallbackTimer');
 const busCache = require('./services/busCache');
 const consensus = require('./services/consensus');
+const simulationEngine = require('./services/simulationEngine');
 
 const app = express();
 const server = http.createServer(app);
@@ -75,6 +77,7 @@ app.use('/gtfs-rt', gtfsRtRouter);
 app.use('/api/routes', routesRouter);
 app.use('/api/stops', stopsRouter);
 app.use('/api/trip-plan', tripPlanRouter);
+app.use('/api/simulation', simulationRouter);
 
 // Endpoint to fetch AI-discovered informal stops (DBSCAN)
 app.get('/api/stops/informal', async (req, res) => {
@@ -135,4 +138,8 @@ setInterval(() => {
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
     console.log(`BusMitra backend running on port ${PORT}`);
+    
+    // Initialize simulation engine with shared dependencies
+    simulationEngine.init(busCache, io);
+    console.log('[SimulationEngine] Ready — deploy simulated buses via /api/simulation or Admin Portal');
 });

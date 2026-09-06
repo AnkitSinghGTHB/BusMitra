@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { Card, TabGroup, TabList, Tab, TabPanels, TabPanel, Text, Metric, Grid } from '@tremor/react';
 import { MapContainer, TileLayer, Marker, Polyline, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import { ArrowLeft, Download, ArrowsClockwise, Bus } from '@phosphor-icons/react';
+import { ArrowLeft, Download, ArrowsClockwise, Bus, Eye, Monitor } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { DEFAULT_POLYLINE, DEFAULT_STOPS } from '@/data/transitData';
-import SimulatorPanel from './SimulatorPanel';
+import SimulationDashboard from './SimulationDashboard';
 
 const getBusIcon = (status, heading) => {
   const color = status === 'live' ? '#059669' : status === 'crowd_restored' ? '#d97706' : '#64748b';
@@ -90,7 +90,8 @@ export default function AdminDashboard() {
         <TabGroup>
           <TabList className="mb-6 bg-white p-1 rounded-lg border border-gray-200 w-max shadow-sm">
             <Tab className="px-6 py-2 rounded-md text-xs font-bold ui-selected:bg-primary ui-selected:text-white">Live Fleet</Tab>
-            <Tab className="px-6 py-2 rounded-md text-xs font-bold ui-selected:bg-primary ui-selected:text-white">Simulator Bots</Tab>
+            <Tab className="px-6 py-2 rounded-md text-xs font-bold ui-selected:bg-primary ui-selected:text-white">Simulation Engine</Tab>
+            <Tab className="px-6 py-2 rounded-md text-xs font-bold ui-selected:bg-primary ui-selected:text-white">Multi-Portal Preview</Tab>
             <Tab className="px-6 py-2 rounded-md text-xs font-bold ui-selected:bg-primary ui-selected:text-white">Driver Leaderboard</Tab>
             <Tab className="px-6 py-2 rounded-md text-xs font-bold ui-selected:bg-primary ui-selected:text-white">GTFS-RT Feeds</Tab>
           </TabList>
@@ -153,20 +154,76 @@ export default function AdminDashboard() {
               </div>
             </TabPanel>
 
-            {/* Tab 2: Simulator Bots */}
+            {/* Tab 2: Simulation Engine */}
+            <TabPanel>
+              <SimulationDashboard />
+            </TabPanel>
+
+            {/* Tab 3: Multi-Portal Preview */}
             <TabPanel>
               <Card className="bg-white shadow-sm border-gray-200">
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center justify-between mb-4 p-4 pb-0">
                   <div>
-                    <h3 className="font-bold text-gray-900 text-sm">Multi-Bus Edge Simulator</h3>
-                    <p className="text-xs text-gray-500">Control synthetic GPS, dead-zones, detours, and BLE beacons.</p>
+                    <h3 className="font-bold text-gray-900 text-sm flex items-center gap-1.5">
+                      <Eye size={16} weight="bold" className="text-blue-600" />
+                      Multi-Portal Preview
+                    </h3>
+                    <p className="text-xs text-gray-500">
+                      See exactly how simulated buses appear to passengers, drivers, and the fleet view — all in real-time.
+                    </p>
                   </div>
                 </div>
-                <SimulatorPanel />
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 p-4">
+                  {/* Passenger View */}
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-1.5 px-1">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                      <span className="text-[10px] font-bold text-gray-700 uppercase">Passenger View</span>
+                    </div>
+                    <div className="relative rounded-lg border-2 border-emerald-200 overflow-hidden bg-gray-100" style={{ height: '480px' }}>
+                      <iframe
+                        src="/"
+                        title="Passenger View"
+                        className="w-full h-full border-0"
+                        style={{ transform: 'scale(0.85)', transformOrigin: 'top left', width: '117.6%', height: '117.6%' }}
+                      />
+                    </div>
+                  </div>
+                  {/* Driver View */}
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-1.5 px-1">
+                      <span className="w-2 h-2 rounded-full bg-blue-500" />
+                      <span className="text-[10px] font-bold text-gray-700 uppercase">Driver View</span>
+                    </div>
+                    <div className="relative rounded-lg border-2 border-blue-200 overflow-hidden bg-gray-100" style={{ height: '480px' }}>
+                      <iframe
+                        src="/driver/dashboard"
+                        title="Driver View"
+                        className="w-full h-full border-0"
+                        style={{ transform: 'scale(0.85)', transformOrigin: 'top left', width: '117.6%', height: '117.6%' }}
+                      />
+                    </div>
+                  </div>
+                  {/* Admin Fleet View */}
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-1.5 px-1">
+                      <span className="w-2 h-2 rounded-full bg-purple-500" />
+                      <span className="text-[10px] font-bold text-gray-700 uppercase">Admin Fleet View</span>
+                    </div>
+                    <div className="relative rounded-lg border-2 border-purple-200 overflow-hidden bg-gray-100" style={{ height: '480px' }}>
+                      <iframe
+                        src="/admin"
+                        title="Admin Fleet View"
+                        className="w-full h-full border-0"
+                        style={{ transform: 'scale(0.85)', transformOrigin: 'top left', width: '117.6%', height: '117.6%' }}
+                      />
+                    </div>
+                  </div>
+                </div>
               </Card>
             </TabPanel>
 
-            {/* Tab 3: Driver Leaderboard */}
+            {/* Tab 4: Driver Leaderboard */}
             <TabPanel>
               <Card className="bg-white shadow-sm border-gray-200">
                 <h3 className="font-bold text-gray-900 mb-3 text-sm">Monthly Driver Punctuality & Score</h3>
@@ -192,7 +249,7 @@ export default function AdminDashboard() {
               </Card>
             </TabPanel>
 
-            {/* Tab 3: GTFS-RT Feeds */}
+            {/* Tab 5: GTFS-RT Feeds */}
             <TabPanel>
               <Card className="bg-white shadow-sm border-gray-200 flex flex-col gap-4">
                 <h3 className="font-bold text-gray-900 text-sm">Open GTFS-Realtime v2.0 Endpoints</h3>

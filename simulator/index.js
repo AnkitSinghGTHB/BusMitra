@@ -1,3 +1,16 @@
+/**
+ * ⚠️ DEPRECATED — This standalone simulator is superseded by the integrated
+ * Simulation Engine in backend/src/services/simulationEngine.js
+ * 
+ * Use the Admin Portal → Simulation tab to deploy and control simulated buses.
+ * API: POST /api/simulation/deploy, GET /api/simulation/buses, etc.
+ * 
+ * This file is kept for backward compatibility and reference only.
+ */
+console.warn('\n⚠️  WARNING: This standalone simulator is DEPRECATED.');
+console.warn('   Use the Admin Portal simulation tab or /api/simulation/* endpoints instead.');
+console.warn('   See: backend/src/services/simulationEngine.js\n');
+
 const readline = require('readline');
 const fs = require('fs');
 const path = require('path');

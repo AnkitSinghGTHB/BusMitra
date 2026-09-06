@@ -3,7 +3,17 @@ const busCache = require('../services/busCache');
 const crypto = require('crypto');
 
 router.get('/', (req, res) => {
-    const buses = busCache.getAllBuses();
+    const { simulated } = req.query;
+    
+    let buses;
+    if (simulated === 'only') {
+        buses = busCache.getSimulatedBuses();
+    } else if (simulated === 'exclude') {
+        buses = busCache.getRealBuses();
+    } else {
+        buses = busCache.getAllBuses();
+    }
+    
     const dataString = JSON.stringify(buses);
     const hash = crypto.createHash('md5').update(dataString).digest('hex');
     
@@ -16,3 +26,4 @@ router.get('/', (req, res) => {
 });
 
 module.exports = router;
+
