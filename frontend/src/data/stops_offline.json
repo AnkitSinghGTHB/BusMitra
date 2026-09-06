@@ -1,0 +1,1322 @@
+[
+  {
+    "id": "S1",
+    "name": "Moga Bus Stand",
+    "lat": 30.814317,
+    "lng": 75.173142,
+    "order": 1,
+    "routeId": "M1"
+  },
+  {
+    "id": "S2",
+    "name": "Stop 2 (Moga - Dagru)",
+    "lat": 30.81482,
+    "lng": 75.166648,
+    "order": 2,
+    "routeId": "M1"
+  },
+  {
+    "id": "S3",
+    "name": "Stop 3 (Moga - Dagru)",
+    "lat": 30.816907,
+    "lng": 75.163631,
+    "order": 3,
+    "routeId": "M1"
+  },
+  {
+    "id": "S4",
+    "name": "Stop 4 (Moga - Dagru)",
+    "lat": 30.820819,
+    "lng": 75.163734,
+    "order": 4,
+    "routeId": "M1"
+  },
+  {
+    "id": "S5",
+    "name": "Stop 5 (Moga - Dagru)",
+    "lat": 30.824546,
+    "lng": 75.155801,
+    "order": 5,
+    "routeId": "M1"
+  },
+  {
+    "id": "S6",
+    "name": "Stop 6 (Moga - Dagru)",
+    "lat": 30.826171,
+    "lng": 75.139422,
+    "order": 6,
+    "routeId": "M1"
+  },
+  {
+    "id": "S7",
+    "name": "Stop 7 (Moga - Dagru)",
+    "lat": 30.827265,
+    "lng": 75.127122,
+    "order": 7,
+    "routeId": "M1"
+  },
+  {
+    "id": "S8",
+    "name": "Stop 8 (Moga - Dagru)",
+    "lat": 30.828905,
+    "lng": 75.108102,
+    "order": 8,
+    "routeId": "M1"
+  },
+  {
+    "id": "S9",
+    "name": "Stop 9 (Moga - Dagru)",
+    "lat": 30.830574,
+    "lng": 75.088785,
+    "order": 9,
+    "routeId": "M1"
+  },
+  {
+    "id": "S10",
+    "name": "Stop 10 (Moga - Dagru)",
+    "lat": 30.832474,
+    "lng": 75.065911,
+    "order": 10,
+    "routeId": "M1"
+  },
+  {
+    "id": "S11",
+    "name": "Stop 11 (Moga - Dagru)",
+    "lat": 30.839751,
+    "lng": 75.057735,
+    "order": 11,
+    "routeId": "M1"
+  },
+  {
+    "id": "S12",
+    "name": "Stop 12 (Moga - Dagru)",
+    "lat": 30.842218,
+    "lng": 75.05919,
+    "order": 12,
+    "routeId": "M1"
+  },
+  {
+    "id": "S13",
+    "name": "Stop 13 (Moga - Dagru)",
+    "lat": 30.844677,
+    "lng": 75.061139,
+    "order": 13,
+    "routeId": "M1"
+  },
+  {
+    "id": "S14",
+    "name": "Stop 14 (Moga - Dagru)",
+    "lat": 30.848562,
+    "lng": 75.061185,
+    "order": 14,
+    "routeId": "M1"
+  },
+  {
+    "id": "S15",
+    "name": "Dagru",
+    "lat": 30.851184,
+    "lng": 75.059876,
+    "order": 15,
+    "routeId": "M1"
+  },
+  {
+    "id": "S16",
+    "name": "Moga Bus Stand",
+    "lat": 30.814317,
+    "lng": 75.173142,
+    "order": 1,
+    "routeId": "PB-02"
+  },
+  {
+    "id": "S17",
+    "name": "Stop 2 (Moga - Baghapurana)",
+    "lat": 30.80192,
+    "lng": 75.175675,
+    "order": 2,
+    "routeId": "PB-02"
+  },
+  {
+    "id": "S18",
+    "name": "Stop 3 (Moga - Baghapurana)",
+    "lat": 30.792965,
+    "lng": 75.152323,
+    "order": 3,
+    "routeId": "PB-02"
+  },
+  {
+    "id": "S19",
+    "name": "Stop 4 (Moga - Baghapurana)",
+    "lat": 30.769169,
+    "lng": 75.124285,
+    "order": 4,
+    "routeId": "PB-02"
+  },
+  {
+    "id": "S20",
+    "name": "Stop 5 (Moga - Baghapurana)",
+    "lat": 30.735046,
+    "lng": 75.107567,
+    "order": 5,
+    "routeId": "PB-02"
+  },
+  {
+    "id": "S21",
+    "name": "Stop 6 (Moga - Baghapurana)",
+    "lat": 30.706426,
+    "lng": 75.097842,
+    "order": 6,
+    "routeId": "PB-02"
+  },
+  {
+    "id": "S22",
+    "name": "Stop 7 (Moga - Baghapurana)",
+    "lat": 30.676544,
+    "lng": 75.095529,
+    "order": 7,
+    "routeId": "PB-02"
+  },
+  {
+    "id": "S23",
+    "name": "Stop 8 (Moga - Baghapurana)",
+    "lat": 30.647798,
+    "lng": 75.105519,
+    "order": 8,
+    "routeId": "PB-02"
+  },
+  {
+    "id": "S24",
+    "name": "Stop 9 (Moga - Baghapurana)",
+    "lat": 30.626881,
+    "lng": 75.099007,
+    "order": 9,
+    "routeId": "PB-02"
+  },
+  {
+    "id": "S25",
+    "name": "Baghapurana",
+    "lat": 30.589548,
+    "lng": 75.094874,
+    "order": 10,
+    "routeId": "PB-02"
+  },
+  {
+    "id": "S26",
+    "name": "Bikaner Bus Stand",
+    "lat": 28.022902,
+    "lng": 73.311896,
+    "order": 1,
+    "routeId": "RJ-01"
+  },
+  {
+    "id": "S27",
+    "name": "Stop 2 (Bikaner - Nokha)",
+    "lat": 28.007034,
+    "lng": 73.308885,
+    "order": 2,
+    "routeId": "RJ-01"
+  },
+  {
+    "id": "S28",
+    "name": "Stop 3 (Bikaner - Nokha)",
+    "lat": 27.996739,
+    "lng": 73.307726,
+    "order": 3,
+    "routeId": "RJ-01"
+  },
+  {
+    "id": "S29",
+    "name": "Stop 4 (Bikaner - Nokha)",
+    "lat": 27.961411,
+    "lng": 73.29826,
+    "order": 4,
+    "routeId": "RJ-01"
+  },
+  {
+    "id": "S30",
+    "name": "Stop 5 (Bikaner - Nokha)",
+    "lat": 27.913486,
+    "lng": 73.280866,
+    "order": 5,
+    "routeId": "RJ-01"
+  },
+  {
+    "id": "S31",
+    "name": "Stop 6 (Bikaner - Nokha)",
+    "lat": 27.879656,
+    "lng": 73.274896,
+    "order": 6,
+    "routeId": "RJ-01"
+  },
+  {
+    "id": "S32",
+    "name": "Stop 7 (Bikaner - Nokha)",
+    "lat": 27.845973,
+    "lng": 73.26907,
+    "order": 7,
+    "routeId": "RJ-01"
+  },
+  {
+    "id": "S33",
+    "name": "Stop 8 (Bikaner - Nokha)",
+    "lat": 27.831913,
+    "lng": 73.288019,
+    "order": 8,
+    "routeId": "RJ-01"
+  },
+  {
+    "id": "S34",
+    "name": "Stop 9 (Bikaner - Nokha)",
+    "lat": 27.791567,
+    "lng": 73.336421,
+    "order": 9,
+    "routeId": "RJ-01"
+  },
+  {
+    "id": "S35",
+    "name": "Stop 10 (Bikaner - Nokha)",
+    "lat": 27.751284,
+    "lng": 73.367583,
+    "order": 10,
+    "routeId": "RJ-01"
+  },
+  {
+    "id": "S36",
+    "name": "Nokha",
+    "lat": 27.604276,
+    "lng": 73.425288,
+    "order": 11,
+    "routeId": "RJ-01"
+  },
+  {
+    "id": "S37",
+    "name": "Udaipur Bus Stand",
+    "lat": 24.585749,
+    "lng": 73.680717,
+    "order": 1,
+    "routeId": "RJ-02"
+  },
+  {
+    "id": "S38",
+    "name": "Stop 2 (Udaipur - Nathdwara)",
+    "lat": 24.591743,
+    "lng": 73.683025,
+    "order": 2,
+    "routeId": "RJ-02"
+  },
+  {
+    "id": "S39",
+    "name": "Stop 3 (Udaipur - Nathdwara)",
+    "lat": 24.596926,
+    "lng": 73.691823,
+    "order": 3,
+    "routeId": "RJ-02"
+  },
+  {
+    "id": "S40",
+    "name": "Stop 4 (Udaipur - Nathdwara)",
+    "lat": 24.60754,
+    "lng": 73.695367,
+    "order": 4,
+    "routeId": "RJ-02"
+  },
+  {
+    "id": "S41",
+    "name": "Stop 5 (Udaipur - Nathdwara)",
+    "lat": 24.626155,
+    "lng": 73.711195,
+    "order": 5,
+    "routeId": "RJ-02"
+  },
+  {
+    "id": "S42",
+    "name": "Stop 6 (Udaipur - Nathdwara)",
+    "lat": 24.662885,
+    "lng": 73.725509,
+    "order": 6,
+    "routeId": "RJ-02"
+  },
+  {
+    "id": "S43",
+    "name": "Stop 7 (Udaipur - Nathdwara)",
+    "lat": 24.690528,
+    "lng": 73.735782,
+    "order": 7,
+    "routeId": "RJ-02"
+  },
+  {
+    "id": "S44",
+    "name": "Stop 8 (Udaipur - Nathdwara)",
+    "lat": 24.724171,
+    "lng": 73.73223,
+    "order": 8,
+    "routeId": "RJ-02"
+  },
+  {
+    "id": "S45",
+    "name": "Stop 9 (Udaipur - Nathdwara)",
+    "lat": 24.767902,
+    "lng": 73.762175,
+    "order": 9,
+    "routeId": "RJ-02"
+  },
+  {
+    "id": "S46",
+    "name": "Stop 10 (Udaipur - Nathdwara)",
+    "lat": 24.814085,
+    "lng": 73.760613,
+    "order": 10,
+    "routeId": "RJ-02"
+  },
+  {
+    "id": "S47",
+    "name": "Stop 11 (Udaipur - Nathdwara)",
+    "lat": 24.858551,
+    "lng": 73.770145,
+    "order": 11,
+    "routeId": "RJ-02"
+  },
+  {
+    "id": "S48",
+    "name": "Stop 12 (Udaipur - Nathdwara)",
+    "lat": 24.895442,
+    "lng": 73.799675,
+    "order": 12,
+    "routeId": "RJ-02"
+  },
+  {
+    "id": "S49",
+    "name": "Stop 13 (Udaipur - Nathdwara)",
+    "lat": 24.917208,
+    "lng": 73.823826,
+    "order": 13,
+    "routeId": "RJ-02"
+  },
+  {
+    "id": "S50",
+    "name": "Nathdwara",
+    "lat": 24.925426,
+    "lng": 73.818412,
+    "order": 14,
+    "routeId": "RJ-02"
+  },
+  {
+    "id": "S51",
+    "name": "Gorakhpur ISBT",
+    "lat": 26.760602,
+    "lng": 83.373216,
+    "order": 1,
+    "routeId": "UP-01"
+  },
+  {
+    "id": "S52",
+    "name": "Stop 2 (Gorakhpur - Kushinagar)",
+    "lat": 26.749395,
+    "lng": 83.401736,
+    "order": 2,
+    "routeId": "UP-01"
+  },
+  {
+    "id": "S53",
+    "name": "Stop 3 (Gorakhpur - Kushinagar)",
+    "lat": 26.747427,
+    "lng": 83.425983,
+    "order": 3,
+    "routeId": "UP-01"
+  },
+  {
+    "id": "S54",
+    "name": "Stop 4 (Gorakhpur - Kushinagar)",
+    "lat": 26.746577,
+    "lng": 83.492439,
+    "order": 4,
+    "routeId": "UP-01"
+  },
+  {
+    "id": "S55",
+    "name": "Stop 5 (Gorakhpur - Kushinagar)",
+    "lat": 26.740879,
+    "lng": 83.572163,
+    "order": 5,
+    "routeId": "UP-01"
+  },
+  {
+    "id": "S56",
+    "name": "Stop 6 (Gorakhpur - Kushinagar)",
+    "lat": 26.735922,
+    "lng": 83.705814,
+    "order": 6,
+    "routeId": "UP-01"
+  },
+  {
+    "id": "S57",
+    "name": "Stop 7 (Gorakhpur - Kushinagar)",
+    "lat": 26.739282,
+    "lng": 83.769242,
+    "order": 7,
+    "routeId": "UP-01"
+  },
+  {
+    "id": "S58",
+    "name": "Stop 8 (Gorakhpur - Kushinagar)",
+    "lat": 26.736605,
+    "lng": 83.834149,
+    "order": 8,
+    "routeId": "UP-01"
+  },
+  {
+    "id": "S59",
+    "name": "Stop 9 (Gorakhpur - Kushinagar)",
+    "lat": 26.742032,
+    "lng": 83.879023,
+    "order": 9,
+    "routeId": "UP-01"
+  },
+  {
+    "id": "S60",
+    "name": "Kushinagar",
+    "lat": 26.739186,
+    "lng": 83.891877,
+    "order": 10,
+    "routeId": "UP-01"
+  },
+  {
+    "id": "S61",
+    "name": "Jhansi Bus Stand",
+    "lat": 25.4482,
+    "lng": 78.568715,
+    "order": 1,
+    "routeId": "UP-02"
+  },
+  {
+    "id": "S62",
+    "name": "Stop 2 (Jhansi - Babina)",
+    "lat": 25.432597,
+    "lng": 78.568243,
+    "order": 2,
+    "routeId": "UP-02"
+  },
+  {
+    "id": "S63",
+    "name": "Stop 3 (Jhansi - Babina)",
+    "lat": 25.412187,
+    "lng": 78.565298,
+    "order": 3,
+    "routeId": "UP-02"
+  },
+  {
+    "id": "S64",
+    "name": "Stop 4 (Jhansi - Babina)",
+    "lat": 25.402673,
+    "lng": 78.559631,
+    "order": 4,
+    "routeId": "UP-02"
+  },
+  {
+    "id": "S65",
+    "name": "Stop 5 (Jhansi - Babina)",
+    "lat": 25.385767,
+    "lng": 78.553167,
+    "order": 5,
+    "routeId": "UP-02"
+  },
+  {
+    "id": "S66",
+    "name": "Stop 6 (Jhansi - Babina)",
+    "lat": 25.369251,
+    "lng": 78.544417,
+    "order": 6,
+    "routeId": "UP-02"
+  },
+  {
+    "id": "S67",
+    "name": "Stop 7 (Jhansi - Babina)",
+    "lat": 25.35556,
+    "lng": 78.538024,
+    "order": 7,
+    "routeId": "UP-02"
+  },
+  {
+    "id": "S68",
+    "name": "Stop 8 (Jhansi - Babina)",
+    "lat": 25.341325,
+    "lng": 78.532882,
+    "order": 8,
+    "routeId": "UP-02"
+  },
+  {
+    "id": "S69",
+    "name": "Stop 9 (Jhansi - Babina)",
+    "lat": 25.332653,
+    "lng": 78.52851,
+    "order": 9,
+    "routeId": "UP-02"
+  },
+  {
+    "id": "S70",
+    "name": "Stop 10 (Jhansi - Babina)",
+    "lat": 25.31416,
+    "lng": 78.522086,
+    "order": 10,
+    "routeId": "UP-02"
+  },
+  {
+    "id": "S71",
+    "name": "Stop 11 (Jhansi - Babina)",
+    "lat": 25.302289,
+    "lng": 78.515642,
+    "order": 11,
+    "routeId": "UP-02"
+  },
+  {
+    "id": "S72",
+    "name": "Stop 12 (Jhansi - Babina)",
+    "lat": 25.289964,
+    "lng": 78.511984,
+    "order": 12,
+    "routeId": "UP-02"
+  },
+  {
+    "id": "S73",
+    "name": "Stop 13 (Jhansi - Babina)",
+    "lat": 25.272303,
+    "lng": 78.49576,
+    "order": 13,
+    "routeId": "UP-02"
+  },
+  {
+    "id": "S74",
+    "name": "Stop 14 (Jhansi - Babina)",
+    "lat": 25.258099,
+    "lng": 78.483648,
+    "order": 14,
+    "routeId": "UP-02"
+  },
+  {
+    "id": "S75",
+    "name": "Babina",
+    "lat": 25.244169,
+    "lng": 78.471933,
+    "order": 15,
+    "routeId": "UP-02"
+  },
+  {
+    "id": "S76",
+    "name": "Latur Bus Stand",
+    "lat": 18.408734,
+    "lng": 76.5604,
+    "order": 1,
+    "routeId": "MH-01"
+  },
+  {
+    "id": "S77",
+    "name": "Stop 2 (Latur - Ausa)",
+    "lat": 18.404069,
+    "lng": 76.55894,
+    "order": 2,
+    "routeId": "MH-01"
+  },
+  {
+    "id": "S78",
+    "name": "Stop 3 (Latur - Ausa)",
+    "lat": 18.399142,
+    "lng": 76.563375,
+    "order": 3,
+    "routeId": "MH-01"
+  },
+  {
+    "id": "S79",
+    "name": "Stop 4 (Latur - Ausa)",
+    "lat": 18.398558,
+    "lng": 76.563578,
+    "order": 4,
+    "routeId": "MH-01"
+  },
+  {
+    "id": "S80",
+    "name": "Stop 5 (Latur - Ausa)",
+    "lat": 18.392419,
+    "lng": 76.561913,
+    "order": 5,
+    "routeId": "MH-01"
+  },
+  {
+    "id": "S81",
+    "name": "Stop 6 (Latur - Ausa)",
+    "lat": 18.385503,
+    "lng": 76.560204,
+    "order": 6,
+    "routeId": "MH-01"
+  },
+  {
+    "id": "S82",
+    "name": "Stop 7 (Latur - Ausa)",
+    "lat": 18.380537,
+    "lng": 76.558945,
+    "order": 7,
+    "routeId": "MH-01"
+  },
+  {
+    "id": "S83",
+    "name": "Stop 8 (Latur - Ausa)",
+    "lat": 18.369107,
+    "lng": 76.556145,
+    "order": 8,
+    "routeId": "MH-01"
+  },
+  {
+    "id": "S84",
+    "name": "Stop 9 (Latur - Ausa)",
+    "lat": 18.353054,
+    "lng": 76.552178,
+    "order": 9,
+    "routeId": "MH-01"
+  },
+  {
+    "id": "S85",
+    "name": "Stop 10 (Latur - Ausa)",
+    "lat": 18.337104,
+    "lng": 76.548234,
+    "order": 10,
+    "routeId": "MH-01"
+  },
+  {
+    "id": "S86",
+    "name": "Stop 11 (Latur - Ausa)",
+    "lat": 18.326013,
+    "lng": 76.544615,
+    "order": 11,
+    "routeId": "MH-01"
+  },
+  {
+    "id": "S87",
+    "name": "Stop 12 (Latur - Ausa)",
+    "lat": 18.304589,
+    "lng": 76.536016,
+    "order": 12,
+    "routeId": "MH-01"
+  },
+  {
+    "id": "S88",
+    "name": "Stop 13 (Latur - Ausa)",
+    "lat": 18.276988,
+    "lng": 76.525024,
+    "order": 13,
+    "routeId": "MH-01"
+  },
+  {
+    "id": "S89",
+    "name": "Ausa",
+    "lat": 18.247132,
+    "lng": 76.516421,
+    "order": 14,
+    "routeId": "MH-01"
+  },
+  {
+    "id": "S90",
+    "name": "Nanded Bus Stand",
+    "lat": 19.155123,
+    "lng": 77.309434,
+    "order": 1,
+    "routeId": "MH-02"
+  },
+  {
+    "id": "S91",
+    "name": "Stop 2 (Nanded - Mudkhed)",
+    "lat": 19.159638,
+    "lng": 77.316452,
+    "order": 2,
+    "routeId": "MH-02"
+  },
+  {
+    "id": "S92",
+    "name": "Stop 3 (Nanded - Mudkhed)",
+    "lat": 19.151169,
+    "lng": 77.33316,
+    "order": 3,
+    "routeId": "MH-02"
+  },
+  {
+    "id": "S93",
+    "name": "Stop 4 (Nanded - Mudkhed)",
+    "lat": 19.142922,
+    "lng": 77.353352,
+    "order": 4,
+    "routeId": "MH-02"
+  },
+  {
+    "id": "S94",
+    "name": "Stop 5 (Nanded - Mudkhed)",
+    "lat": 19.135541,
+    "lng": 77.382416,
+    "order": 5,
+    "routeId": "MH-02"
+  },
+  {
+    "id": "S95",
+    "name": "Stop 6 (Nanded - Mudkhed)",
+    "lat": 19.131046,
+    "lng": 77.404882,
+    "order": 6,
+    "routeId": "MH-02"
+  },
+  {
+    "id": "S96",
+    "name": "Stop 7 (Nanded - Mudkhed)",
+    "lat": 19.133175,
+    "lng": 77.415026,
+    "order": 7,
+    "routeId": "MH-02"
+  },
+  {
+    "id": "S97",
+    "name": "Stop 8 (Nanded - Mudkhed)",
+    "lat": 19.149385,
+    "lng": 77.429179,
+    "order": 8,
+    "routeId": "MH-02"
+  },
+  {
+    "id": "S98",
+    "name": "Stop 9 (Nanded - Mudkhed)",
+    "lat": 19.154951,
+    "lng": 77.441597,
+    "order": 9,
+    "routeId": "MH-02"
+  },
+  {
+    "id": "S99",
+    "name": "Stop 10 (Nanded - Mudkhed)",
+    "lat": 19.151508,
+    "lng": 77.479314,
+    "order": 10,
+    "routeId": "MH-02"
+  },
+  {
+    "id": "S100",
+    "name": "Stop 11 (Nanded - Mudkhed)",
+    "lat": 19.147872,
+    "lng": 77.498437,
+    "order": 11,
+    "routeId": "MH-02"
+  },
+  {
+    "id": "S101",
+    "name": "Stop 12 (Nanded - Mudkhed)",
+    "lat": 19.153364,
+    "lng": 77.506951,
+    "order": 12,
+    "routeId": "MH-02"
+  },
+  {
+    "id": "S102",
+    "name": "Mudkhed",
+    "lat": 19.170083,
+    "lng": 77.519161,
+    "order": 13,
+    "routeId": "MH-02"
+  },
+  {
+    "id": "S103",
+    "name": "Hubballi CBT",
+    "lat": 15.352459,
+    "lng": 75.141393,
+    "order": 1,
+    "routeId": "KA-01"
+  },
+  {
+    "id": "S104",
+    "name": "Stop 2 (Hubballi - Dharwad)",
+    "lat": 15.352049,
+    "lng": 75.134837,
+    "order": 2,
+    "routeId": "KA-01"
+  },
+  {
+    "id": "S105",
+    "name": "Stop 3 (Hubballi - Dharwad)",
+    "lat": 15.359834,
+    "lng": 75.127235,
+    "order": 3,
+    "routeId": "KA-01"
+  },
+  {
+    "id": "S106",
+    "name": "Stop 4 (Hubballi - Dharwad)",
+    "lat": 15.368205,
+    "lng": 75.120456,
+    "order": 4,
+    "routeId": "KA-01"
+  },
+  {
+    "id": "S107",
+    "name": "Stop 5 (Hubballi - Dharwad)",
+    "lat": 15.374536,
+    "lng": 75.114755,
+    "order": 5,
+    "routeId": "KA-01"
+  },
+  {
+    "id": "S108",
+    "name": "Stop 6 (Hubballi - Dharwad)",
+    "lat": 15.382516,
+    "lng": 75.110671,
+    "order": 6,
+    "routeId": "KA-01"
+  },
+  {
+    "id": "S109",
+    "name": "Stop 7 (Hubballi - Dharwad)",
+    "lat": 15.389487,
+    "lng": 75.101982,
+    "order": 7,
+    "routeId": "KA-01"
+  },
+  {
+    "id": "S110",
+    "name": "Stop 8 (Hubballi - Dharwad)",
+    "lat": 15.394815,
+    "lng": 75.086185,
+    "order": 8,
+    "routeId": "KA-01"
+  },
+  {
+    "id": "S111",
+    "name": "Stop 9 (Hubballi - Dharwad)",
+    "lat": 15.401497,
+    "lng": 75.075881,
+    "order": 9,
+    "routeId": "KA-01"
+  },
+  {
+    "id": "S112",
+    "name": "Stop 10 (Hubballi - Dharwad)",
+    "lat": 15.408793,
+    "lng": 75.061006,
+    "order": 10,
+    "routeId": "KA-01"
+  },
+  {
+    "id": "S113",
+    "name": "Stop 11 (Hubballi - Dharwad)",
+    "lat": 15.417775,
+    "lng": 75.044595,
+    "order": 11,
+    "routeId": "KA-01"
+  },
+  {
+    "id": "S114",
+    "name": "Stop 12 (Hubballi - Dharwad)",
+    "lat": 15.425738,
+    "lng": 75.035386,
+    "order": 12,
+    "routeId": "KA-01"
+  },
+  {
+    "id": "S115",
+    "name": "Stop 13 (Hubballi - Dharwad)",
+    "lat": 15.436754,
+    "lng": 75.01987,
+    "order": 13,
+    "routeId": "KA-01"
+  },
+  {
+    "id": "S116",
+    "name": "Stop 14 (Hubballi - Dharwad)",
+    "lat": 15.451039,
+    "lng": 75.010826,
+    "order": 14,
+    "routeId": "KA-01"
+  },
+  {
+    "id": "S117",
+    "name": "Dharwad CBT",
+    "lat": 15.459289,
+    "lng": 75.008407,
+    "order": 15,
+    "routeId": "KA-01"
+  },
+  {
+    "id": "S118",
+    "name": "Hassan Bus Stand",
+    "lat": 13.003299,
+    "lng": 76.100385,
+    "order": 1,
+    "routeId": "KA-02"
+  },
+  {
+    "id": "S119",
+    "name": "Stop 2 (Hassan - Belur)",
+    "lat": 12.990472,
+    "lng": 76.080459,
+    "order": 2,
+    "routeId": "KA-02"
+  },
+  {
+    "id": "S120",
+    "name": "Stop 3 (Hassan - Belur)",
+    "lat": 12.981727,
+    "lng": 76.040541,
+    "order": 3,
+    "routeId": "KA-02"
+  },
+  {
+    "id": "S121",
+    "name": "Stop 4 (Hassan - Belur)",
+    "lat": 12.974277,
+    "lng": 76.005723,
+    "order": 4,
+    "routeId": "KA-02"
+  },
+  {
+    "id": "S122",
+    "name": "Stop 5 (Hassan - Belur)",
+    "lat": 12.996663,
+    "lng": 75.972666,
+    "order": 5,
+    "routeId": "KA-02"
+  },
+  {
+    "id": "S123",
+    "name": "Stop 6 (Hassan - Belur)",
+    "lat": 13.014653,
+    "lng": 75.938811,
+    "order": 6,
+    "routeId": "KA-02"
+  },
+  {
+    "id": "S124",
+    "name": "Stop 7 (Hassan - Belur)",
+    "lat": 13.043772,
+    "lng": 75.914556,
+    "order": 7,
+    "routeId": "KA-02"
+  },
+  {
+    "id": "S125",
+    "name": "Stop 8 (Hassan - Belur)",
+    "lat": 13.071535,
+    "lng": 75.904086,
+    "order": 8,
+    "routeId": "KA-02"
+  },
+  {
+    "id": "S126",
+    "name": "Stop 9 (Hassan - Belur)",
+    "lat": 13.098821,
+    "lng": 75.889638,
+    "order": 9,
+    "routeId": "KA-02"
+  },
+  {
+    "id": "S127",
+    "name": "Stop 10 (Hassan - Belur)",
+    "lat": 13.134405,
+    "lng": 75.862988,
+    "order": 10,
+    "routeId": "KA-02"
+  },
+  {
+    "id": "S128",
+    "name": "Belur",
+    "lat": 13.162996,
+    "lng": 75.86776,
+    "order": 11,
+    "routeId": "KA-02"
+  },
+  {
+    "id": "S129",
+    "name": "Muzaffarpur Bus Stand",
+    "lat": 26.121075,
+    "lng": 85.364961,
+    "order": 1,
+    "routeId": "BR-01"
+  },
+  {
+    "id": "S130",
+    "name": "Stop 2 (Muzaffarpur - Hajipur)",
+    "lat": 26.101489,
+    "lng": 85.374467,
+    "order": 2,
+    "routeId": "BR-01"
+  },
+  {
+    "id": "S131",
+    "name": "Stop 3 (Muzaffarpur - Hajipur)",
+    "lat": 26.071656,
+    "lng": 85.374009,
+    "order": 3,
+    "routeId": "BR-01"
+  },
+  {
+    "id": "S132",
+    "name": "Stop 4 (Muzaffarpur - Hajipur)",
+    "lat": 26.026663,
+    "lng": 85.339561,
+    "order": 4,
+    "routeId": "BR-01"
+  },
+  {
+    "id": "S133",
+    "name": "Stop 5 (Muzaffarpur - Hajipur)",
+    "lat": 25.970211,
+    "lng": 85.307855,
+    "order": 5,
+    "routeId": "BR-01"
+  },
+  {
+    "id": "S134",
+    "name": "Stop 6 (Muzaffarpur - Hajipur)",
+    "lat": 25.927698,
+    "lng": 85.293638,
+    "order": 6,
+    "routeId": "BR-01"
+  },
+  {
+    "id": "S135",
+    "name": "Stop 7 (Muzaffarpur - Hajipur)",
+    "lat": 25.875404,
+    "lng": 85.28899,
+    "order": 7,
+    "routeId": "BR-01"
+  },
+  {
+    "id": "S136",
+    "name": "Stop 8 (Muzaffarpur - Hajipur)",
+    "lat": 25.816364,
+    "lng": 85.289523,
+    "order": 8,
+    "routeId": "BR-01"
+  },
+  {
+    "id": "S137",
+    "name": "Stop 9 (Muzaffarpur - Hajipur)",
+    "lat": 25.761413,
+    "lng": 85.260277,
+    "order": 9,
+    "routeId": "BR-01"
+  },
+  {
+    "id": "S138",
+    "name": "Stop 10 (Muzaffarpur - Hajipur)",
+    "lat": 25.724075,
+    "lng": 85.236386,
+    "order": 10,
+    "routeId": "BR-01"
+  },
+  {
+    "id": "S139",
+    "name": "Stop 11 (Muzaffarpur - Hajipur)",
+    "lat": 25.692435,
+    "lng": 85.225688,
+    "order": 11,
+    "routeId": "BR-01"
+  },
+  {
+    "id": "S140",
+    "name": "Hajipur",
+    "lat": 25.683474,
+    "lng": 85.221482,
+    "order": 12,
+    "routeId": "BR-01"
+  },
+  {
+    "id": "S141",
+    "name": "Tezpur Bus Stand",
+    "lat": 26.634626,
+    "lng": 92.791285,
+    "order": 1,
+    "routeId": "AS-01"
+  },
+  {
+    "id": "S142",
+    "name": "Stop 2 (Tezpur - Dhekiajuli)",
+    "lat": 26.65499,
+    "lng": 92.772418,
+    "order": 2,
+    "routeId": "AS-01"
+  },
+  {
+    "id": "S143",
+    "name": "Stop 3 (Tezpur - Dhekiajuli)",
+    "lat": 26.668596,
+    "lng": 92.742519,
+    "order": 3,
+    "routeId": "AS-01"
+  },
+  {
+    "id": "S144",
+    "name": "Stop 4 (Tezpur - Dhekiajuli)",
+    "lat": 26.677476,
+    "lng": 92.723502,
+    "order": 4,
+    "routeId": "AS-01"
+  },
+  {
+    "id": "S145",
+    "name": "Stop 5 (Tezpur - Dhekiajuli)",
+    "lat": 26.67444,
+    "lng": 92.703639,
+    "order": 5,
+    "routeId": "AS-01"
+  },
+  {
+    "id": "S146",
+    "name": "Stop 6 (Tezpur - Dhekiajuli)",
+    "lat": 26.674596,
+    "lng": 92.67587,
+    "order": 6,
+    "routeId": "AS-01"
+  },
+  {
+    "id": "S147",
+    "name": "Stop 7 (Tezpur - Dhekiajuli)",
+    "lat": 26.686969,
+    "lng": 92.634305,
+    "order": 7,
+    "routeId": "AS-01"
+  },
+  {
+    "id": "S148",
+    "name": "Stop 8 (Tezpur - Dhekiajuli)",
+    "lat": 26.694508,
+    "lng": 92.590031,
+    "order": 8,
+    "routeId": "AS-01"
+  },
+  {
+    "id": "S149",
+    "name": "Stop 9 (Tezpur - Dhekiajuli)",
+    "lat": 26.700307,
+    "lng": 92.55162,
+    "order": 9,
+    "routeId": "AS-01"
+  },
+  {
+    "id": "S150",
+    "name": "Stop 10 (Tezpur - Dhekiajuli)",
+    "lat": 26.704649,
+    "lng": 92.50804,
+    "order": 10,
+    "routeId": "AS-01"
+  },
+  {
+    "id": "S151",
+    "name": "Dhekiajuli",
+    "lat": 26.703796,
+    "lng": 92.464649,
+    "order": 11,
+    "routeId": "AS-01"
+  },
+  {
+    "id": "S152",
+    "name": "Indore AICTSL",
+    "lat": 22.7196,
+    "lng": 75.857699,
+    "order": 1,
+    "routeId": "MP-01"
+  },
+  {
+    "id": "S153",
+    "name": "Stop 2 (Indore - Bhopal)",
+    "lat": 22.744697,
+    "lng": 75.885031,
+    "order": 2,
+    "routeId": "MP-01"
+  },
+  {
+    "id": "S154",
+    "name": "Stop 3 (Indore - Bhopal)",
+    "lat": 22.811192,
+    "lng": 75.921343,
+    "order": 3,
+    "routeId": "MP-01"
+  },
+  {
+    "id": "S155",
+    "name": "Stop 4 (Indore - Bhopal)",
+    "lat": 22.903223,
+    "lng": 75.979093,
+    "order": 4,
+    "routeId": "MP-01"
+  },
+  {
+    "id": "S156",
+    "name": "Stop 5 (Indore - Bhopal)",
+    "lat": 22.968051,
+    "lng": 76.084646,
+    "order": 5,
+    "routeId": "MP-01"
+  },
+  {
+    "id": "S157",
+    "name": "Stop 6 (Indore - Bhopal)",
+    "lat": 22.986323,
+    "lng": 76.258262,
+    "order": 6,
+    "routeId": "MP-01"
+  },
+  {
+    "id": "S158",
+    "name": "Stop 7 (Indore - Bhopal)",
+    "lat": 22.96729,
+    "lng": 76.423216,
+    "order": 7,
+    "routeId": "MP-01"
+  },
+  {
+    "id": "S159",
+    "name": "Stop 8 (Indore - Bhopal)",
+    "lat": 23.000582,
+    "lng": 76.565287,
+    "order": 8,
+    "routeId": "MP-01"
+  },
+  {
+    "id": "S160",
+    "name": "Stop 9 (Indore - Bhopal)",
+    "lat": 23.018691,
+    "lng": 76.665449,
+    "order": 9,
+    "routeId": "MP-01"
+  },
+  {
+    "id": "S161",
+    "name": "Stop 10 (Indore - Bhopal)",
+    "lat": 23.155392,
+    "lng": 76.981458,
+    "order": 10,
+    "routeId": "MP-01"
+  },
+  {
+    "id": "S162",
+    "name": "Stop 11 (Indore - Bhopal)",
+    "lat": 23.202974,
+    "lng": 77.093299,
+    "order": 11,
+    "routeId": "MP-01"
+  },
+  {
+    "id": "S163",
+    "name": "Stop 12 (Indore - Bhopal)",
+    "lat": 23.23777,
+    "lng": 77.231781,
+    "order": 12,
+    "routeId": "MP-01"
+  },
+  {
+    "id": "S164",
+    "name": "Stop 13 (Indore - Bhopal)",
+    "lat": 23.273546,
+    "lng": 77.361894,
+    "order": 13,
+    "routeId": "MP-01"
+  },
+  {
+    "id": "S165",
+    "name": "Bhopal ISBT",
+    "lat": 23.259346,
+    "lng": 77.412823,
+    "order": 14,
+    "routeId": "MP-01"
+  }
+]

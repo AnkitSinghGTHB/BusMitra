@@ -1,6 +1,8 @@
 import { create } from 'zustand';
 import { io } from 'socket.io-client';
 import { DEFAULT_POLYLINE, DEFAULT_STOPS, INITIAL_ROUTES } from '@/data/transitData';
+import OFFLINE_ROUTES from '@/data/routes_offline.json';
+import OFFLINE_STOPS from '@/data/stops_offline.json';
 
 let socketInstance = null;
 let freshnessInterval = null;
@@ -136,77 +138,111 @@ export const useBusStore = create((set, get) => ({
     }
   },
 
-  // Fetch all 12 Indian regional routes from backend
+  // Fetch all 12 Indian regional routes from backend (falls back to offline data)
   fetchRoutes: async () => {
+    const buildRouteList = (sourceRoutes) => {
+      set((state) => {
+        const merged = sourceRoutes.map((sr) => {
+          const isM1 = sr.id === 'M1';
+          const existing = state.routes.find((r) => r.code === sr.id || r.id === sr.id);
+          return {
+            id: sr.id,
+            code: sr.id,
+            name: sr.name,
+            description: sr.description,
+            color: sr.color,
+            state: sr.state,
+            stopCount: sr.stopCount,
+            pointCount: sr.pointCount || sr.polyline?.length,
+            startStop: sr.startStop,
+            endStop: sr.endStop,
+            status: isM1 ? state.activeBus.status : (existing?.status || 'scheduled'),
+            etaMin: isM1 ? (state.etaData.min || 8) : (existing?.etaMin || 14),
+            etaMax: isM1 ? (state.etaData.max || 13) : (existing?.etaMax || 22),
+            confidence: isM1 ? (state.etaData.confidence || 94) : (existing?.confidence || 35)
+          };
+        });
+        return { routes: merged };
+      });
+    };
+
     try {
       const res = await fetch('/api/routes');
       if (res.ok) {
         const serverRoutes = await res.json();
         if (serverRoutes && serverRoutes.length > 0) {
-          set((state) => {
-            const merged = serverRoutes.map((sr) => {
-              const isM1 = sr.id === 'M1';
-              const existing = state.routes.find((r) => r.code === sr.id || r.id === sr.id);
-              return {
-                id: sr.id,
-                code: sr.id,
-                name: sr.name,
-                description: sr.description,
-                color: sr.color,
-                state: sr.state,
-                stopCount: sr.stopCount,
-                pointCount: sr.pointCount,
-                startStop: sr.startStop,
-                endStop: sr.endStop,
-                status: isM1 ? state.activeBus.status : (existing?.status || 'scheduled'),
-                etaMin: isM1 ? (state.etaData.min || 8) : (existing?.etaMin || 14),
-                etaMax: isM1 ? (state.etaData.max || 13) : (existing?.etaMax || 22),
-                confidence: isM1 ? (state.etaData.confidence || 94) : (existing?.confidence || 35)
-              };
-            });
-            return { routes: merged };
-          });
+          buildRouteList(serverRoutes);
+          return;
         }
       }
-    } catch (e) {}
+    } catch (e) {
+      // Network error — fall through to offline
+    }
+
+    // Offline fallback: use bundled route metadata
+    if (OFFLINE_ROUTES && OFFLINE_ROUTES.length > 0) {
+      buildRouteList(OFFLINE_ROUTES);
+      console.log(`[Offline Fallback] Loaded ${OFFLINE_ROUTES.length} routes from bundled data`);
+    }
   },
 
   // Switch to a specific route corridor & load its polyline + stops
+  // Falls back to bundled offline data when the backend is unreachable
   loadRoute: async (routeId) => {
     const rId = routeId === 'r1' ? 'M1' : routeId;
     set({ activeRouteId: rId });
 
+    // Helper to apply route data to state (shared by online & offline paths)
+    const applyRouteData = (polyline, stops) => {
+      const firstStop = stops?.[0];
+      const secondStop = stops?.[1] || firstStop;
+
+      set((state) => ({
+        polyline,
+        stops: stops || [],
+        selectedStopId: secondStop ? secondStop.id : state.selectedStopId,
+        activeBus: rId === 'M1' ? state.activeBus : {
+          busId: rId,
+          routeId: rId,
+          lat: polyline[0].lat,
+          lng: polyline[0].lng,
+          speed: 0,
+          heading: 0,
+          status: 'scheduled',
+          snapped_to_corridor: true,
+          occupancy_tier: 'available'
+        }
+      }));
+
+      if (secondStop) {
+        get().fetchEta(rId, secondStop.id);
+      }
+    };
+
+    // Try online first
     try {
       const res = await fetch(`/api/routes/${rId}`);
       if (res.ok) {
         const data = await res.json();
         if (data.polyline && data.polyline.length > 0) {
-          const firstStop = data.stops?.[0];
-          const secondStop = data.stops?.[1] || firstStop;
-
-          set((state) => ({
-            polyline: data.polyline,
-            stops: data.stops || [],
-            selectedStopId: secondStop ? secondStop.id : state.selectedStopId,
-            activeBus: rId === 'M1' ? state.activeBus : {
-              busId: rId,
-              routeId: rId,
-              lat: data.polyline[0].lat,
-              lng: data.polyline[0].lng,
-              speed: 0,
-              heading: 0,
-              status: 'scheduled',
-              snapped_to_corridor: true,
-              occupancy_tier: 'available'
-            }
-          }));
-
-          if (secondStop) {
-            get().fetchEta(rId, secondStop.id);
-          }
+          applyRouteData(data.polyline, data.stops || []);
+          return; // success — done
         }
       }
-    } catch (e) {}
+    } catch (e) {
+      // Network error — fall through to offline
+    }
+
+    // Offline fallback: use bundled JSON data
+    const offlineRoute = OFFLINE_ROUTES.find((r) => r.id === rId);
+    const offlineStops = OFFLINE_STOPS.filter((s) => s.routeId === rId);
+    if (offlineRoute && offlineRoute.polyline && offlineRoute.polyline.length > 0) {
+      applyRouteData(offlineRoute.polyline, offlineStops);
+      console.log(`[Offline Fallback] Loaded route ${rId} from bundled data (${offlineRoute.polyline.length} points, ${offlineStops.length} stops)`);
+    } else if (rId === 'M1') {
+      // Ultimate fallback for M1 — the hardcoded DEFAULT data
+      applyRouteData(DEFAULT_POLYLINE, DEFAULT_STOPS);
+    }
   },
 
   fetchBuses: async () => {
