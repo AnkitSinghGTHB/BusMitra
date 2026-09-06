@@ -39,7 +39,7 @@ export default function AdminDashboard() {
         fetch('/api/buses').then((r) => r.json()),
         fetch('/health').then((r) => r.json())
       ]);
-      setBuses(resBuses || []);
+      setBuses(Array.isArray(resBuses) ? resBuses : []);
       setHealth(resHealth || { status: 'ok', activeBuses: 1 });
     } catch (e) {}
   };

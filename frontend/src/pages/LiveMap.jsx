@@ -152,7 +152,7 @@ export default function LiveMap() {
 
   const midPoint = polyline.length > 0 ? polyline[Math.floor(polyline.length / 2)] : null;
   const defaultCenter = midPoint ? [midPoint.lat, midPoint.lng] : [30.8163, 75.1720];
-  const busCenter = activeBus && activeBus.lat && (routeId === 'M1' || routeId === 'r1')
+  const busCenter = activeBus && activeBus.lat
     ? [activeBus.lat, activeBus.lng]
     : defaultCenter;
 
@@ -351,7 +351,7 @@ export default function LiveMap() {
             <Marker position={busCenter} icon={getBusIcon(activeBus.status, activeBus.heading)}>
               <Popup>
                 <div className="text-xs font-sans">
-                  <b>Bus M1 • {activeBus.status?.toUpperCase()}</b>
+                  <b>Bus {activeBus.busId || currentRoute.code} • {activeBus.status?.toUpperCase()}</b>
                   <div>Speed: {activeBus.speed || 0} km/h</div>
                   <div>Occupancy: {activeBus.occupancy_tier || 'seated'}</div>
                 </div>
@@ -409,7 +409,7 @@ export default function LiveMap() {
 
       {/* Floating Bottom Action Bar */}
       <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md px-4 py-3.5 bg-white border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-50 flex items-center justify-between gap-3">
-        <CheckinButton busId="M1" onCheckin={handleCheckin} pendingCount={checkinCount} />
+        <CheckinButton busId={activeBus.busId || routeId || 'M1'} onCheckin={handleCheckin} pendingCount={checkinCount} />
 
         <div className="flex flex-1 gap-2 h-12">
           <Button

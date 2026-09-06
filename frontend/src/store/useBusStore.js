@@ -20,7 +20,7 @@ export const useBusStore = create((set, get) => ({
   selectedStopId: 'S2',
   setSelectedStopId: (stopId) => {
     set({ selectedStopId: stopId });
-    get().fetchEta(get().activeRouteId, stopId);
+    get().fetchEta(get().activeBus?.busId || get().activeRouteId, stopId);
   },
 
   activeBus: {
@@ -96,7 +96,7 @@ export const useBusStore = create((set, get) => ({
       get().fetchRoutes();
       get().fetchBuses();
       get().fetchInformalStops();
-      get().fetchEta(get().activeRouteId, get().selectedStopId);
+      get().fetchEta(get().activeBus?.busId || get().activeRouteId, get().selectedStopId);
     });
 
     socketInstance.on('disconnect', () => {
@@ -118,7 +118,7 @@ export const useBusStore = create((set, get) => ({
             routes: updatedRoutes
           };
         });
-        get().fetchEta(get().activeRouteId, get().selectedStopId);
+        get().fetchEta(get().activeBus?.busId || get().activeRouteId, get().selectedStopId);
       }
     });
 
@@ -213,7 +213,8 @@ export const useBusStore = create((set, get) => ({
     try {
       const res = await fetch('/api/buses');
       if (res.ok) {
-        const list = await res.json();
+        const json = await res.json();
+        const list = Array.isArray(json) ? json : [];
         const currentRouteId = get().activeRouteId;
         const currentBus = list.find((b) => b.busId === currentRouteId || b.routeId === currentRouteId) || (currentRouteId === 'M1' ? list.find((b) => b.busId === 'M1') : null);
         
@@ -243,7 +244,7 @@ export const useBusStore = create((set, get) => ({
             stopName: stop ? stop.name : (data.stopName || 'Upcoming Stop')
           },
           routes: state.routes.map((r) =>
-            r.code === busId || r.id === busId || (busId === 'M1' && (r.code === 'M1' || r.id === 'r1'))
+            r.code === busId || r.id === busId || r.code === get().activeRouteId || r.id === get().activeRouteId || (busId === 'M1' && (r.code === 'M1' || r.id === 'r1'))
               ? { ...r, etaMin: data.min, etaMax: data.max, confidence: data.confidence }
               : r
           )
