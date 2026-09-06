@@ -50,6 +50,9 @@ export const useBusStore = create((set, get) => ({
   userLocation: null,
   setUserLocation: (loc) => set({ userLocation: loc }),
 
+  driverCustomRoute: null,
+  setDriverCustomRoute: (route) => set({ driverCustomRoute: route }),
+
   tripPlan: null,
   planTrip: async (startLat, startLng, endLat, endLng) => {
     try {

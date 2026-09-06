@@ -4,7 +4,7 @@ const driverAuth = require('../middleware/driverAuth');
 const { v4: uuidv4 } = require('uuid');
 
 router.post('/', driverAuth, (req, res) => {
-    const { busId, driverId, routeId, lat, lng } = req.body;
+    const { busId, driverId, routeId, lat, lng, customPolyline } = req.body;
     
     if (!busId) {
         return res.status(400).json({ error: 'busId is required' });
@@ -35,6 +35,7 @@ router.post('/', driverAuth, (req, res) => {
         heading: 0,
         status: 'live',
         sessionId,
+        customPolyline,
         startedAt: Date.now()
     });
 

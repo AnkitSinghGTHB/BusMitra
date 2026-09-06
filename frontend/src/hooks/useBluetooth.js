@@ -1,75 +1,103 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 export function useBluetooth() {
   const [isScanning, setIsScanning] = useState(false);
-  const [bleCount, setBleCount] = useState(0);
+  const [scanMode, setScanMode] = useState('idle'); // 'idle' | 'real' | 'unsupported'
+  const [bleCount, setBleCount] = useState(null);
   const [error, setError] = useState(null);
   const scanIntervalRef = useRef(null);
-  
-  // A set to track unique device MACs/IDs seen in the current polling window
+  const scanRef = useRef(null);
+  const listenerRef = useRef(null);
   const devicesSeen = useRef(new Set());
+  const totalDevicesSeen = useRef(new Set()); 
 
-  // Function to start continuous scanning using requestLEScan or a mock interval
+  const handleAdvertisement = useCallback((event) => {
+    const id = event.device?.id || event.device?.name || Math.random().toString();
+    console.log('[BLE] Advertisement received from:', id, 'RSSI:', event.rssi);
+    devicesSeen.current.add(id);
+    totalDevicesSeen.current.add(id);
+  }, []);
+
   const startScanning = async () => {
     setError(null);
+
+    if (!navigator.bluetooth || !navigator.bluetooth.requestLEScan) {
+      setScanMode('unsupported');
+      setIsScanning(false);
+      setBleCount(null);
+      setError('BLE passive scanning requires Chrome/Edge with experimental web platform features enabled.');
+      return;
+    }
+
     try {
-      if (navigator.bluetooth && navigator.bluetooth.requestLEScan) {
-        // Experimental Web Bluetooth Scanning API
-        const scan = await navigator.bluetooth.requestLEScan({ acceptAllAdvertisements: true });
-        
-        navigator.bluetooth.addEventListener('advertisementreceived', (event) => {
-          devicesSeen.current.add(event.device.id);
-        });
+      console.log('[BLE] Requesting LE Scan...');
+      const scan = await navigator.bluetooth.requestLEScan({ acceptAllAdvertisements: true });
+      scanRef.current = scan;
+      console.log('[BLE] Scan started:', scan);
 
-        setIsScanning(true);
-        
-        // Polling interval ("cronjob") to update the count and clear the set every 10 seconds
-        scanIntervalRef.current = setInterval(() => {
-          setBleCount(devicesSeen.current.size);
-          // For demo purposes, if no devices found, fallback to a small baseline
-          if (devicesSeen.current.size === 0) {
-              setBleCount(Math.floor(Math.random() * 5) + 5); 
-          }
-          devicesSeen.current.clear();
-        }, 10000);
-
-      } else {
-        // Fallback for browsers without requestLEScan (e.g. standard Chrome without flags)
-        // We simulate a continuous background scanner (cronjob-like) that generates realistic counts
-        setIsScanning(true);
-        setBleCount(15); // initial baseline
-        scanIntervalRef.current = setInterval(() => {
-            // Fluctuate count between 10 and 50 to simulate people getting on/off
-            setBleCount(prev => {
-                const change = Math.floor(Math.random() * 9) - 4; // -4 to +4
-                return Math.max(5, Math.min(60, prev + change));
-            });
-        }, 5000);
-        console.warn('Web Bluetooth Scanning API not supported. Using synthetic crowd simulation.');
+      if (listenerRef.current) {
+        navigator.bluetooth.removeEventListener('advertisementreceived', listenerRef.current);
       }
-    } catch (err) {
-      setError(err.message);
-      console.error(err);
-      
-      // Fallback on error (e.g. user denied permission, or flag not enabled)
+      listenerRef.current = handleAdvertisement;
+      navigator.bluetooth.addEventListener('advertisementreceived', handleAdvertisement);
+
       setIsScanning(true);
+      setScanMode('real');
+      setBleCount(0);
+      devicesSeen.current.clear();
+      totalDevicesSeen.current.clear();
+
       scanIntervalRef.current = setInterval(() => {
-          setBleCount(Math.floor(Math.random() * 20) + 10);
+        const windowCount = devicesSeen.current.size;
+        const totalCount = totalDevicesSeen.current.size;
+        const currentCount = Math.max(windowCount, totalCount);
+        console.log(`[BLE] 5s Tick -> Window: ${windowCount}, Total: ${totalCount}`);
+        setBleCount(currentCount);
+        devicesSeen.current.clear();
       }, 5000);
+
+      scan.addEventListener('inactive', () => {
+        console.warn('[BLE] Scan became inactive (browser timeout)');
+      });
+
+    } catch (err) {
+      const msg = err.message || 'Unknown BLE error';
+      if (msg.includes('denied') || msg.includes('cancel') || msg.includes('NotAllowedError')) {
+        setError('Bluetooth scan permission was denied.');
+      } else {
+        setError(`BLE Error: ${msg}`);
+      }
+      console.error('[BLE] scan error:', err);
+      setIsScanning(false);
+      setScanMode('unsupported');
+      setBleCount(null);
     }
   };
 
   const stopScanning = () => {
+    console.log('[BLE] Stopping scan');
     if (scanIntervalRef.current) {
       clearInterval(scanIntervalRef.current);
+      scanIntervalRef.current = null;
+    }
+    if (scanRef.current && typeof scanRef.current.stop === 'function') {
+      try { scanRef.current.stop(); } catch (e) {}
+      scanRef.current = null;
+    }
+    if (listenerRef.current) {
+      try { navigator.bluetooth.removeEventListener('advertisementreceived', listenerRef.current); } catch (e) {}
+      listenerRef.current = null;
     }
     setIsScanning(false);
+    setScanMode('idle');
     devicesSeen.current.clear();
+    totalDevicesSeen.current.clear();
+    setBleCount(null);
   };
 
   useEffect(() => {
     return () => stopScanning();
   }, []);
 
-  return { isScanning, bleCount, startScanning, stopScanning, error };
+  return { isScanning, scanMode, bleCount, startScanning, stopScanning, error };
 }

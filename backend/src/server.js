@@ -30,7 +30,7 @@ const io = new Server(server, { cors: { origin: '*' } });
 app.set('trust proxy', 1);
 
 app.use(cors({ origin: '*' }));
-app.use(express.json());
+app.use(express.json({ limit: '5mb' }));
 
 // Global Rate Limiter: 200 requests per minute
 const globalLimiter = rateLimit({

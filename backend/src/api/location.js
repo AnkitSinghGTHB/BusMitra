@@ -84,9 +84,10 @@ async function processLocationPoint(point, existingBus = null) {
     const bus = existingBus || busCache.getBus(busId) || {};
     const routeId = bus.routeId || (busId.startsWith('M') ? busId : 'M1');
     const route = routes.find(r => r.id === routeId) || { polyline: [] };
+    const polyline = bus.customPolyline || route.polyline;
 
     // 1. Anchor-Point Corridor Matching & Jitter Filtering
-    const { matchedLat, matchedLng, crossTrackDistKm, snapped } = matchToCorridor(lat, lng, route.polyline);
+    const { matchedLat, matchedLng, crossTrackDistKm, snapped } = matchToCorridor(lat, lng, polyline);
 
     // 2. Geofence Auto-Trigger
     let status = checkGeofenceAutoTrigger(bus, lat, lng, speed);
