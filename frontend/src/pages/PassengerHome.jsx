@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useBusStore } from '@/store/useBusStore';
 import { Bus, MapPin, NavigationArrow, ArrowsLeftRight, Circle, SteeringWheel, ChartBar, ChatCircleText, Crosshair } from '@phosphor-icons/react';
@@ -9,7 +9,9 @@ import StatusBadge from '@/components/shared/StatusBadge';
 import LanguageToggle from '@/components/shared/LanguageToggle';
 import SMSModal from '@/components/shared/SMSModal';
 import { useTranslation } from 'react-i18next';
-import { geocodeSearch } from '@/utils/geocoding';
+import { geocodeSearch, localStopSearch } from '@/utils/geocoding';
+import { MapContainer, TileLayer, Marker, Polyline } from 'react-leaflet';
+import L from 'leaflet';
 
 export default function PassengerHome() {
   const navigate = useNavigate();
@@ -34,41 +36,70 @@ export default function PassengerHome() {
   const [toSuggestions, setToSuggestions] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
   const [smsOpen, setSmsOpen] = useState(false);
+  const [isLocating, setIsLocating] = useState(false);
+
+  const fromDebounce = useRef(null);
+  const toDebounce = useRef(null);
 
   useEffect(() => {
     initSocket();
   }, [initSocket]);
 
   const handleLocateMe = () => {
+    setIsLocating(true);
     if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition((pos) => {
-        const { latitude, longitude } = pos.coords;
-        setFromCoords({ lat: latitude, lng: longitude });
-        setFromQuery('Current Location');
-        setUserLocation({ lat: latitude, lng: longitude });
-      });
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const { latitude, longitude } = pos.coords;
+          setFromCoords({ lat: latitude, lng: longitude });
+          setFromQuery('Current Location');
+          setUserLocation({ lat: latitude, lng: longitude });
+          setIsLocating(false);
+        },
+        (err) => {
+          console.warn('Geolocation failed, using VIT Bhopal fallback:', err);
+          // Fallback to VIT Bhopal
+          const fallback = { lat: 23.0775, lng: 76.8513 };
+          setFromCoords(fallback);
+          setFromQuery('VIT Bhopal (Fallback)');
+          setUserLocation(fallback);
+          setIsLocating(false);
+        },
+        { timeout: 5000 }
+      );
+    } else {
+      setIsLocating(false);
     }
   };
 
-  const handleFromChange = async (e) => {
+  const handleFromChange = (e) => {
     const val = e.target.value;
     setFromQuery(val);
     setFromCoords(null);
+    if (fromDebounce.current) clearTimeout(fromDebounce.current);
     if (val.length > 2) {
-      const results = await geocodeSearch(val);
-      setFromSuggestions(results);
+      fromDebounce.current = setTimeout(async () => {
+        const local = localStopSearch(val);
+        const results = await geocodeSearch(val);
+        // Combine and dedup by coordinates roughly
+        setFromSuggestions([...local, ...results]);
+      }, 500);
     } else {
       setFromSuggestions([]);
     }
   };
 
-  const handleToChange = async (e) => {
+  const handleToChange = (e) => {
     const val = e.target.value;
     setToQuery(val);
     setToCoords(null);
+    if (toDebounce.current) clearTimeout(toDebounce.current);
     if (val.length > 2) {
-      const results = await geocodeSearch(val);
-      setToSuggestions(results);
+      toDebounce.current = setTimeout(async () => {
+        const local = localStopSearch(val);
+        const results = await geocodeSearch(val);
+        setToSuggestions([...local, ...results]);
+      }, 500);
     } else {
       setToSuggestions([]);
     }
@@ -138,8 +169,12 @@ export default function PassengerHome() {
                     onChange={handleFromChange}
                     className="h-11 rounded-lg text-sm bg-gray-50 border-transparent focus:border-primary pr-10"
                   />
-                  <button onClick={handleLocateMe} className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-blue-500 hover:bg-blue-50 rounded-full transition-colors">
-                    <Crosshair size={18} />
+                  <button 
+                    onClick={handleLocateMe} 
+                    disabled={isLocating}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-blue-500 hover:bg-blue-50 rounded-full transition-colors disabled:opacity-50"
+                  >
+                    <Crosshair size={18} className={isLocating ? "animate-spin" : ""} />
                   </button>
                   {fromSuggestions.length > 0 && (
                     <div className="absolute top-12 left-0 right-0 bg-white border shadow-lg rounded-lg z-30 max-h-48 overflow-y-auto">
@@ -282,10 +317,51 @@ export default function PassengerHome() {
           </div>
         )}
 
-        {tripPlan && tripPlan.length === 0 && (
-          <div className="text-center text-gray-500 py-8 text-sm bg-white rounded-xl border border-gray-200">
-            No routes found for this trip.<br/>Try adjusting your start or destination.
-          </div>
+        {tripPlan && tripPlan.length === 0 && fromCoords && toCoords && (
+          <Card className="shadow-sm border-gray-200 bg-white overflow-hidden">
+            <div className="p-4 bg-orange-50 border-b border-orange-100 flex items-center gap-2 text-orange-800">
+              <NavigationArrow size={20} weight="fill" className="text-orange-500" />
+              <div>
+                <h3 className="font-bold text-sm">No direct bus available</h3>
+                <p className="text-xs opacity-80">Showing walking route instead (approx {Math.round(
+                  L.latLng(fromCoords.lat, fromCoords.lng).distanceTo(L.latLng(toCoords.lat, toCoords.lng)) / 80 // roughly 80m per min walking
+                )} min)</p>
+              </div>
+            </div>
+            <div className="h-64 relative z-0">
+              <MapContainer 
+                bounds={[
+                  [fromCoords.lat, fromCoords.lng],
+                  [toCoords.lat, toCoords.lng]
+                ]} 
+                zoomControl={false}
+                className="h-full w-full"
+              >
+                <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                <Marker position={[fromCoords.lat, fromCoords.lng]} 
+                  icon={L.divIcon({
+                    className: '',
+                    html: `<div style="background-color: #3b82f6; width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>`,
+                    iconSize: [14, 14]
+                  })} 
+                />
+                <Marker position={[toCoords.lat, toCoords.lng]} 
+                  icon={L.divIcon({
+                    className: '',
+                    html: `<div style="background-color: #f43f5e; width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>`,
+                    iconSize: [14, 14]
+                  })} 
+                />
+                <Polyline 
+                  positions={[
+                    [fromCoords.lat, fromCoords.lng],
+                    [toCoords.lat, toCoords.lng]
+                  ]} 
+                  pathOptions={{ color: '#f97316', weight: 4, dashArray: '8, 8', opacity: 0.8 }} 
+                />
+              </MapContainer>
+            </div>
+          </Card>
         )}
 
       </main>

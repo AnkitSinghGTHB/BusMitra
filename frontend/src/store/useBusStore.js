@@ -50,6 +50,18 @@ export const useBusStore = create((set, get) => ({
   userLocation: null,
   setUserLocation: (loc) => set({ userLocation: loc }),
 
+  dataSourceLabel: 'live_driver',
+  getDataSourceLabel: (status) => {
+    switch (status) {
+      case 'live': return '🟢 Live Driver (GPS)';
+      case 'crowd_restored': return '🟡 Passenger Crowd-Restored';
+      case 'off_route': return '🔴 Off Route (Alert)';
+      case 'scheduled':
+      case 'gtfs': return '⚪ GTFS Static Schedule';
+      default: return '⚪ Offline';
+    }
+  },
+
   driverCustomRoute: null,
   setDriverCustomRoute: (route) => set({ driverCustomRoute: route }),
 
@@ -101,6 +113,7 @@ export const useBusStore = create((set, get) => ({
           );
           return {
             activeBus: { ...state.activeBus, ...bus },
+            dataSourceLabel: get().getDataSourceLabel(bus.status),
             freshnessSec: 0,
             routes: updatedRoutes
           };
@@ -111,7 +124,8 @@ export const useBusStore = create((set, get) => ({
 
     socketInstance.on('status_change', (change) => {
       set((state) => ({
-        activeBus: { ...state.activeBus, status: change.status }
+        activeBus: { ...state.activeBus, status: change.status },
+        dataSourceLabel: get().getDataSourceLabel(change.status)
       }));
     });
 

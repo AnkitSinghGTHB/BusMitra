@@ -18,22 +18,36 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 
 // Helper component to auto-pan the Leaflet map when bus moves
-function MapFollower({ center, active }) {
+function MapFollower({ center, active, onBreakFollow }) {
   const map = useMap();
   useEffect(() => {
     if (active && center && center[0] && center[1]) {
       map.panTo(center, { animate: true, duration: 0.8 });
     }
   }, [center, active, map]);
+
+  useEffect(() => {
+    const handleDragStart = () => {
+      if (active && onBreakFollow) onBreakFollow();
+    };
+    map.on('dragstart', handleDragStart);
+    return () => map.off('dragstart', handleDragStart);
+  }, [map, active, onBreakFollow]);
+
   return null;
 }
 
 // Helper component to recenter map when corridor changes
 function MapRouteRecenter({ center }) {
   const map = useMap();
+  const lastCenter = React.useRef(null);
   useEffect(() => {
     if (center && center[0] && center[1]) {
-      map.setView(center, 12, { animate: true });
+      const cStr = center.join(',');
+      if (lastCenter.current !== cStr) {
+        map.setView(center, 12, { animate: true });
+        lastCenter.current = cStr;
+      }
     }
   }, [center, map]);
   return null;
@@ -75,7 +89,7 @@ const getBusIcon = (status, heading) => {
 
 const userIcon = L.divIcon({
   className: 'custom-user-marker',
-  html: `<div style="background-color: #3b82f6; width: 16px; height: 16px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4), 0 4px 6px rgba(0,0,0,0.2);"></div>`,
+  html: `<div class="user-dot-pulse" style="background-color: #3b82f6; width: 16px; height: 16px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4), 0 4px 6px rgba(0,0,0,0.2);"></div>`,
   iconSize: [22, 22],
   iconAnchor: [11, 11]
 });
@@ -104,7 +118,8 @@ export default function LiveMap() {
     performCheckin,
     checkinCount,
     userLocation,
-    setUserLocation
+    setUserLocation,
+    dataSourceLabel
   } = useBusStore();
 
   const [following, setFollowing] = useState(true);
@@ -143,6 +158,18 @@ export default function LiveMap() {
 
   const polylinePositions = polyline.map((pt) => [pt.lat, pt.lng]);
   const selectedStop = stops.find((s) => s.id === selectedStopId) || stops[1] || stops[0];
+
+  let closestStopOrder = 1;
+  let minDistance = Infinity;
+  if (activeBus && activeBus.lat) {
+    stops.forEach(s => {
+      const d = L.latLng(busCenter[0], busCenter[1]).distanceTo(L.latLng(s.lat, s.lng));
+      if (d < minDistance) {
+        minDistance = d;
+        closestStopOrder = s.order;
+      }
+    });
+  }
 
   const handleCheckin = async () => {
     const res = await performCheckin();
@@ -251,6 +278,13 @@ export default function LiveMap() {
             <FollowButton active={following} onToggle={() => setFollowing(!following)} />
           </div>
 
+          {/* Connection Status Indicator */}
+          <div className="absolute top-3 left-3 z-[400]">
+            <div className="px-2.5 py-1.5 bg-white/90 backdrop-blur-sm border border-gray-200 shadow-sm rounded-lg text-[10px] font-bold text-gray-700 flex items-center gap-1.5">
+              {dataSourceLabel || '⚪ Offline'}
+            </div>
+          </div>
+
           <MapContainer
             center={busCenter}
             zoom={13}
@@ -263,7 +297,7 @@ export default function LiveMap() {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             
-            <MapFollower center={busCenter} active={following} />
+            <MapFollower center={busCenter} active={following} onBreakFollow={() => setFollowing(false)} />
             <MapRouteRecenter center={defaultCenter} />
 
             {/* User Blue Dot Marker */}
@@ -338,28 +372,29 @@ export default function LiveMap() {
               <div className="flex flex-col gap-2 relative">
                 {stops.map((s) => {
                   const isSelected = selectedStopId === s.id;
+                  const isPassed = s.order < closestStopOrder;
                   return (
                     <button
                       key={s.id}
                       onClick={() => setSelectedStopId(s.id)}
                       className={`flex items-center justify-between p-2 rounded-lg text-left transition-colors ${
                         isSelected ? 'bg-blue-50 border border-blue-200' : 'hover:bg-gray-50'
-                      }`}
+                      } ${isPassed ? 'opacity-50 grayscale' : ''}`}
                     >
                       <div className="flex items-center gap-2.5">
                         <div
                           className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
-                            isSelected ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700'
+                            isSelected ? 'bg-primary text-white' : isPassed ? 'bg-gray-300 text-gray-500' : 'bg-gray-100 text-gray-700'
                           }`}
                         >
                           {s.order}
                         </div>
-                        <span className={`text-xs font-semibold ${isSelected ? 'text-primary' : 'text-gray-800'}`}>
+                        <span className={`text-xs font-semibold ${isSelected ? 'text-primary' : 'text-gray-800'} ${isPassed ? 'line-through' : ''}`}>
                           {s.name}
                         </span>
                       </div>
                       <span className="text-[11px] font-bold text-gray-500">
-                        {isSelected && etaData ? `${etaData.min}-${etaData.max} min` : 'Select'}
+                        {isPassed ? 'Passed' : isSelected && etaData ? `${etaData.min}-${etaData.max} min` : 'Select'}
                       </span>
                     </button>
                   );

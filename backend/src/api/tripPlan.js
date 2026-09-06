@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
         return res.status(400).json({ error: 'Missing start or end coordinates' });
     }
 
-    const MAX_WALK_DISTANCE_KM = 2.0;
+    const MAX_WALK_DISTANCE_KM = 50.0;
 
     // 1. Find potential routes
     const candidateRoutes = [];
@@ -55,8 +55,8 @@ router.post('/', async (req, res) => {
             }
         }
 
-        // Must board before alighting
-        if (bestBoardingStop && bestAlightingStop && bestBoardingStop.index < bestAlightingStop.index) {
+        // Support bidirectional travel on the route
+        if (bestBoardingStop && bestAlightingStop && bestBoardingStop.index !== bestAlightingStop.index) {
             candidateRoutes.push({
                 route,
                 boardingStop: bestBoardingStop,
